@@ -1,0 +1,104 @@
+{
+  "concept_id": "STD2_ADD_02",
+  "grade": 2,
+  "title_mr": "२-अंकी संख्यांची हातच्याची बेरीज",
+  "numeral_system_default": "DEVANAGARI",
+  "rural_context_hook": {
+    "scenario_title_mr": "आठवडी बाजारातील पेरूंची विक्री",
+    "mascot_speech_mr": "नमस्कार बालमित्रांनो! मी चिनू खारूताई. बाजारात आनंदाने एका पाटीतील २८ पेरू आणि दुसऱ्या पाटीतील १५ पेरू विकले. एकूण किती पेरू विकले? चला १०-१० चे गट्टे आणि सुटे मोजून शोधूया!",
+    "audio_asset_opus": "audio/std2/add_02/hook_guava_market.opus",
+    "illustration_asset": "illustrations/std2/guava_basket.svg"
+  },
+  "manipulative_phase": {
+    "manipulative_type": "PLACE_VALUE_BUNDLES",
+    "columns": ["दशक (१० चे गट्टे)", "एकक (सुटे पेरू)"],
+    "regrouping_rules": [
+      {
+        "from_column": "एकक (सुटे पेरू)",
+        "to_column": "दशक (१० चे गट्टे)",
+        "threshold_count": 10,
+        "target_value": 1
+      }
+    ]
+  },
+  "spoken_explanation": [
+    {
+      "step_number": 1,
+      "instruction_mr": "आधी एककाचे सुटे पेरू मोजू. ८ सुटे आणि ५ सुटे मिळून १३ सुटे पेरू झाले.",
+      "audio_asset_opus": "audio/std2/add_02/step_1_units.opus",
+      "highlight_target": "column_units"
+    },
+    {
+      "step_number": 2,
+      "instruction_mr": "१० सुट्या पेरूंना एकत्र बांधून १ दशक गट्टा बनवला. तो दशकात हातचा म्हणून गेला. एककात उरले ३ पेरू.",
+      "audio_asset_opus": "audio/std2/add_02/step_2_carry.opus",
+      "highlight_target": "column_tens_carry"
+    },
+    {
+      "step_number": 3,
+      "instruction_mr": "आता दशकाचे गट्टे मोजू: २ गट्टे + १ गट्टा = ३, आणि हातच्याचा १ मिळवून एकूण ४ दशक झाले. एकूण झाले ४३ पेरू!",
+      "audio_asset_opus": "audio/std2/add_02/step_3_tens.opus",
+      "highlight_target": "column_tens"
+    }
+  ],
+  "guided_practice": {
+    "problem_instance": {
+      "operands": [28, 15],
+      "operation": "ADD",
+      "expected_answer": 43
+    },
+    "scaffolded_hints": {
+      "level_1_nudge": {
+        "text_mr": "८ + ५ = १३ होतात. १३ मधला १ दशक कुठे जाईल बरं?",
+        "audio_asset_opus": "audio/std2/add_02/hint_l1.opus"
+      },
+      "level_2_visual_clue": {
+        "text_mr": "बघा, १० पेरू एकत्र येऊन १ नवीन पिशवी (दशक) बनून दशकाच्या घरात गेली!",
+        "audio_asset_opus": "audio/std2/add_02/hint_l2.opus",
+        "animation_trigger": "ANIM_REGROUP_FRUITS"
+      },
+      "level_3_concrete_walkthrough": {
+        "text_mr": "एककात ३ लिहा, दशकात १ हातचा ठेवा. मग १ + २ + १ = ४ दशक लिहा. उत्तर आले ४३!",
+        "audio_asset_opus": "audio/std2/add_02/hint_l3.opus"
+      }
+    },
+    "misconception_diagnostics": [
+      {
+        "misconception_id": "MISCONCEPTION_FORGOT_CARRY",
+        "wrong_answer_condition": "ANSWER == 33",
+        "targeted_feedback_mr": "हातचा १ दशकात मिळवायला विसरलात का? पुन्हा बेरीज करा: १ + २ + १ = ४ दशक.",
+        "targeted_audio_opus": "audio/std2/add_02/err_forgot_carry.opus"
+      }
+    ]
+  },
+  "independent_practice": {
+    "kotlin_generator_name": "TwoDigitAdditionWithCarryingGenerator",
+    "target_streak_to_pass": 3,
+    "sample_problems": [
+      { "operands": [37, 25], "expected_answer": 62 },
+      { "operands": [48, 19], "expected_answer": 67 },
+      { "operands": [56, 27], "expected_answer": 83 }
+    ]
+  },
+  "explain_back_check": {
+    "question_mr": "हातचा १ आपण दशकाच्या घरात का नेला?",
+    "question_audio_opus": "audio/std2/add_02/explain_q.opus",
+    "options": [
+      {
+        "option_text_mr": "कारण १० सुटे मिळून १ दशक बनतो.",
+        "option_audio_opus": "audio/std2/add_02/opt_1.opus",
+        "is_correct": true
+      },
+      {
+        "option_text_mr": "कारण १ हा लहान अंक आहे म्हणून.",
+        "option_audio_opus": "audio/std2/add_02/opt_2.opus",
+        "is_correct": false
+      }
+    ],
+    "correct_option_index": 0
+  },
+  "spaced_review": {
+    "review_intervals_days": [1, 3, 7],
+    "retention_quiz_length": 2
+  }
+}

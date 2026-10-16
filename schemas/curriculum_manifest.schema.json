@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ganitmitra.org/schemas/curriculum_manifest.schema.json",
+  "title": "Curriculum Manifest Schema",
+  "description": "Defines the prerequisite Directed Acyclic Graph (DAG) of math concepts for Classes 1-6",
+  "type": "object",
+  "required": ["version", "language", "classes"],
+  "properties": {
+    "version": { "type": "string" },
+    "language": { "type": "string", "enum": ["mr-IN"] },
+    "classes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["grade", "strands"],
+        "properties": {
+          "grade": { "type": "integer", "minimum": 1, "maximum": 6 },
+          "strands": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["strand_id", "strand_name_mr", "concepts"],
+              "properties": {
+                "strand_id": { "type": "string" },
+                "strand_name_mr": { "type": "string" },
+                "concepts": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["concept_id", "title_mr", "prerequisites", "mastery_threshold_score"],
+                    "properties": {
+                      "concept_id": { "type": "string" },
+                      "title_mr": { "type": "string" },
+                      "balbharati_chapter_ref": { "type": "string" },
+                      "prerequisites": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                      },
+                      "mastery_threshold_score": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+                      "lesson_pack_path": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

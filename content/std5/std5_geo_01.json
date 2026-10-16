@@ -1,0 +1,97 @@
+{
+  "concept_id": "STD5_GEO_01",
+  "grade": 5,
+  "title_mr": "काटकोन, लघुकोन व विशालकोन ओळख",
+  "numeral_system_default": "DEVANAGARI",
+  "rural_context_hook": {
+    "scenario_title_mr": "घड्याळाचे काटे आणि बैलगाडीचे जू",
+    "mascot_speech_mr": "नमस्कार मित्रांनो! मी चिनू खारूताई. गावात देऊळच्या घड्याळात बरोबर ३ वाजले की मिनिट काटा आणि तास काट्यामध्ये काटकोन तयार होतो. ३ वाजण्यापूर्वी कोणता कोन असतो आणि ५ वाजता कोणता कोन होतो? चला कोन ओळखूया!",
+    "audio_asset_opus": "audio/std5/geo_01/hook_clock_angles.opus",
+    "illustration_asset": "illustrations/std5/clock_angles.svg"
+  },
+  "manipulative_phase": {
+    "manipulative_type": "GRID_BLOCKS",
+    "columns": ["काटकोन (९० अंश)", "लघुकोन (<९० अंश)", "विशालकोन (>९० अंश)"],
+    "regrouping_rules": []
+  },
+  "spoken_explanation": [
+    {
+      "step_number": 1,
+      "instruction_mr": "दोन सरळ रेषा एकमेकांना काटकोनात छेदतात, म्हणजेच ९० अंशांचा कोन तयार होतो त्याला 'काटकोन' म्हणतात (उदा. ३ वाजता घड्याळ, खिडकीचा कोपरा).",
+      "audio_asset_opus": "audio/std5/geo_01/step_1_right.opus",
+      "highlight_target": "angle_right"
+    },
+    {
+      "step_number": 2,
+      "instruction_mr": "काटकोनापेक्षा लहान असणाऱ्या कोनाला 'लघुकोन' म्हणतात (उदा. कात्रीचे थोडे उघडलेले पाते).",
+      "audio_asset_opus": "audio/std5/geo_01/step_2_acute.opus",
+      "highlight_target": "angle_acute"
+    },
+    {
+      "step_number": 3,
+      "instruction_mr": "काटकोनापेक्षा मोठ्या असणाऱ्या कोनाला 'विशालकोन' म्हणतात (उदा. ५ वाजता घड्याळातील काटे).",
+      "audio_asset_opus": "audio/std5/geo_01/step_3_obtuse.opus",
+      "highlight_target": "angle_obtuse"
+    }
+  ],
+  "guided_practice": {
+    "problem_instance": {
+      "operands": [45, 45],
+      "operation": "ADD",
+      "expected_answer": 90
+    },
+    "scaffolded_hints": {
+      "level_1_nudge": {
+        "text_mr": "दोन ४५ अंशांचे लघुकोन जोडले तर एकूण किती अंशांचा कोन बनेल?",
+        "audio_asset_opus": "audio/std5/geo_01/hint_l1.opus"
+      },
+      "level_2_visual_clue": {
+        "text_mr": "बघा, दोन लहान कोन मिळून बरोबर इंग्रजी 'L' अक्षरासारखा सरळ काटकोन तयार झाला!",
+        "audio_asset_opus": "audio/std5/geo_01/hint_l2.opus",
+        "animation_trigger": "ANIM_ANGLE_MERGE"
+      },
+      "level_3_concrete_walkthrough": {
+        "text_mr": "४५ + ४५ = ९० अंश! म्हणजेच हा काटकोन आहे.",
+        "audio_asset_opus": "audio/std5/geo_01/hint_l3.opus"
+      }
+    },
+    "misconception_diagnostics": [
+      {
+        "misconception_id": "MISCONCEPTION_ANGLE_CONFUSION",
+        "wrong_answer_condition": "ANSWER == 80",
+        "targeted_feedback_mr": "४५ + ४५ ची बेरीज पुन्हा करा. ९० अंश म्हणजे काटकोन!",
+        "targeted_audio_opus": "audio/std5/geo_01/err_angle.opus"
+      }
+    ]
+  },
+  "independent_practice": {
+    "kotlin_generator_name": "AngleClassificationGenerator",
+    "target_streak_to_pass": 3,
+    "sample_problems": [
+      { "operands": [30, 60], "expected_answer": 90 },
+      { "operands": [50, 40], "expected_answer": 90 },
+      { "operands": [60, 30], "expected_answer": 90 }
+    ]
+  },
+  "explain_back_check": {
+    "question_mr": "घड्याळात बरोबर ३ वाजता काट्यांमध्ये कोणता कोन होतो?",
+    "question_audio_opus": "audio/std5/geo_01/explain_q.opus",
+    "options": [
+      {
+        "option_text_mr": "काटकोन (९० अंश).",
+        "option_audio_opus": "audio/std5/geo_01/opt_1.opus",
+        "is_correct": true
+      },
+      {
+        "option_text_mr": "लघुकोन.",
+        "option_audio_opus": "audio/std5/geo_01/opt_2.opus",
+        "is_correct": false
+      }
+    ],
+    "correct_option_index": 0
+  },
+  "spaced_review": {
+    "review_intervals_days": [1, 3, 7],
+    "retention_quiz_length": 2
+  }
+}

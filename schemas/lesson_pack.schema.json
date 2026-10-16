@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ganitmitra.org/schemas/lesson_pack.schema.json",
+  "title": "Lesson Pack Schema",
+  "description": "Defines the 7-step pedagogical cycle for a single math concept in rural Marathi",
+  "type": "object",
+  "required": [
+    "concept_id",
+    "grade",
+    "title_mr",
+    "rural_context_hook",
+    "manipulative_phase",
+    "spoken_explanation",
+    "guided_practice",
+    "independent_practice",
+    "explain_back_check",
+    "spaced_review"
+  ],
+  "properties": {
+    "concept_id": { "type": "string" },
+    "grade": { "type": "integer", "minimum": 1, "maximum": 6 },
+    "title_mr": { "type": "string" },
+    "numeral_system_default": { "type": "string", "enum": ["DEVANAGARI", "WESTERN"] },
+    "rural_context_hook": {
+      "type": "object",
+      "required": ["scenario_title_mr", "mascot_speech_mr", "audio_asset_opus", "illustration_asset"],
+      "properties": {
+        "scenario_title_mr": { "type": "string" },
+        "mascot_speech_mr": { "type": "string" },
+        "audio_asset_opus": { "type": "string" },
+        "illustration_asset": { "type": "string" }
+      }
+    },
+    "manipulative_phase": {
+      "type": "object",
+      "required": ["manipulative_type", "columns", "regrouping_rules"],
+      "properties": {
+        "manipulative_type": {
+          "type": "string",
+          "enum": ["PLACE_VALUE_CURRENCY", "PLACE_VALUE_BUNDLES", "FRACTION_ROD", "NUMBER_LINE", "GRID_BLOCKS"]
+        },
+        "columns": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "regrouping_rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["from_column", "to_column", "threshold_count", "target_value"],
+            "properties": {
+              "from_column": { "type": "string" },
+              "to_column": { "type": "string" },
+              "threshold_count": { "type": "integer" },
+              "target_value": { "type": "integer" }
+            }
+          }
+        }
+      }
+    },
+    "spoken_explanation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["step_number", "instruction_mr", "audio_asset_opus"],
+        "properties": {
+          "step_number": { "type": "integer" },
+          "instruction_mr": { "type": "string" },
+          "audio_asset_opus": { "type": "string" },
+          "highlight_target": { "type": "string" }
+        }
+      }
+    },
+    "guided_practice": {
+      "type": "object",
+      "required": ["problem_instance", "scaffolded_hints", "misconception_diagnostics"],
+      "properties": {
+        "problem_instance": {
+          "type": "object",
+          "required": ["operands", "operation", "expected_answer"],
+          "properties": {
+            "operands": { "type": "array", "items": { "type": "integer" } },
+            "operation": { "type": "string", "enum": ["ADD", "SUBTRACT", "MULTIPLY", "DIVIDE"] },
+            "expected_answer": { "type": "integer" }
+          }
+        },
+        "scaffolded_hints": {
+          "type": "object",
+          "required": ["level_1_nudge", "level_2_visual_clue", "level_3_concrete_walkthrough"],
+          "properties": {
+            "level_1_nudge": {
+              "type": "object",
+              "required": ["text_mr", "audio_asset_opus"],
+              "properties": {
+                "text_mr": { "type": "string" },
+                "audio_asset_opus": { "type": "string" }
+              }
+            },
+            "level_2_visual_clue": {
+              "type": "object",
+              "required": ["text_mr", "audio_asset_opus", "animation_trigger"],
+              "properties": {
+                "text_mr": { "type": "string" },
+                "audio_asset_opus": { "type": "string" },
+                "animation_trigger": { "type": "string" }
+              }
+            },
+            "level_3_concrete_walkthrough": {
+              "type": "object",
+              "required": ["text_mr", "audio_asset_opus"],
+              "properties": {
+                "text_mr": { "type": "string" },
+                "audio_asset_opus": { "type": "string" }
+              }
+            }
+          }
+        },
+        "misconception_diagnostics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["misconception_id", "wrong_answer_condition", "targeted_feedback_mr", "targeted_audio_opus"],
+            "properties": {
+              "misconception_id": { "type": "string" },
+              "wrong_answer_condition": { "type": "string" },
+              "targeted_feedback_mr": { "type": "string" },
+              "targeted_audio_opus": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "independent_practice": {
+      "type": "object",
+      "required": ["kotlin_generator_name", "target_streak_to_pass", "sample_problems"],
+      "properties": {
+        "kotlin_generator_name": { "type": "string" },
+        "target_streak_to_pass": { "type": "integer", "minimum": 1 },
+        "sample_problems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["operands", "expected_answer"],
+            "properties": {
+              "operands": { "type": "array", "items": { "type": "integer" } },
+              "expected_answer": { "type": "integer" }
+            }
+          }
+        }
+      }
+    },
+    "explain_back_check": {
+      "type": "object",
+      "required": ["question_mr", "question_audio_opus", "options", "correct_option_index"],
+      "properties": {
+        "question_mr": { "type": "string" },
+        "question_audio_opus": { "type": "string" },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["option_text_mr", "option_audio_opus", "is_correct"],
+            "properties": {
+              "option_text_mr": { "type": "string" },
+              "option_audio_opus": { "type": "string" },
+              "is_correct": { "type": "boolean" }
+            }
+          }
+        },
+        "correct_option_index": { "type": "integer" }
+      }
+    },
+    "spaced_review": {
+      "type": "object",
+      "required": ["review_intervals_days", "retention_quiz_length"],
+      "properties": {
+        "review_intervals_days": {
+          "type": "array",
+          "items": { "type": "integer" }
+        },
+        "retention_quiz_length": { "type": "integer" }
+      }
+    }
+  }
+}

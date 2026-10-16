@@ -1,0 +1,98 @@
+{
+  "concept_id": "STD1_NUM_03",
+  "grade": 1,
+  "title_mr": "१० ची ओळख व दशक संकल्पना पाया",
+  "numeral_system_default": "DEVANAGARI",
+  "rural_context_hook": {
+    "scenario_title_mr": "शेतकऱ्याच्या कडब्याच्या पेंढ्या",
+    "mascot_speech_mr": "नमस्कार बालमित्रांनो! मी तुमची सखी चिनू खारूताई. आज शेतात आजोबांनी कडब्याच्या काड्या गोळा केल्या आहेत. ९ सुट्या काड्या होत्या, त्यात १ काडी अजून मिळवली तर किती काड्या होतील? चला मोजूया!",
+    "audio_asset_opus": "audio/std1/num_03/hook_neem_sticks.opus",
+    "illustration_asset": "illustrations/std1/sticks_bundle.svg"
+  },
+  "manipulative_phase": {
+    "manipulative_type": "PLACE_VALUE_BUNDLES",
+    "columns": ["दशक (गट्टा)", "एकक (सुट्या काड्या)"],
+    "regrouping_rules": [
+      {
+        "from_column": "एकक (सुट्या काड्या)",
+        "to_column": "दशक (गट्टा)",
+        "threshold_count": 10,
+        "target_value": 1
+      }
+    ]
+  },
+  "spoken_explanation": [
+    {
+      "step_number": 1,
+      "instruction_mr": "आपल्याकडे ९ सुट्या काड्या होत्या. त्यात १ काडी मिळवली की झाल्या १० काड्या.",
+      "audio_asset_opus": "audio/std1/num_03/step_1_count.opus",
+      "highlight_target": "column_units"
+    },
+    {
+      "step_number": 2,
+      "instruction_mr": "१० सुट्या काड्या दोरीने एकत्र बांधल्या की बनतो १ गट्टा! या एका गट्ट्याला आपण '१ दशक' म्हणतो.",
+      "audio_asset_opus": "audio/std1/num_03/step_2_bundle.opus",
+      "highlight_target": "column_tens"
+    }
+  ],
+  "guided_practice": {
+    "problem_instance": {
+      "operands": [9, 1],
+      "operation": "ADD",
+      "expected_answer": 10
+    },
+    "scaffolded_hints": {
+      "level_1_nudge": {
+        "text_mr": "९ नंतर पुढचा अंक कोणता येतो बरं? मोजा: ९ आणि १ मिळून...",
+        "audio_asset_opus": "audio/std1/num_03/hint_l1.opus"
+      },
+      "level_2_visual_clue": {
+        "text_mr": "बघा, १० सुट्या काड्या एकत्र आल्या आणि त्यांच्याभोवती दोरी गुंडाळून १ गट्टा तयार झाला!",
+        "audio_asset_opus": "audio/std1/num_03/hint_l2.opus",
+        "animation_trigger": "ANIM_BUNDLE_STICKS"
+      },
+      "level_3_concrete_walkthrough": {
+        "text_mr": "१० म्हणजे १ दशक आणि शून्य एकक! म्हणून १ दशक गट्टा डावीकडे ठेवा आणि उजवीकडे शून्य लिहा.",
+        "audio_asset_opus": "audio/std1/num_03/hint_l3.opus"
+      }
+    },
+    "misconception_diagnostics": [
+      {
+        "misconception_id": "MISCONCEPTION_COUNT_ONE_OFF",
+        "wrong_answer_condition": "ANSWER == 9",
+        "targeted_feedback_mr": "थांबा, ९ मध्ये अजून १ काडी मिळवायची आहे. पुन्हा मोजा!",
+        "targeted_audio_opus": "audio/std1/num_03/err_count.opus"
+      }
+    ]
+  },
+  "independent_practice": {
+    "kotlin_generator_name": "TenIdentificationGenerator",
+    "target_streak_to_pass": 3,
+    "sample_problems": [
+      { "operands": [8, 2], "expected_answer": 10 },
+      { "operands": [7, 3], "expected_answer": 10 },
+      { "operands": [6, 4], "expected_answer": 10 }
+    ]
+  },
+  "explain_back_check": {
+    "question_mr": "१० सुट्या काड्या एकत्र बांधल्या की काय बनते?",
+    "question_audio_opus": "audio/std1/num_03/explain_q.opus",
+    "options": [
+      {
+        "option_text_mr": "१ दशक (काड्यांचा १ गट्टा).",
+        "option_audio_opus": "audio/std1/num_03/opt_1.opus",
+        "is_correct": true
+      },
+      {
+        "option_text_mr": "२ शतक.",
+        "option_audio_opus": "audio/std1/num_03/opt_2.opus",
+        "is_correct": false
+      }
+    ],
+    "correct_option_index": 0
+  },
+  "spaced_review": {
+    "review_intervals_days": [1, 3, 7],
+    "retention_quiz_length": 2
+  }
+}

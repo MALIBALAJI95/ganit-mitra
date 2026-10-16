@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">गणित मित्र</string>
+    <string name="offline_tagline">१००% ऑफलाइन गणित शिक्षण (इयत्ता १–६)</string>
+    <string name="mascot_name">चिनू खारूताई</string>
+    <string name="btn_next">पुढे चला</string>
+    <string name="btn_back">मागे</string>
+    <string name="btn_repeat">पुन्हा ऐका</string>
+    <string name="btn_help">मदत</string>
+</resources>

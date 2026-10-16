@@ -1,0 +1,337 @@
+{
+  "version": "1.0.0",
+  "language": "mr-IN",
+  "title": "गणित मित्र — इयत्ता १ ते ६ अभ्यासक्रम व पूर्वतयारी आलेख (Curriculum DAG)",
+  "classes": [
+    {
+      "grade": 1,
+      "strands": [
+        {
+          "strand_id": "STD1_STRAND_NUMBERS",
+          "strand_name_mr": "संख्याज्ञान (१ ते २०)",
+          "concepts": [
+            {
+              "concept_id": "STD1_NUM_01",
+              "title_mr": "१ ते ९ अंकांचे मोजणे व ओळख",
+              "balbharati_chapter_ref": "इयत्ता १ - पाठ १: मोजू आणि लिहू",
+              "prerequisites": [],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std1/std1_num_01.json"
+            },
+            {
+              "concept_id": "STD1_NUM_02",
+              "title_mr": "शून्य (०) ची ओळख",
+              "balbharati_chapter_ref": "इयत्ता १ - पाठ २: शून्याची गंमत",
+              "prerequisites": ["STD1_NUM_01"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std1/std1_num_02.json"
+            },
+            {
+              "concept_id": "STD1_NUM_03",
+              "title_mr": "१० ची ओळख व दशक संकल्पना पाया",
+              "balbharati_chapter_ref": "इयत्ता १ - पाठ ३: दहाची ओळख (दशक)",
+              "prerequisites": ["STD1_NUM_01"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std1/std1_num_03.json"
+            }
+          ]
+        },
+        {
+          "strand_id": "STD1_STRAND_OPERATIONS",
+          "strand_name_mr": "बेरीज व वजाबाकी पाया",
+          "concepts": [
+            {
+              "concept_id": "STD1_ADD_01",
+              "title_mr": "१-अंकी संख्यांची बेरीज (चित्रांच्या साहाय्याने)",
+              "balbharati_chapter_ref": "इयत्ता १ - पाठ ४: चला बेरीज करूया",
+              "prerequisites": ["STD1_NUM_01", "STD1_NUM_02"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std1/std1_add_01.json"
+            },
+            {
+              "concept_id": "STD1_SUB_01",
+              "title_mr": "१-अंकी संख्यांची वजाबाकी (कमी करणे)",
+              "balbharati_chapter_ref": "इयत्ता १ - पाठ ५: वजाबाकी शिकूया",
+              "prerequisites": ["STD1_ADD_01"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std1/std1_sub_01.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grade": 2,
+      "strands": [
+        {
+          "strand_id": "STD2_STRAND_NUMBERS",
+          "strand_name_mr": "संख्याज्ञान (१ ते १०० व स्थानमूल्य)",
+          "concepts": [
+            {
+              "concept_id": "STD2_NUM_01",
+              "title_mr": "दशक-एकक (गट्टे आणि सुटे) स्थानमूल्य",
+              "balbharati_chapter_ref": "इयत्ता २ - पाठ २: दशक व एकक",
+              "prerequisites": ["STD1_NUM_03"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std2/std2_num_01.json"
+            },
+            {
+              "concept_id": "STD2_NUM_02",
+              "title_mr": "१ ते १०० संख्यांचे वाचन व स्थानिक किंमत",
+              "balbharati_chapter_ref": "इयत्ता २ - पाठ ३: संख्यांची स्थानिक किंमत",
+              "prerequisites": ["STD2_NUM_01"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std2/std2_num_02.json"
+            }
+          ]
+        },
+        {
+          "strand_id": "STD2_STRAND_OPERATIONS",
+          "strand_name_mr": "२-अंकी बेरीज व वजाबाकी",
+          "concepts": [
+            {
+              "concept_id": "STD2_ADD_01",
+              "title_mr": "२-अंकी संख्यांची बिनहातच्याची बेरीज",
+              "balbharati_chapter_ref": "इयत्ता २ - पाठ ४: बिनहातच्याची बेरीज",
+              "prerequisites": ["STD2_NUM_02", "STD1_ADD_01"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std2/std2_add_01.json"
+            },
+            {
+              "concept_id": "STD2_ADD_02",
+              "title_mr": "२-अंकी संख्यांची हातच्याची बेरीज",
+              "balbharati_chapter_ref": "इयत्ता २ - पाठ ५: हातच्याची बेरीज",
+              "prerequisites": ["STD2_ADD_01"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std2/std2_add_02.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grade": 3,
+      "strands": [
+        {
+          "strand_id": "STD3_STRAND_NUMBERS",
+          "strand_name_mr": "३-अंकी संख्याज्ञान व शतक संकल्पना",
+          "concepts": [
+            {
+              "concept_id": "STD3_NUM_01",
+              "title_mr": "शतकाची ओळख (१० दशक = १ शतक)",
+              "balbharati_chapter_ref": "इयत्ता ३ - पाठ १: शतकाची ओळख",
+              "prerequisites": ["STD2_NUM_02"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std3/std3_num_01.json"
+            },
+            {
+              "concept_id": "STD3_NUM_02",
+              "title_mr": "३-अंकी संख्यांचे स्थानमूल्य (शतक-दशक-एकक)",
+              "balbharati_chapter_ref": "इयत्ता ३ - पाठ २: ३-अंकी संख्यांचे वाचन व लेखन",
+              "prerequisites": ["STD3_NUM_01"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std3/std3_num_02.json"
+            }
+          ]
+        },
+        {
+          "strand_id": "STD3_STRAND_OPERATIONS",
+          "strand_name_mr": "३-अंकी बेरीज व वजाबाकी",
+          "concepts": [
+            {
+              "concept_id": "STD3_MATH_ADD_03",
+              "title_mr": "३-अंकी संख्यांची हातच्याची बेरीज",
+              "balbharati_chapter_ref": "इयत्ता ३ - पाठ ३: हातच्याची बेरीज (पान क्र. २०-२५)",
+              "prerequisites": ["STD3_NUM_02", "STD2_ADD_02"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std3/std3_math_add_03.json"
+            },
+            {
+              "concept_id": "STD3_SUB_01",
+              "title_mr": "३-अंकी संख्यांची उसनवारीची (दशक सुटा करून) वजाबाकी",
+              "balbharati_chapter_ref": "इयत्ता ३ - पाठ ४: वजाबाकी (उसने घेऊन)",
+              "prerequisites": ["STD3_MATH_ADD_03"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std3/std3_sub_01.json"
+            },
+            {
+              "concept_id": "STD3_MUL_01",
+              "title_mr": "गुणाकार संकल्पना (पुन्हा पुन्हा केलेली बेरीज)",
+              "balbharati_chapter_ref": "इयत्ता ३ - पाठ ५: गुणाकार",
+              "prerequisites": ["STD3_MATH_ADD_03"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std3/std3_mul_01.json"
+            },
+            {
+              "concept_id": "STD3_DIV_01",
+              "title_mr": "भागाकार संकल्पना (समान वाटणी व बाकी)",
+              "balbharati_chapter_ref": "इयत्ता ३ - पाठ ६: भागाकार",
+              "prerequisites": ["STD3_MUL_01", "STD3_SUB_01"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std3/std3_div_01.json"
+            }
+          ]
+        },
+        {
+          "strand_id": "STD3_STRAND_FRACTIONS",
+          "strand_name_mr": "अपूर्णांक ओळख",
+          "concepts": [
+            {
+              "concept_id": "STD3_FRAC_01",
+              "title_mr": "अर्धा (१/२), पाव (१/४) व पाऊण (३/४) ची प्रत्यक्ष ओळख",
+              "balbharati_chapter_ref": "इयत्ता ३ - पाठ ७: अपूर्णांक",
+              "prerequisites": ["STD3_DIV_01"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std3/std3_frac_01.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grade": 4,
+      "strands": [
+        {
+          "strand_id": "STD4_STRAND_NUMBERS",
+          "strand_name_mr": "४ व ५ अंकी संख्याज्ञान",
+          "concepts": [
+            {
+              "concept_id": "STD4_NUM_01",
+              "title_mr": "हजार व दशहजार स्थानमूल्य",
+              "balbharati_chapter_ref": "इयत्ता ४ - पाठ १: संख्याज्ञान",
+              "prerequisites": ["STD3_NUM_02"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std4/std4_num_01.json"
+            }
+          ]
+        },
+        {
+          "strand_id": "STD4_STRAND_OPERATIONS",
+          "strand_name_mr": "गुणाकार व भागाकार विस्तार",
+          "concepts": [
+            {
+              "concept_id": "STD4_MUL_01",
+              "title_mr": "२-अंकी संख्येला २-अंकी संख्येने गुणणे",
+              "balbharati_chapter_ref": "इयत्ता ४ - पाठ ३: गुणाकार भाग १",
+              "prerequisites": ["STD4_NUM_01", "STD3_MUL_01"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std4/std4_mul_01.json"
+            },
+            {
+              "concept_id": "STD4_DIV_01",
+              "title_mr": "३-अंकी संख्येला १-अंकी संख्येने भागणे व बाकी",
+              "balbharati_chapter_ref": "इयत्ता ४ - पाठ ४: भागाकार भाग १",
+              "prerequisites": ["STD4_MUL_01", "STD3_DIV_01"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std4/std4_div_01.json"
+            }
+          ]
+        },
+        {
+          "strand_id": "STD4_STRAND_GEOMETRY",
+          "strand_name_mr": "परिमिती व भूमिती",
+          "concepts": [
+            {
+              "concept_id": "STD4_GEO_01",
+              "title_mr": "आयताची व चौरसाची परिमिती",
+              "balbharati_chapter_ref": "इयत्ता ४ - पाठ ९: परिमिती व क्षेत्रफळ",
+              "prerequisites": ["STD3_MATH_ADD_03"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std4/std4_geo_01.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grade": 5,
+      "strands": [
+        {
+          "strand_id": "STD5_STRAND_FRACTIONS_DECIMALS",
+          "strand_name_mr": "अपूर्णांक व दशांश अपूर्णांक",
+          "concepts": [
+            {
+              "concept_id": "STD5_FRAC_01",
+              "title_mr": "सममूल्य अपूर्णांक व समच्छेद अपूर्णांकांची बेरीज-वजाबाकी",
+              "balbharati_chapter_ref": "इयत्ता ५ - पाठ ५: अपूर्णांक",
+              "prerequisites": ["STD3_FRAC_01", "STD4_DIV_01"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std5/std5_frac_01.json"
+            },
+            {
+              "concept_id": "STD5_DEC_01",
+              "title_mr": "दशांश अपूर्णांक संकल्पना (दशांश, शतांश चिन्ह)",
+              "balbharati_chapter_ref": "इयत्ता ५ - पाठ ९: दशांश अपूर्णांक",
+              "prerequisites": ["STD5_FRAC_01"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std5/std5_dec_01.json"
+            }
+          ]
+        },
+        {
+          "strand_id": "STD5_STRAND_GEOMETRY",
+          "strand_name_mr": "कोन व क्षेत्रफळ",
+          "concepts": [
+            {
+              "concept_id": "STD5_GEO_01",
+              "title_mr": "काटकोन, लघुकोन व विशालकोन ओळख",
+              "balbharati_chapter_ref": "इयत्ता ५ - पाठ ६: कोन",
+              "prerequisites": [],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std5/std5_geo_01.json"
+            },
+            {
+              "concept_id": "STD5_GEO_02",
+              "title_mr": "आयताचे व चौरसाचे क्षेत्रफळ सूत्र व प्रत्यक्ष मोजणी",
+              "balbharati_chapter_ref": "इयत्ता ५ - पाठ १२: क्षेत्रफळ",
+              "prerequisites": ["STD4_GEO_01", "STD4_MUL_01"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std5/std5_geo_02.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grade": 6,
+      "strands": [
+        {
+          "strand_id": "STD6_STRAND_INTEGERS",
+          "strand_name_mr": "पूर्णांक संख्या (ऋण संख्या)",
+          "concepts": [
+            {
+              "concept_id": "STD6_INT_01",
+              "title_mr": "धन व ऋण संख्यांची ओळख (संख्यारेषा व दैनंदिन व्यवहार)",
+              "balbharati_chapter_ref": "इयत्ता ६ - पाठ ३: पूर्णांक संख्या",
+              "prerequisites": ["STD4_NUM_01"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std6/std6_int_01.json"
+            }
+          ]
+        },
+        {
+          "strand_id": "STD6_STRAND_RATIO_ALGEBRA",
+          "strand_name_mr": "गुणोत्तर, प्रमाण व अक्षरी समीकरणे",
+          "concepts": [
+            {
+              "concept_id": "STD6_RATIO_01",
+              "title_mr": "गुणोत्तर संकल्पना (तुलना पटीत करणे)",
+              "balbharati_chapter_ref": "इयत्ता ६ - पाठ ११: गुणोत्तर व प्रमाण",
+              "prerequisites": ["STD5_FRAC_01", "STD4_DIV_01"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std6/std6_ratio_01.json"
+            },
+            {
+              "concept_id": "STD6_ALG_01",
+              "title_mr": "अक्षरी समीकरणे व एका चलातील सोपी समीकरणे",
+              "balbharati_chapter_ref": "इयत्ता ६ - पाठ १०: समीकरणे",
+              "prerequisites": ["STD6_INT_01", "STD3_MATH_ADD_03"],
+              "mastery_threshold_score": 0.85,
+              "lesson_pack_path": "content/std6/std6_alg_01.json"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Gradle & Android Build Artifacts
+.gradle/
+build/
+*/build/
+app/build/
+core/build/
+.build_cache/
+
+# Android Studio & IntelliJ
+.idea/
+*.iml
+local.properties
+.navigation/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Secrets & Keys
+*.jks
+*.keystore
+google-services.json

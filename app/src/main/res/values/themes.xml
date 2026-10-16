@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.GanitMitra" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">#FFFBF5</item>
+        <item name="android:navigationBarColor">#FFFBF5</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

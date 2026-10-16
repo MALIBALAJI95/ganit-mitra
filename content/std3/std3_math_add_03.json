@@ -1,0 +1,127 @@
+{
+  "concept_id": "STD3_MATH_ADD_03",
+  "grade": 3,
+  "title_mr": "३-अंकी संख्यांची हातच्याची बेरीज",
+  "numeral_system_default": "DEVANAGARI",
+  "rural_context_hook": {
+    "scenario_title_mr": "आठवडी बाजारातील भाजीपाल्याचा हिशोब",
+    "mascot_speech_mr": "नमस्कार बालमित्रांनो! मी तुमची सखी चिनू खारूताई. आज गावच्या आठवडी बाजारात गण्याने भोपळे विकून ₹१४७ मिळवले आणि ताज्या वांग्यांचे ₹२३५ मिळवले. गण्याकडे एकूण किती रुपये जमले? चला, आपल्या १००, १० च्या नोटा आणि १ रुपयांची नाणी मोजून अचूक हिशोब करूया!",
+    "audio_asset_opus": "audio/std3/add_03/hook_bajar_hisob.opus",
+    "illustration_asset": "illustrations/std3/weekly_market_ganya.svg"
+  },
+  "manipulative_phase": {
+    "manipulative_type": "PLACE_VALUE_CURRENCY",
+    "columns": ["शतक (₹१००)", "दशक (₹१०)", "एकक (₹१)"],
+    "regrouping_rules": [
+      {
+        "from_column": "एकक (₹१)",
+        "to_column": "दशक (₹१०)",
+        "threshold_count": 10,
+        "target_value": 1
+      },
+      {
+        "from_column": "दशक (₹१०)",
+        "to_column": "शतक (₹१००)",
+        "threshold_count": 10,
+        "target_value": 1
+      }
+    ]
+  },
+  "spoken_explanation": [
+    {
+      "step_number": 1,
+      "instruction_mr": "सर्वप्रथम आपण नेहमी उजवीकडून, म्हणजेच एककाच्या घरातील सुटी नाणी मोजू. ७ सुटी नाणी आणि ५ सुटी नाणी मिळून १२ नाणी होतात.",
+      "audio_asset_opus": "audio/std3/add_03/step_1_units.opus",
+      "highlight_target": "column_units"
+    },
+    {
+      "step_number": 2,
+      "instruction_mr": "१० सुटी नाणी एकत्र झाल्यावर त्यांची १ दहा रुपयांची नोट बनते! म्हणून १० नाणी बदलून आपण १ दशक नाणे हातचा म्हणून दशकाच्या घरात ठेवू. एककाच्या घरात उरले २.",
+      "audio_asset_opus": "audio/std3/add_03/step_2_carry.opus",
+      "highlight_target": "column_tens_carry"
+    },
+    {
+      "step_number": 3,
+      "instruction_mr": "आता दशकाच्या नोटा मोजू. आधीच्या ४ नोटा + ३ नोटा = ७ नोटा, आणि एककातून आलेली हातच्याची १ नोट मिळवून एकूण ८ नोटा (८ दशक) झाल्या.",
+      "audio_asset_opus": "audio/std3/add_03/step_3_tens.opus",
+      "highlight_target": "column_tens"
+    },
+    {
+      "step_number": 4,
+      "instruction_mr": "शेवटी शतकाच्या १०० रुपयांच्या नोटा मोजू. १ नोट आणि २ नोटा मिळून ३ नोटा झाल्या. म्हणजेच ३ शतक. गण्याकडे एकूण ₹३८२ जमले!",
+      "audio_asset_opus": "audio/std3/add_03/step_4_hundreds.opus",
+      "highlight_target": "column_hundreds"
+    }
+  ],
+  "guided_practice": {
+    "problem_instance": {
+      "operands": [147, 235],
+      "operation": "ADD",
+      "expected_answer": 382
+    },
+    "scaffolded_hints": {
+      "level_1_nudge": {
+        "text_mr": "एककाच्या घरात ७ + ५ मिळून १२ झाले. १२ मधला १ दशक कुठे जाईल बरं?",
+        "audio_asset_opus": "audio/std3/add_03/hint_l1_nudge.opus"
+      },
+      "level_2_visual_clue": {
+        "text_mr": "बघा, १० सुटी नाणी चमकून एकत्र आली आणि त्यांचा १ निळा ₹१० चा गट्टा बनून दशकाच्या घरात गेला!",
+        "audio_asset_opus": "audio/std3/add_03/hint_l2_visual.opus",
+        "animation_trigger": "ANIM_REGROUP_UNITS_TO_TENS"
+      },
+      "level_3_concrete_walkthrough": {
+        "text_mr": "एककाच्या घरात २ लिहा आणि दशकाच्या घरात १ हातचा ठेवा. मग १ + ४ + ३ मिळून ८ दशक होतात. शेवटी १ + २ = ३ शतक!",
+        "audio_asset_opus": "audio/std3/add_03/hint_l3_walkthrough.opus"
+      }
+    },
+    "misconception_diagnostics": [
+      {
+        "misconception_id": "MISCONCEPTION_FORGOT_CARRY",
+        "wrong_answer_condition": "ANSWER == 372",
+        "targeted_feedback_mr": "थांबा, तुम्ही एककातून आलेला हातचा १ दशकात मिळवायला विसरलात का? पुन्हा बघा: १ + ४ + ३ = ८ दशक होतात.",
+        "targeted_audio_opus": "audio/std3/add_03/err_forgot_carry.opus"
+      },
+      {
+        "misconception_id": "MISCONCEPTION_DIGIT_REVERSAL",
+        "wrong_answer_condition": "ANSWER == 381",
+        "targeted_feedback_mr": "लक्षात ठेवा, १२ मध्ये २ एकक सुटे आहेत आणि १ दशक आहे! म्हणून २ खाली राहील आणि १ हातचा जाईल.",
+        "targeted_audio_opus": "audio/std3/add_03/err_digit_reversal.opus"
+      }
+    ]
+  },
+  "independent_practice": {
+    "kotlin_generator_name": "ThreeDigitAdditionWithCarryingGenerator",
+    "target_streak_to_pass": 3,
+    "sample_problems": [
+      { "operands": [256, 178], "expected_answer": 434 },
+      { "operands": [345, 287], "expected_answer": 632 },
+      { "operands": [408, 195], "expected_answer": 603 }
+    ]
+  },
+  "explain_back_check": {
+    "question_mr": "हातचा १ आपण दशकाच्या घरात का नेला?",
+    "question_audio_opus": "audio/std3/add_03/explain_back_q.opus",
+    "options": [
+      {
+        "option_text_mr": "कारण १० सुटी एकक नाणी मिळून १ दशक (₹१०) बनतो.",
+        "option_audio_opus": "audio/std3/add_03/explain_opt_1.opus",
+        "is_correct": true
+      },
+      {
+        "option_text_mr": "कारण १ हा सर्वात लहान अंक आहे म्हणून.",
+        "option_audio_opus": "audio/std3/add_03/explain_opt_2.opus",
+        "is_correct": false
+      },
+      {
+        "option_text_mr": "कारण दशकाचे घर नेहमी मोठे असते म्हणून.",
+        "option_audio_opus": "audio/std3/add_03/explain_opt_3.opus",
+        "is_correct": false
+      }
+    ],
+    "correct_option_index": 0
+  },
+  "spaced_review": {
+    "review_intervals_days": [1, 3, 7],
+    "retention_quiz_length": 2
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "language": "mr-IN",
+  "title": "गणित मित्र — प्रमाण मराठी गणित शब्दकोश (Balbharati Aligned Glossary)",
+  "terms": [
+    {
+      "id": "term_ekak",
+      "term_mr": "एकक",
+      "english_equivalent": "Unit / Ones",
+      "pronunciation_hint": "e-kak",
+      "child_friendly_explanation_mr": "सुट्या वस्तू किंवा सुटी नाणी दर्शवणारे पहिले घर (उजवीकडून पहिले).",
+      "classes": [1, 2, 3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Standard textbook term for ones column."
+    },
+    {
+      "id": "term_dashak",
+      "term_mr": "दशक",
+      "english_equivalent": "Ten / Tens",
+      "pronunciation_hint": "da-shak",
+      "child_friendly_explanation_mr": "१० सुट्या वस्तूंचा किंवा १० रुपयांचा १ गट्टा (उजवीकडून दुसरे घर).",
+      "classes": [1, 2, 3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Standard textbook term for tens column."
+    },
+    {
+      "id": "term_shatak",
+      "term_mr": "शतक",
+      "english_equivalent": "Hundred / Hundreds",
+      "pronunciation_hint": "sha-tak",
+      "child_friendly_explanation_mr": "१०० सुट्या वस्तूंचा किंवा १० दशकांचा १ मोठा संच (उजवीकडून तिसरे घर).",
+      "classes": [2, 3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Standard textbook term for hundreds column. Colloquially 'शे' also used in speech (दोनशे, तीनशे)."
+    },
+    {
+      "id": "term_hajar",
+      "term_mr": "हजार",
+      "english_equivalent": "Thousand",
+      "pronunciation_hint": "ha-zaar",
+      "child_friendly_explanation_mr": "१० शतकांचा मिळून तयार होणारा १ मोठा गट्टा (उजवीकडून चौथे घर).",
+      "classes": [3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Standard term."
+    },
+    {
+      "id": "term_sthanik_kimmat",
+      "term_mr": "स्थानिक किंमत",
+      "english_equivalent": "Place Value",
+      "pronunciation_hint": "stha-nik kim-mat",
+      "child_friendly_explanation_mr": "अंक ज्या घरात बसला आहे, त्या घरावरून मिळणारी त्याची खरी किंमत.",
+      "classes": [2, 3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Essential conceptual term."
+    },
+    {
+      "id": "term_darshani_kimmat",
+      "term_mr": "दर्शनी किंमत",
+      "english_equivalent": "Face Value",
+      "pronunciation_hint": "dar-sha-nee kim-mat",
+      "child_friendly_explanation_mr": "अंक डोळ्यांना जसा दिसतो तीच त्याची किंमत, तो कोणत्याही घरात असला तरी बदलत नाही.",
+      "classes": [3, 4, 5, 6],
+      "review_status": "REVIEW_NEEDED",
+      "reviewer_notes": "Confirm if Class 3 Balbharati uses 'दर्शनी किंमत' formally or reserves it for Class 4."
+    },
+    {
+      "id": "term_berij",
+      "term_mr": "बेरीज",
+      "english_equivalent": "Addition",
+      "pronunciation_hint": "be-reej",
+      "child_friendly_explanation_mr": "दोन किंवा अधिक संख्या एकत्र मिळवणे, एकूण करणे.",
+      "classes": [1, 2, 3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Universal standard."
+    },
+    {
+      "id": "term_haatcha",
+      "term_mr": "हातचा",
+      "english_equivalent": "Carry over / Regrouping",
+      "pronunciation_hint": "haat-chaa",
+      "child_friendly_explanation_mr": "एका घरात १० किंवा त्याहून जास्त जमा झाल्यावर पुढील मोठ्या घरात नेलेला गट्टा.",
+      "classes": [2, 3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Universal textbook term in Maharashtra. Also known as पुनर्गठन (regrouping)."
+    },
+    {
+      "id": "term_vajabaki",
+      "term_mr": "वजाबाकी",
+      "english_equivalent": "Subtraction",
+      "pronunciation_hint": "va-zaa-baa-kee",
+      "child_friendly_explanation_mr": "मोठ्या संख्येतून लहान संख्या काढून घेणे किंवा दोघांमधील फरक शोधणे.",
+      "classes": [1, 2, 3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Universal standard."
+    },
+    {
+      "id": "term_usne_ghene",
+      "term_mr": "उसनवार / उसने घेणे",
+      "english_equivalent": "Borrowing / Decomposition",
+      "pronunciation_hint": "us-ne ghe-ne",
+      "child_friendly_explanation_mr": "लहान संख्येतून मोठी संख्या जात नसल्यास शेजारच्या घरातून १ गट्टा सुटा करून घेणे.",
+      "classes": [2, 3, 4, 5, 6],
+      "review_status": "REVIEW_NEEDED",
+      "reviewer_notes": "Some newer Balbharati teacher editions prefer 'दशक सुटा करणे' (decomposing tens) over the colloquial 'उसने घेणे'. Need teacher sign-off."
+    },
+    {
+      "id": "term_gunakar",
+      "term_mr": "गुणाकार",
+      "english_equivalent": "Multiplication",
+      "pronunciation_hint": "gu-naa-kaar",
+      "child_friendly_explanation_mr": "एकच संख्या पुन्हा पुन्हा मिळवण्याची सोपी आणि जलद पद्धत.",
+      "classes": [2, 3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Repeated addition metaphor is standard."
+    },
+    {
+      "id": "term_bhagakar",
+      "term_mr": "भागाकार",
+      "english_equivalent": "Division",
+      "pronunciation_hint": "bhaa-gaa-kaar",
+      "child_friendly_explanation_mr": "दिलेल्या वस्तूंची सर्वांमध्ये समान वाटणी करणे.",
+      "classes": [3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Equal distribution metaphor is standard."
+    },
+    {
+      "id": "term_baaki",
+      "term_mr": "बाकी",
+      "english_equivalent": "Remainder",
+      "pronunciation_hint": "baa-kee",
+      "child_friendly_explanation_mr": "समान वाटणी करून झाल्यावर शेवटी उरलेल्या सुट्या वस्तू.",
+      "classes": [3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Universal standard."
+    },
+    {
+      "id": "term_apoornank",
+      "term_mr": "अपूर्णांक",
+      "english_equivalent": "Fraction",
+      "pronunciation_hint": "a-poor-naank",
+      "child_friendly_explanation_mr": "एका पूर्ण वस्तूचे समान तुकडे केल्यावर त्यातील काही भाग दाखवणारी संख्या.",
+      "classes": [3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Standard."
+    },
+    {
+      "id": "term_chhed",
+      "term_mr": "छेद",
+      "english_equivalent": "Denominator",
+      "pronunciation_hint": "chhed",
+      "child_friendly_explanation_mr": "एका वस्तूचे एकूण किती समान भाग केले, ते दाखवणारी रेषेखालील संख्या.",
+      "classes": [3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Universal standard."
+    },
+    {
+      "id": "term_ansh",
+      "term_mr": "अंश",
+      "english_equivalent": "Numerator",
+      "pronunciation_hint": "ansh",
+      "child_friendly_explanation_mr": "समान भागांपैकी आपण किती भाग घेतले, ते दाखवणारी रेषेवरील संख्या.",
+      "classes": [3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Universal standard."
+    },
+    {
+      "id": "term_ardha",
+      "term_mr": "अर्धा (१/२)",
+      "english_equivalent": "Half",
+      "pronunciation_hint": "ar-dhaa",
+      "child_friendly_explanation_mr": "पूर्ण वस्तूचे दोन अगदी समान भाग केल्यावर मिळणारा १ भाग.",
+      "classes": [2, 3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Everyday rural term (उदा. अर्धी भाकरी)."
+    },
+    {
+      "id": "term_paav",
+      "term_mr": "पाव (१/४)",
+      "english_equivalent": "Quarter",
+      "pronunciation_hint": "paav",
+      "child_friendly_explanation_mr": "पूर्ण वस्तूचे चार समान भाग केल्यावर मिळणारा १ भाग (अर्ध्याचा अर्धा).",
+      "classes": [3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Everyday rural term."
+    },
+    {
+      "id": "term_paaun",
+      "term_mr": "पाऊण (३/४)",
+      "english_equivalent": "Three-quarters",
+      "pronunciation_hint": "paa-oon",
+      "child_friendly_explanation_mr": "चार समान भागांपैकी ३ भाग एकत्र घेणे.",
+      "classes": [3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Everyday rural term."
+    },
+    {
+      "id": "cmd_pudhe",
+      "term_mr": "पुढे",
+      "english_equivalent": "Next / Proceed",
+      "pronunciation_hint": "pu-dhe",
+      "child_friendly_explanation_mr": "पुढील पायरीवर जाण्यासाठी आवाज आदेश.",
+      "classes": [1, 2, 3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Mode A voice command."
+    },
+    {
+      "id": "cmd_maage",
+      "term_mr": "मागे",
+      "english_equivalent": "Back / Previous",
+      "pronunciation_hint": "maa-ge",
+      "child_friendly_explanation_mr": "मागील पायरीवर परत जाण्यासाठी आवाज आदेश.",
+      "classes": [1, 2, 3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Mode A voice command."
+    },
+    {
+      "id": "cmd_punha",
+      "term_mr": "पुन्हा",
+      "english_equivalent": "Repeat",
+      "pronunciation_hint": "pun-haa",
+      "child_friendly_explanation_mr": "आवाज पुन्हा ऐकण्यासाठी किंवा पुन्हा सोडवण्यासाठी आदेश.",
+      "classes": [1, 2, 3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Mode A voice command."
+    },
+    {
+      "id": "cmd_saang",
+      "term_mr": "सांग",
+      "english_equivalent": "Tell / Explain",
+      "pronunciation_hint": "saang",
+      "child_friendly_explanation_mr": "मस्कॉटला उत्तर किंवा स्पष्टीकरण देण्यास सांगण्यासाठी आवाज आदेश.",
+      "classes": [1, 2, 3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Mode A voice command."
+    },
+    {
+      "id": "cmd_madat",
+      "term_mr": "मदत",
+      "english_equivalent": "Help / Hint",
+      "pronunciation_hint": "ma-dat",
+      "child_friendly_explanation_mr": "मस्कॉटकडून मदत किंवा सूचना (हिंट) मिळवण्यासाठी आदेश.",
+      "classes": [1, 2, 3, 4, 5, 6],
+      "review_status": "VERIFIED_BALBHARATI",
+      "reviewer_notes": "Mode A voice command."
+    }
+  ]
+}
