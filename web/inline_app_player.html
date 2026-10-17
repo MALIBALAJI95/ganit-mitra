@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+</head>
+<body class="bg-transparent text-[var(--foreground)] antialiased p-2 font-sans select-none">
+
+  <!-- Main Compact Card Container (Under 480px total height budget) -->
+  <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-3 shadow-md max-w-md mx-auto text-xs">
+
+    <!-- Top Navigation Header -->
+    <div class="flex items-center justify-between pb-2 mb-2 border-b border-[var(--border)]">
+      <div class="flex items-center gap-2">
+        <span class="text-base">🐿️</span>
+        <span class="font-bold text-sm text-[var(--foreground)]">गणित मित्र</span>
+        <span class="px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold text-[10px]">इयत्ता ३ • १००% ऑफलाइन</span>
+      </div>
+
+      <div class="flex items-center gap-1.5">
+        <button id="toggle-num-btn" onclick="toggleNumeral()" class="px-2 py-0.5 rounded-md bg-[var(--content)] border border-[var(--border)] font-bold text-[11px] text-[var(--foreground)] hover:bg-[var(--primary)] hover:text-white transition">
+          १ २ ३
+        </button>
+        <button onclick="speakDialogue()" class="w-6 h-6 rounded-md bg-amber-500/15 text-amber-700 dark:text-amber-300 flex items-center justify-center font-bold text-xs" title="आवाज ऐका">
+          🔊
+        </button>
+      </div>
+    </div>
+
+    <!-- Stage Selector Pills -->
+    <div class="flex gap-1 mb-2.5 overflow-x-auto pb-0.5">
+      <button onclick="setStage(1)" class="stage-btn px-2.5 py-1 rounded-lg font-bold text-[11px] transition bg-[var(--primary)] text-white shadow-xs" data-s="1">१. हूक</button>
+      <button onclick="setStage(2)" class="stage-btn px-2.5 py-1 rounded-lg font-bold text-[11px] transition bg-[var(--content)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]" data-s="2">२. नाणी-नोटा</button>
+      <button onclick="setStage(3)" class="stage-btn px-2.5 py-1 rounded-lg font-bold text-[11px] transition bg-[var(--content)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]" data-s="3">३. हिंट्स</button>
+      <button onclick="setStage(4)" class="stage-btn px-2.5 py-1 rounded-lg font-bold text-[11px] transition bg-[var(--content)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]" data-s="4">४. कीपॅड</button>
+      <button onclick="setStage(5)" class="stage-btn px-2.5 py-1 rounded-lg font-bold text-[11px] transition bg-[var(--content)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]" data-s="5">५. चाचणी</button>
+    </div>
+
+    <!-- Mascot Speech Box -->
+    <div class="bg-amber-500/10 border border-amber-500/25 rounded-xl p-2.5 mb-2.5 flex items-start gap-2">
+      <div class="text-lg flex-shrink-0">🐿️</div>
+      <div class="flex-1">
+        <div class="font-bold text-[10px] text-amber-700 dark:text-amber-300">चिनू खारूताई:</div>
+        <p id="dialogue-text" class="text-[11px] leading-tight text-[var(--foreground)] italic mt-0.5">
+          "आज बाजारात भोपळ्यांचे ₹१४७ व वांग्यांचे ₹२३५ जमले. एकूण किती रुपये झाले? चला हिशोब करू!"
+        </p>
+      </div>
+    </div>
+
+    <!-- DYNAMIC STAGE VIEWS -->
+    <div id="view-body" class="min-h-[175px] flex flex-col justify-center">
+
+      <!-- STAGE 1: HOOK VIEW -->
+      <div id="v-1" class="text-center p-3 bg-[var(--content)] border border-[var(--border)] rounded-xl space-y-1">
+        <div class="text-2xl">🎃 🥬 🛒</div>
+        <div class="text-xs font-bold text-[var(--foreground)]">भाजी मंडईतील विक्री हिशोब</div>
+        <div class="text-xl font-mono font-extrabold text-emerald-600 dark:text-emerald-400 py-0.5" id="hook-math">
+          १४७ + २३५ = ?
+        </div>
+        <button onclick="setStage(2)" class="w-full py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs shadow-xs transition active:scale-95">
+          नाणी-नोटा मोजा ➔
+        </button>
+      </div>
+
+      <!-- STAGE 2: MANIPULATIVE VIEW -->
+      <div id="v-2" class="hidden space-y-2">
+        <div class="grid grid-cols-3 gap-1.5 text-center">
+          <div class="bg-[var(--content)] border border-amber-500/30 rounded-xl p-1.5">
+            <div class="text-[10px] font-bold text-amber-600">शतक (₹१००)</div>
+            <div class="text-base font-bold text-amber-600 my-0.5" id="c-h">३</div>
+            <div class="text-[9px] text-[var(--muted-foreground)]">३ नोटा</div>
+          </div>
+          <div class="bg-[var(--content)] border border-blue-500/30 rounded-xl p-1.5 relative">
+            <div class="text-[10px] font-bold text-blue-600">दशक (₹१०)</div>
+            <div class="text-base font-bold text-blue-600 my-0.5" id="c-t">७</div>
+            <div id="badge-c" class="hidden absolute top-0.5 right-0.5 bg-red-500 text-white text-[8px] font-bold px-1 rounded-full">+१ हातचा</div>
+            <div class="text-[9px] text-[var(--muted-foreground)]" id="t-label">७ नोटा</div>
+          </div>
+          <div class="bg-[var(--content)] border border-emerald-500/30 rounded-xl p-1.5">
+            <div class="text-[10px] font-bold text-emerald-600">एकक (₹१)</div>
+            <div class="text-base font-bold text-emerald-600 my-0.5" id="c-u">१२</div>
+            <div class="text-[9px] text-[var(--muted-foreground)]" id="u-label">१२ नाणी</div>
+          </div>
+        </div>
+
+        <div id="regroup-box">
+          <button onclick="regroupCoins()" class="w-full py-2 bg-amber-500 hover:bg-amber-600 text-amber-950 font-bold rounded-xl text-xs shadow-xs active:scale-95 transition">
+            ✨ १० नाण्यांचा १ दशक हातचा करा
+          </button>
+        </div>
+      </div>
+
+      <!-- STAGE 3: HINTS VIEW -->
+      <div id="v-3" class="hidden space-y-2">
+        <div class="bg-[var(--content)] p-2 rounded-xl border border-[var(--border)] text-center font-mono">
+          <span class="text-red-500 font-bold text-[10px]">हातचा: १</span>
+          <div class="text-sm font-bold">&nbsp;१ ४ ७<br>+ २ ३ ५<br><hr class="my-0.5 border-[var(--border)]">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-emerald-500">२</span></div>
+        </div>
+        <div class="p-2 rounded-xl bg-purple-500/10 border border-purple-500/30 text-[11px] text-[var(--foreground)]">
+          <span class="font-bold text-purple-700 dark:text-purple-300 block mb-0.5" id="h-tier-tag">स्तर १: सुगावा (Nudge)</span>
+          <span id="h-tier-msg">"एककात ७ + ५ = १२ झाले. १२ मधला १ दशक कुठे जाईल बरं?"</span>
+        </div>
+        <button onclick="nextHintTier()" class="w-full py-1 bg-purple-600 text-white font-bold rounded-lg text-xs hover:bg-purple-700 transition">
+          पुढील हिंट (मदत) ➔
+        </button>
+      </div>
+
+      <!-- STAGE 4: KEYPAD VIEW -->
+      <div id="v-4" class="hidden space-y-1.5">
+        <div class="flex items-center justify-between px-2">
+          <div class="font-mono text-lg font-bold tracking-wider" id="k-disp">---</div>
+          <div class="text-[10px] text-[var(--muted-foreground)]" id="k-feedback">उदा. ३८२ टाईप करा</div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-1">
+          <button onclick="kPress(1)" class="py-1.5 bg-[var(--content)] hover:bg-[var(--primary)] hover:text-white rounded-lg font-bold text-sm border border-[var(--border)] kb">१</button>
+          <button onclick="kPress(2)" class="py-1.5 bg-[var(--content)] hover:bg-[var(--primary)] hover:text-white rounded-lg font-bold text-sm border border-[var(--border)] kb">२</button>
+          <button onclick="kPress(3)" class="py-1.5 bg-[var(--content)] hover:bg-[var(--primary)] hover:text-white rounded-lg font-bold text-sm border border-[var(--border)] kb">३</button>
+          <button onclick="kPress(4)" class="py-1.5 bg-[var(--content)] hover:bg-[var(--primary)] hover:text-white rounded-lg font-bold text-sm border border-[var(--border)] kb">४</button>
+          <button onclick="kPress(5)" class="py-1.5 bg-[var(--content)] hover:bg-[var(--primary)] hover:text-white rounded-lg font-bold text-sm border border-[var(--border)] kb">५</button>
+          <button onclick="kPress(6)" class="py-1.5 bg-[var(--content)] hover:bg-[var(--primary)] hover:text-white rounded-lg font-bold text-sm border border-[var(--border)] kb">६</button>
+          <button onclick="kPress(7)" class="py-1.5 bg-[var(--content)] hover:bg-[var(--primary)] hover:text-white rounded-lg font-bold text-sm border border-[var(--border)] kb">७</button>
+          <button onclick="kPress(8)" class="py-1.5 bg-[var(--content)] hover:bg-[var(--primary)] hover:text-white rounded-lg font-bold text-sm border border-[var(--border)] kb">८</button>
+          <button onclick="kPress(9)" class="py-1.5 bg-[var(--content)] hover:bg-[var(--primary)] hover:text-white rounded-lg font-bold text-sm border border-[var(--border)] kb">९</button>
+          <button onclick="kClear()" class="py-1.5 bg-red-500/10 text-red-600 rounded-lg font-bold text-xs border border-red-500/20">हटवा</button>
+          <button onclick="kPress(0)" class="py-1.5 bg-[var(--content)] hover:bg-[var(--primary)] hover:text-white rounded-lg font-bold text-sm border border-[var(--border)] kb">०</button>
+          <button onclick="kCheck()" class="py-1.5 bg-emerald-600 text-white rounded-lg font-bold text-xs shadow-xs">तपासा ✓</button>
+        </div>
+      </div>
+
+      <!-- STAGE 5: EXPLAIN-BACK VIEW -->
+      <div id="v-5" class="hidden space-y-2">
+        <div class="text-[11px] font-bold text-[var(--foreground)]">
+          "हातचा १ आपण दशकाच्या घरात का नेला?"
+        </div>
+        <button onclick="checkExplain(true, this)" class="w-full text-left p-2 rounded-xl border border-[var(--border)] hover:border-emerald-500 bg-[var(--content)] text-[11px] font-medium transition active:scale-95 flex items-center gap-2">
+          <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-600 font-bold flex items-center justify-center flex-shrink-0 text-[10px]">अ</span>
+          <span>कारण १० सुटी नाणी मिळून १ दशक (₹१०) बनतो. ✓</span>
+        </button>
+        <button onclick="checkExplain(false, this)" class="w-full text-left p-2 rounded-xl border border-[var(--border)] hover:border-red-500 bg-[var(--content)] text-[11px] font-medium transition active:scale-95 flex items-center gap-2">
+          <span class="w-5 h-5 rounded-full bg-red-500/20 text-red-600 font-bold flex items-center justify-center flex-shrink-0 text-[10px]">ब</span>
+          <span>कारण १ हा लहान अंक आहे म्हणून.</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Bottom Quick Bar: Full Server Link -->
+    <div class="pt-2 mt-2 border-t border-[var(--border)] flex items-center justify-between text-[10px] text-[var(--muted-foreground)]">
+      <span>स्थानिक सर्व्हर: <a href="http://localhost:8080" target="_blank" class="text-blue-500 font-bold hover:underline">localhost:8080</a></span>
+      <button onclick="openFullApp()" class="text-emerald-600 font-bold hover:underline">पूर्ण ॲप उघडा ➔</button>
+    </div>
+
+  </div>
+
+  <script>
+    let stage = 1;
+    let isDev = true;
+    const dDigits = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'];
+    let kVal = '';
+    let hintStep = 1;
+
+    function setStage(s) {
+      stage = s;
+      for (let i = 1; i <= 5; i++) {
+        const el = document.getElementById(`v-${i}`);
+        if (el) el.classList.add('hidden');
+      }
+      const active = document.getElementById(`v-${s}`);
+      if (active) active.classList.remove('hidden');
+
+      document.querySelectorAll('.stage-btn').forEach(b => {
+        if (parseInt(b.dataset.s) === s) {
+          b.classList.add('bg-[var(--primary)]', 'text-white');
+          b.classList.remove('bg-[var(--content)]', 'text-[var(--muted-foreground)]');
+        } else {
+          b.classList.remove('bg-[var(--primary)]', 'text-white');
+          b.classList.add('bg-[var(--content)]', 'text-[var(--muted-foreground)]');
+        }
+      });
+
+      const dialogues = {
+        1: "आज बाजारात भोपळ्यांचे ₹१४७ व वांग्यांचे ₹२३५ जमले. एकूण किती रुपये झाले? चला हिशोब करू!",
+        2: "एककात १२ नाणी झाली आहेत! १० नाणी बांधून १ दशक हातचा करा.",
+        3: "एककात ७ + ५ = १२ झाले. १२ मधला १ दशक कुठे जाईल बरं?",
+        4: "आता तुम्ही स्वतः उत्तर द्या: बोला किंवा कीपॅडवर टॅप करा.",
+        5: "शाब्बास! आता विचार करून सांगा: हा नियम का लागू होतो?"
+      };
+      document.getElementById('dialogue-text').innerText = dialogues[s];
+    }
+
+    function toggleNumeral() {
+      isDev = !isDev;
+      document.getElementById('toggle-num-btn').innerText = isDev ? '१ २ ३' : '1 2 3';
+      document.querySelectorAll('.kb').forEach((b, i) => {
+        b.innerText = isDev ? dDigits[i === 9 ? 0 : i + 1] : (i === 9 ? 0 : i + 1).toString();
+      });
+      document.getElementById('hook-math').innerText = isDev ? '१४७ + २३५ = ?' : '147 + 235 = ?';
+    }
+
+    function doRegroup() {
+      document.getElementById('c-u').innerText = isDev ? '२' : '2';
+      document.getElementById('c-t').innerText = isDev ? '८' : '8';
+      document.getElementById('badge-c').classList.remove('hidden');
+      document.getElementById('t-label').innerText = '८ नोटा (हातचा +१)';
+      document.getElementById('u-label').innerText = '२ सुटी नाणी';
+      document.getElementById('regroup-box').innerHTML = `
+        <div class="text-[11px] font-bold text-emerald-600 text-center py-1">
+          ✓ १० नाण्यांचा १ दशक हातचा गेला! उरले २ एकक.
+        </div>
+      `;
+    }
+
+    function nextHintTier() {
+      hintStep = (hintStep % 3) + 1;
+      const h = {
+        1: { tag: "स्तर १: सुगावा (Nudge)", msg: "एककात ७ + ५ = १२ झाले. १२ मधला १ दशक कुठे जाईल बरं?" },
+        2: { tag: "स्तर २: दृश्य मदत (Visual Clue)", msg: "बघा, १० नाणी चमकून एकत्र आली आणि त्यांचा १ नवीन ₹१० चा गट्टा बनला!" },
+        3: { tag: "स्तर ३: पायरी उकल (Walkthrough)", msg: "एककात २ लिहा आणि दशकाच्या घरात १ हातचा ठेवा. मग १ + ४ + ३ = ८ दशक!" }
+      };
+      document.getElementById('h-tier-tag').innerText = h[hintStep].tag;
+      document.getElementById('h-tier-msg').innerText = h[hintStep].msg;
+    }
+
+    function kPress(d) {
+      kVal += isDev ? dDigits[d] : d.toString();
+      document.getElementById('k-disp').innerText = kVal;
+    }
+
+    function kClear() {
+      kVal = '';
+      document.getElementById('k-disp').innerText = '---';
+    }
+
+    function kCheck() {
+      if (kVal.includes('३८२') || kVal.includes('382')) {
+        document.getElementById('k-feedback').innerHTML = `<span class="text-emerald-600 font-bold">✓ शाब्बास! अचूक उत्तर: ३८२!</span>`;
+        setTimeout(() => setStage(5), 900);
+      } else if (kVal.includes('३७२') || kVal.includes('372')) {
+        document.getElementById('k-feedback').innerHTML = `<span class="text-red-500 font-bold">हातचा विसरलात का? १ + ४ + ३ = ८ दशक!</span>`;
+      } else {
+        document.getElementById('k-feedback').innerHTML = `<span class="text-amber-600 font-bold">पुन्हा बेरीज करून बघा.</span>`;
+      }
+    }
+
+    function checkExplain(isCorrect, btn) {
+      if (isCorrect) {
+        btn.classList.add('border-emerald-500', 'bg-emerald-500/10');
+        alert("अभिनंदन! तुम्ही ३-अंकी हातच्याची बेरीज १००% समजून पूर्ण केली!");
+      } else {
+        btn.classList.add('border-red-500', 'bg-red-500/10');
+        alert("विचार करा: १ नाणे लहान असले तरी त्याचे मूल्य आणि घराचा नियम काय आहे?");
+      }
+    }
+
+    function speakDialogue() {
+      const text = document.getElementById('dialogue-text').innerText;
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'mr-IN';
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    function openFullApp() {
+      window.open('http://localhost:8080/index.html', '_blank');
+    }
+  </script>
+</body>
+</html>

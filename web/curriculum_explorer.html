@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>गणित मित्र — Curriculum Explorer & Teacher Authoring Tool</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+</head>
+<body class="bg-[var(--background)] text-[var(--foreground)] antialiased p-4 md:p-8 font-sans">
+
+  <!-- Header -->
+  <header class="max-w-5xl mx-auto mb-6 bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-sm flex flex-wrap items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl font-bold border border-amber-500/30">
+        📚
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-xl font-bold tracking-tight text-[var(--foreground)]">गणित मित्र — अभ्यासक्रम विस्तार व शिक्षक साधन (Classes 1–6)</h1>
+          <span class="text-xs px-2.5 py-0.5 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold rounded-full border border-emerald-500/20">Phase 4 Scale Ready</span>
+        </div>
+        <p class="text-xs text-[var(--muted-foreground)]">महाराष्ट्र राज्य पाठ्यपुस्तक निर्मिती मंडळ (बालभारती) अभ्यासक्रमावर आधारित • १००% ऑफलाइन</p>
+      </div>
+    </div>
+
+    <!-- Offline Security Tag -->
+    <div class="flex items-center gap-2 px-3.5 py-2 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-xs text-emerald-700 dark:text-emerald-300 font-bold">
+      <span>🛡️</span>
+      <span>100% Offline • स्थानिक Room DB</span>
+    </div>
+  </header>
+
+  <!-- Grade Selector Tabs -->
+  <div class="max-w-5xl mx-auto mb-6 flex flex-wrap gap-2 justify-center">
+    <button onclick="selectGrade(1)" class="grade-tab px-4 py-2 rounded-xl text-sm font-semibold transition border border-[var(--border)] bg-[var(--card)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]" data-grade="1">इयत्ता १ (Class 1)</button>
+    <button onclick="selectGrade(2)" class="grade-tab px-4 py-2 rounded-xl text-sm font-semibold transition border border-[var(--border)] bg-[var(--card)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]" data-grade="2">इयत्ता २ (Class 2)</button>
+    <button onclick="selectGrade(3)" class="grade-tab px-4 py-2 rounded-xl text-sm font-semibold transition border border-[var(--border)] bg-[var(--primary)] text-[var(--primary-foreground)] shadow-xs" data-grade="3">इयत्ता ३ (Class 3 - MVP)</button>
+    <button onclick="selectGrade(4)" class="grade-tab px-4 py-2 rounded-xl text-sm font-semibold transition border border-[var(--border)] bg-[var(--card)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]" data-grade="4">इयत्ता ४ (Class 4)</button>
+    <button onclick="selectGrade(5)" class="grade-tab px-4 py-2 rounded-xl text-sm font-semibold transition border border-[var(--border)] bg-[var(--card)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]" data-grade="5">इयत्ता ५ (Class 5)</button>
+    <button onclick="selectGrade(6)" class="grade-tab px-4 py-2 rounded-xl text-sm font-semibold transition border border-[var(--border)] bg-[var(--card)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]" data-grade="6">इयत्ता ६ (Class 6)</button>
+  </div>
+
+  <!-- Main Concept Explorer Layout -->
+  <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+    <!-- Concept Details & 7-Step Breakdown (Left 7 Cols) -->
+    <div class="lg:col-span-7 bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-xs space-y-4">
+
+      <div class="flex items-center justify-between pb-3 border-b border-[var(--border)]">
+        <div>
+          <span id="concept-id-tag" class="text-xs px-2.5 py-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold rounded-full">STD3_MATH_ADD_03</span>
+          <h2 id="concept-title" class="text-lg font-bold text-[var(--foreground)] mt-1.5">३-अंकी संख्यांची हातच्याची बेरीज</h2>
+        </div>
+        <button onclick="previewAudio()" class="px-3 py-1.5 bg-blue-500/15 border border-blue-500/30 text-blue-600 dark:text-blue-400 font-bold rounded-xl text-xs flex items-center gap-1.5">
+          <span>🔊</span>
+          <span>आवाज ऐका (Opus)</span>
+        </button>
+      </div>
+
+      <!-- 7-Step Accordion Breakdown -->
+      <div class="space-y-2 text-xs">
+
+        <!-- Step 1: Hook -->
+        <div class="p-3 rounded-xl bg-[var(--content)] border border-[var(--border)]">
+          <div class="font-bold text-amber-600 dark:text-amber-400 mb-1">१. ग्रामीण संदर्भ हूक (Rural Hook):</div>
+          <p id="desc-hook" class="text-[var(--foreground)] leading-relaxed italic">
+            "गण्याने आठवडी बाजारात भोपळे विकून ₹१४७ आणि वांग्यांचे ₹२३५ मिळवले. गण्याकडे एकूण किती रुपये जमले?"
+          </p>
+        </div>
+
+        <!-- Step 2: Manipulative -->
+        <div class="p-3 rounded-xl bg-[var(--content)] border border-[var(--border)]">
+          <div class="font-bold text-blue-600 dark:text-blue-400 mb-1">२. स्थानमूल्य मॅनिप्युलेटिव्ह (Concrete Visual):</div>
+          <p id="desc-manip" class="text-[var(--foreground)] leading-relaxed">
+            शतक (₹१०० च्या नोटा), दशक (₹१० च्या नोटा), एकक (₹१ ची नाणी). १० सुटी नाणी = १ दशक नोट हातचा.
+          </p>
+        </div>
+
+        <!-- Step 3: Explanation -->
+        <div class="p-3 rounded-xl bg-[var(--content)] border border-[var(--border)]">
+          <div class="font-bold text-purple-600 dark:text-purple-400 mb-1">३. सोपी समजूत (Spoken Explanation):</div>
+          <p id="desc-expl" class="text-[var(--foreground)] leading-relaxed">
+            उजवीकडून एकक एकत्र केले: ७ + ५ = १२ नाणी. १० नाण्यांचा १ दशक बनवून दशकात हातचा नेला, २ एकक खाली राहिले.
+          </p>
+        </div>
+
+        <!-- Step 4: Guided Hints -->
+        <div class="p-3 rounded-xl bg-[var(--content)] border border-[var(--border)]">
+          <div class="font-bold text-emerald-600 dark:text-emerald-400 mb-1">४. ३-स्तरीय मार्गदर्शन (3-Level Scaffolded Hints):</div>
+          <p id="desc-hints" class="text-[var(--foreground)] leading-relaxed">
+            स्तर १ (Nudge): एककात ७+५=१२ झाले, १ दशक कुठे जाईल? | स्तर २ (Visual): १० नाणी चमकून १ गट्टा बनतो. | स्तर ३ (Walkthrough): १+४+३=८ दशक.
+          </p>
+        </div>
+
+        <!-- Step 5: Explain-Back -->
+        <div class="p-3 rounded-xl bg-[var(--content)] border border-[var(--border)]">
+          <div class="font-bold text-indigo-600 dark:text-indigo-400 mb-1">५. कारण सांगा चाचणी (Explain-Back Conceptual Check):</div>
+          <p id="desc-explainback" class="text-[var(--foreground)] leading-relaxed">
+            "हातचा १ आपण दशकाच्या घरात का नेला?" ➔ कारण १० सुटी नाणी मिळून १ दशक (₹१०) बनतो.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Content Tooling & Local Teacher Offline QR Export (Right 5 Cols) -->
+    <div class="lg:col-span-5 space-y-4">
+
+      <!-- Bulk Audio Compilation Status -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-xs">
+        <h3 class="text-sm font-bold text-[var(--foreground)] mb-2 flex items-center justify-between">
+          <span>🎙️ Bulk Opus Audio Pipeline</span>
+          <span class="text-xs text-emerald-600 font-bold">100% Cached</span>
+        </h3>
+        <div class="text-xs space-y-1.5 text-[var(--muted-foreground)]">
+          <div class="flex justify-between">
+            <span>एकूण पाठ (Lesson Packs):</span>
+            <span class="font-bold text-[var(--foreground)]">६ पाठ</span>
+          </div>
+          <div class="flex justify-between">
+            <span>एकूण संवाद फाईल्स (Opus Audio):</span>
+            <span class="font-bold text-[var(--foreground)]">६७ फाईल्स</span>
+          </div>
+          <div class="flex justify-between">
+            <span>बिटरेट व फॉरमॅट:</span>
+            <span class="font-bold text-[var(--foreground)]">32 kbps mono Ogg Opus</span>
+          </div>
+          <div class="flex justify-between">
+            <span>एकूण ऑडिओ आकार:</span>
+            <span class="font-bold text-emerald-600">१.२७ MB (अल्ट्रा-लाइट)</span>
+          </div>
+          <div class="flex justify-between">
+            <span>SHA-256 इंक्रीमेंटल बिल्ड:</span>
+            <span class="font-bold text-emerald-600">० सेकंदात बिल्ड</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Local Teacher Offline QR Export Tool -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-xs">
+        <h3 class="text-sm font-bold text-[var(--foreground)] mb-2 flex items-center justify-between">
+          <span>📲 ऑफलाइन शिक्षक QR डेटा एक्सपोर्ट</span>
+          <span class="text-[10px] text-emerald-600 font-bold">० KB इंटरनेट</span>
+        </h3>
+        <p class="text-xs text-[var(--muted-foreground)] mb-3">
+          ग्रामीण शाळेतील शिक्षकांना इंटरनेट नसतानाही विद्यार्थ्यांची प्रगती स्कॅन करता यावी म्हणून कॉम्पॅक्ट स्थानिक डेटा स्ट्रिंग:
+        </p>
+
+        <!-- Simulated QR Pattern -->
+        <div class="bg-[var(--content)] p-3 rounded-xl border border-[var(--border)] text-center">
+          <div class="w-32 h-32 mx-auto bg-white p-2 rounded-lg flex items-center justify-center font-mono text-[9px] text-black break-all leading-tight border border-gray-300">
+            GM|STD3_ADD03|S:95|M:0|T:1792257505|D:24h|ST:3
+          </div>
+          <div class="text-[11px] font-mono text-[var(--foreground)] mt-2">
+            स्ट्रिंग: GM|STD3_ADD03|S:95|M:0|ST:3
+          </div>
+        </div>
+      </div>
+
+      <!-- Marathi Glossary Teacher Sign-off Tracker -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-xs">
+        <h3 class="text-sm font-bold text-[var(--foreground)] mb-2 flex items-center justify-between">
+          <span>📖 मराठी गणित शब्दकोश (Glossary Status)</span>
+          <span class="text-xs text-blue-600 font-bold">Balbharati Aligned</span>
+        </h3>
+        <div class="text-xs space-y-1 text-[var(--muted-foreground)]">
+          <div class="text-emerald-600 font-bold">✓ २३ प्रमाण संज्ञा प्रमाणित (Verified)</div>
+          <div>⚠️ २ संज्ञा शिक्षक पडताळणी प्रलंबित (उसनवार vs दशक सुटा करणे)</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    const conceptData = {
+      1: {
+        id: "STD1_NUM_03",
+        title: "१० ची ओळख व दशक संकल्पना पाया",
+        hook: "शेतकऱ्याच्या कडब्याच्या पेंढ्या: ९ सुट्या काड्या होत्या, त्यात १ काडी मिळवली की १० होतात.",
+        manip: "काड्यांचे गट्टे व सुट्या काड्या: १० सुट्या काड्या दोरीने बांधल्या की १ दशक गट्टा बनतो.",
+        expl: "९ नंतर १ मिळवला की १० होतात. १० म्हणजे १ दशक आणि शून्य एकक.",
+        hints: "स्तर १: ९ नंतर काय येते? | स्तर २: १० काड्या एकत्र बांधून दोरी गुंडाळली. | स्तर ३: १ दशक डावीकडे, शून्य उजवीकडे.",
+        explainback: "१० सुट्या काड्या एकत्र बांधल्या की काय बनते? ➔ १ दशक गट्टा."
+      },
+      2: {
+        id: "STD2_ADD_02",
+        title: "२-अंकी संख्यांची हातच्याची बेरीज",
+        hook: "आठवडी बाजारातील पेरूंची विक्री: एका पाटीत २८ आणि दुसऱ्या पाटीत १५ पेरू, एकूण किती पेरू विकले?",
+        manip: "१० चे गट्टे आणि सुटे पेरू: ८ + ५ = १३ सुटे. १० सुटे बांधून १ दशक गट्टा हातचा गेला.",
+        expl: "एककात ३ पेरू राहिले, १ दशक हातचा गेला. मग १ + २ + १ = ४ दशक. एकूण ४३ पेरू!",
+        hints: "स्तर १: ८ + ५ = १३. १ दशक कुठे जाईल? | स्तर २: १० पेरूंची पिशवी दशकात जाते. | स्तर ३: उत्तर ४३.",
+        explainback: "हातचा १ दशकात का गेला? ➔ १० सुटे मिळून १ दशक बनतो."
+      },
+      3: {
+        id: "STD3_MATH_ADD_03",
+        title: "३-अंकी संख्यांची हातच्याची बेरीज (MVP)",
+        hook: "आठवडी बाजारातील भोपळे व वांगी विक्री: ₹१४७ + ₹२३५ चा हिशोब.",
+        manip: "शतक (₹१०० च्या नोटा), दशक (₹१० च्या नोटा), एकक (₹१ ची नाणी).",
+        expl: "७ + ५ = १२ नाणी. १० नाण्यांचा १ दशक ₹१० नोट बनवून दशकात हातचा नेला, २ एकक खाली राहिले.",
+        hints: "स्तर १: एककात ७+५=१२ झाले. | स्तर २: १० नाणी एकत्र येऊन १ नवीन नोट बनली. | स्तर ३: १+४+३=८ दशक.",
+        explainback: "हातचा १ दशकाच्या घरात का नेला? ➔ कारण १० सुटी नाणी मिळून १ दशक (₹१०) बनतो."
+      },
+      4: {
+        id: "STD4_GEO_01",
+        title: "आयताची व चौरसाची परिमिती",
+        hook: "भुईमुगाच्या शेताभोवती काटेरी तारेचे कुंपण: लांबी २० मीटर व रुंदी १० मीटर.",
+        manip: "शेताची कुंपण तार: २० + १० + २० + १० मीटर चारही बाजूंची बेरीज.",
+        expl: "बंदिस्त आकृतीच्या सर्व बाजूंच्या लांबींची एकूण बेरीज म्हणजे परिमिती.",
+        hints: "स्तर १: चारही बाजूंची बेरीज करा. | स्तर २: शेताच्या कडेने लाल तार फिरते. | स्तर ३: परिमिती = ६० मीटर.",
+        explainback: "परिमिती म्हणजे काय? ➔ सर्व बाजूंच्या लांबींची एकूण बेरीज."
+      },
+      5: {
+        id: "STD5_GEO_01",
+        title: "काटकोन, लघुकोन व विशालकोन ओळख",
+        hook: "देऊळच्या घड्याळातील काटे आणि बैलगाडीचे जू: ३ वाजता काटकोन, कात्रीचे पाते लघुकोन.",
+        manip: "कोन मोजपट्टी: काटकोन (९० अंश), लघुकोन (<९० अंश), विशालकोन (>९० अंश).",
+        expl: "९० अंशांचा काटकोन. त्यापेक्षा लहान लघुकोन, आणि मोठा तो विशालकोन.",
+        hints: "स्तर १: दोन ४५ अंशांचे कोन जोडले तर? | स्तर २: इंग्रजी 'L' सारखा कोन. | स्तर ३: ९० अंश म्हणजे काटकोन.",
+        explainback: "घड्याळात ३ वाजता कोणता कोन असतो? ➔ काटकोन (९० अंश)."
+      },
+      6: {
+        id: "STD6_INT_01",
+        title: "धन व ऋण संख्यांची ओळख",
+        hook: "गावच्या विहिरीतील पाण्याची पातळी उन्हाळ्यात जमिनीवरून ३ मीटर खाली गेली.",
+        manip: "संख्यारेषा: शून्य (जमिनीची पातळी), धन (उंची/नफा), ऋण (खोली/तोटा).",
+        expl: "शून्यापेक्षा खाली जाणारी खोली ऋण संख्या (-) ने दर्शवतात (उदा. विहिरीचे पाणी -३ मीटर).",
+        hints: "स्तर १: ५ वरून ३ घरे मागे चला. | स्तर २: संख्यारेषेवर मागे उडी. | स्तर ३: ५ + (-३) = +२.",
+        explainback: "३ मीटर खोल विहीर कशाने दर्शवतात? ➔ ऋण ३ (-३) मीटर."
+      }
+    };
+
+    function selectGrade(grade) {
+      document.querySelectorAll('.grade-tab').forEach(t => {
+        if (parseInt(t.dataset.grade) === grade) {
+          t.classList.add('bg-[var(--primary)]', 'text-[var(--primary-foreground)]');
+          t.classList.remove('bg-[var(--card)]', 'text-[var(--muted-foreground)]');
+        } else {
+          t.classList.remove('bg-[var(--primary)]', 'text-[var(--primary-foreground)]');
+          t.classList.add('bg-[var(--card)]', 'text-[var(--muted-foreground)]');
+        }
+      });
+
+      const data = conceptData[grade];
+      document.getElementById('concept-id-tag').innerText = data.id;
+      document.getElementById('concept-title').innerText = data.title;
+      document.getElementById('desc-hook').innerText = `"${data.hook}"`;
+      document.getElementById('desc-manip').innerText = data.manip;
+      document.getElementById('desc-expl').innerText = data.expl;
+      document.getElementById('desc-hints').innerText = data.hints;
+      document.getElementById('desc-explainback').innerText = data.explainback;
+    }
+
+    function previewAudio() {
+      alert("🔊 ऑडिओ पूर्वावलोकन: 32 kbps Ogg Opus फॉरमॅटमध्ये अस्सल ग्रामीण मराठी उच्चार प्ले होत आहे.");
+    }
+  </script>
+</body>
+</html>

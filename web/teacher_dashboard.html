@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>गणित मित्र — शिक्षक व पालक फलक (Teacher Dashboard)</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+</head>
+<body class="bg-[var(--background)] text-[var(--foreground)] antialiased p-4 md:p-8 font-sans">
+
+  <!-- Header -->
+  <header class="max-w-5xl mx-auto mb-6 bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-sm flex flex-wrap items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-12 h-12 rounded-2xl bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-2xl font-bold border border-indigo-500/30">
+        👨‍🏫
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-xl font-bold tracking-tight text-[var(--foreground)]">गणित मित्र — स्थानिक शिक्षक डॅशबोर्ड</h1>
+          <span class="text-xs px-2.5 py-0.5 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold rounded-full border border-emerald-500/20">१००% ऑफलाइन मोड</span>
+        </div>
+        <p class="text-xs text-[var(--muted-foreground)]">जिल्हा परिषद प्राथमिक शाळा • वर्ग ३ अ • एकूण विद्यार्थी: २४</p>
+      </div>
+    </div>
+
+    <!-- Security & Export Action -->
+    <div class="flex items-center gap-3">
+      <button onclick="exportLocalCSV()" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-xs transition flex items-center gap-1.5 active:scale-95">
+        <span>📥</span>
+        <span>स्थानिक CSV अहवाल डाऊनलोड</span>
+      </button>
+      <div class="flex items-center gap-1.5 px-3 py-1.5 bg-indigo-500/10 border border-indigo-500/30 rounded-xl text-xs text-indigo-600 dark:text-indigo-400 font-bold">
+        <span>🔒 PIN सुरक्षित</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dashboard Grid -->
+  <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+    <!-- Left 7 Cols: Student Roster & Live QR Scanner Simulation -->
+    <div class="lg:col-span-7 space-y-6">
+
+      <!-- Offline QR Scanner Card -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-xs">
+        <div class="flex items-center justify-between mb-3 pb-2 border-b border-[var(--border)]">
+          <h3 class="text-sm font-bold text-[var(--foreground)] flex items-center gap-2">
+            <span>📷</span>
+            <span>ऑफलाइन QR कोड स्कॅनर (Student Sync)</span>
+          </h3>
+          <span class="text-xs text-emerald-600 font-bold">० KB नेटवर्क</span>
+        </div>
+        <p class="text-xs text-[var(--muted-foreground)] mb-3">
+          विद्यार्थ्याच्या फोनवरील QR कोड स्कॅन करा. इंटरनेट नसतानाही विद्यार्थ्याची प्रगती काही मिलीसेकंदात नोंदवली जाईल:
+        </p>
+
+        <!-- Simulated Scan Buttons -->
+        <div class="flex flex-wrap gap-2 mb-3">
+          <button onclick="simulateScan('गण्या', 'STD3_MATH_ADD_03', 95, 0, 'हातचा अचूक समजला')" class="px-3 py-1.5 rounded-xl bg-blue-500/15 border border-blue-500/30 text-blue-700 dark:text-blue-300 text-xs font-bold hover:bg-blue-500/25 active:scale-95">
+            + गण्याचा QR स्कॅन करा (९५% गुण)
+          </button>
+          <button onclick="simulateScan('मीरा', 'STD3_MATH_ADD_03', 75, 2, 'हातचा विसरणे (FORGOT_CARRY)')" class="px-3 py-1.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-700 dark:text-amber-300 text-xs font-bold hover:bg-amber-500/25 active:scale-95">
+            + मीनाचा QR स्कॅन करा (७५% गुण)
+          </button>
+          <button onclick="simulateScan('आनंदा', 'STD3_MATH_ADD_03', 100, 0, 'अतिशय उत्कृष्ट')" class="px-3 py-1.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 text-xs font-bold hover:bg-emerald-500/25 active:scale-95">
+            + आनंदाचा QR स्कॅन करा (१००% गुण)
+          </button>
+        </div>
+
+        <div id="scan-alert" class="hidden p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-800 dark:text-emerald-200 font-medium">
+          ✓ QR कोड यशस्वीरित्या वाचला! स्थानिक Room DB अपडेट झाला.
+        </div>
+      </div>
+
+      <!-- Student Roster Table -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-xs">
+        <h3 class="text-sm font-bold text-[var(--foreground)] mb-3 flex items-center justify-between">
+          <span>👥 विद्यार्थी प्रावीण्य यादी (Student Mastery Roster)</span>
+          <span class="text-xs text-[var(--muted-foreground)]" id="roster-count">नोंदी: ३ विद्यार्थी</span>
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)]">
+                <th class="py-2">विद्यार्थ्याचे नाव</th>
+                <th class="py-2">संकल्पना</th>
+                <th class="py-2">गुण (Mastery)</th>
+                <th class="py-2">त्रुटी</th>
+                <th class="py-2">स्थिती</th>
+              </tr>
+            </thead>
+            <tbody id="roster-tbody" class="divide-y divide-[var(--border)]">
+              <tr>
+                <td class="py-2.5 font-bold">गण्या शिंदे</td>
+                <td class="py-2.5 font-mono">STD3_MATH_ADD_03</td>
+                <td class="py-2.5 font-bold text-emerald-600">९५%</td>
+                <td class="py-2.5 text-muted-foreground">०</td>
+                <td class="py-2.5"><span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 font-bold">प्रावीण्य प्राप्त</span></td>
+              </tr>
+              <tr>
+                <td class="py-2.5 font-bold">मीरा कदम</td>
+                <td class="py-2.5 font-mono">STD3_MATH_ADD_03</td>
+                <td class="py-2.5 font-bold text-amber-600">७५%</td>
+                <td class="py-2.5 text-amber-600 font-bold">२ (हातचा)</td>
+                <td class="py-2.5"><span class="px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-600 font-bold">उजळणी आवश्यक</span></td>
+              </tr>
+              <tr>
+                <td class="py-2.5 font-bold">आनंदा पाटील</td>
+                <td class="py-2.5 font-mono">STD3_MATH_ADD_03</td>
+                <td class="py-2.5 font-bold text-emerald-600">१००%</td>
+                <td class="py-2.5 text-muted-foreground">०</td>
+                <td class="py-2.5"><span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 font-bold">उत्कृष्ट ⭐</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right 5 Cols: Misconception Analytics & Targeted Remedial Card -->
+    <div class="lg:col-span-5 space-y-6">
+
+      <!-- Misconception Analytics Heatmap -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-xs">
+        <h3 class="text-sm font-bold text-[var(--foreground)] mb-3 flex items-center justify-between">
+          <span>🎯 त्रुटी विश्लेषण (Misconception Heatmap)</span>
+          <span class="text-xs text-amber-600 font-bold">इयत्ता ३ बेरीज</span>
+        </h3>
+        <div class="space-y-3 text-xs">
+          <div>
+            <div class="flex justify-between mb-1">
+              <span class="font-medium">१. एककातील हातचा दशकात मिळवायला विसरणे</span>
+              <span class="font-bold text-amber-600">२ विद्यार्थी</span>
+            </div>
+            <div class="w-full bg-[var(--content)] h-2 rounded-full overflow-hidden">
+              <div class="bg-amber-500 h-full rounded-full" style="width: 66%"></div>
+            </div>
+            <p class="text-[11px] text-[var(--muted-foreground)] mt-0.5">उदा. १४७ + २३५ = ३७२ उत्तर देणे (१ हातचा सुटला).</p>
+          </div>
+
+          <div>
+            <div class="flex justify-between mb-1">
+              <span class="font-medium">२. स्थान अदलाबदल (हातचा १ ऐवजी २ नेणे)</span>
+              <span class="font-bold text-emerald-600">० विद्यार्थी</span>
+            </div>
+            <div class="w-full bg-[var(--content)] h-2 rounded-full overflow-hidden">
+              <div class="bg-emerald-500 h-full rounded-full" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Auto-Generated Remedial Action Card for Teachers -->
+      <div class="bg-[var(--card)] border border-amber-500/30 rounded-2xl p-5 shadow-xs bg-amber-500/5">
+        <h3 class="text-sm font-bold text-amber-800 dark:text-amber-300 mb-2 flex items-center gap-1.5">
+          <span>💡</span>
+          <span>शिक्षकांसाठी शिफारस (Remedial Action)</span>
+        </h3>
+        <p class="text-xs text-[var(--foreground)] leading-relaxed mb-3">
+          मीरा कदम हिला हातचा मिळवताना अडचण येत आहे. खालील सोपे प्रत्यक्ष स्वाध्याय कार्ड वर्गात वापरण्याची शिफारस:
+        </p>
+
+        <div class="p-3 rounded-xl bg-white dark:bg-gray-800 border border-amber-500/20 text-xs space-y-1.5 font-mono">
+          <div class="font-bold text-amber-700 dark:text-amber-300">स्वाध्याय: १० च्या नोटांचा प्रत्यक्ष खेळ</div>
+          <div>उदा १: १५८ + १२४ = ? (सुटे ८ + ४ = १२ नाणी)</div>
+          <div>उदा २: २६७ + १३५ = ? (सुटे ७ + ५ = १२ नाणी)</div>
+          <div class="text-emerald-600 font-bold">नियम: १० नाणी एकत्र बांधून दशकाच्या घरात ठेवा!</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    const studentData = [
+      { name: "गण्या शिंदे", cid: "STD3_MATH_ADD_03", score: 95, mistakes: 0, status: "प्रावीण्य प्राप्त" },
+      { name: "मीरा कदम", cid: "STD3_MATH_ADD_03", score: 75, mistakes: 2, status: "उजळणी आवश्यक" },
+      { name: "आनंदा पाटील", cid: "STD3_MATH_ADD_03", score: 100, mistakes: 0, status: "उत्कृष्ट ⭐" }
+    ];
+
+    function simulateScan(name, cid, score, mistakes, status) {
+      studentData.push({ name: name + " (नवीन)", cid, score, mistakes, status });
+      const tbody = document.getElementById('roster-tbody');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="py-2.5 font-bold">${name}</td>
+        <td class="py-2.5 font-mono">${cid}</td>
+        <td class="py-2.5 font-bold ${score >= 85 ? 'text-emerald-600' : 'text-amber-600'}">${score}%</td>
+        <td class="py-2.5 text-muted-foreground">${mistakes}</td>
+        <td class="py-2.5"><span class="px-2 py-0.5 rounded-full ${score >= 85 ? 'bg-emerald-500/10 text-emerald-600' : 'bg-amber-500/10 text-amber-600'} font-bold">${status}</span></td>
+      `;
+      tbody.appendChild(tr);
+
+      document.getElementById('roster-count').innerText = `नोंदी: ${studentData.length} विद्यार्थी`;
+
+      const alertBox = document.getElementById('scan-alert');
+      alertBox.classList.remove('hidden');
+      alertBox.innerText = `✓ '${name}' चा ऑफलाइन QR कोड वाचला! प्रावीण्य स्कोर: ${score}%`;
+      setTimeout(() => alertBox.classList.add('hidden'), 3500);
+    }
+
+    function exportLocalCSV() {
+      let csv = "Name,ConceptID,MasteryScore,Mistakes,Status\n";
+      studentData.forEach(s => {
+        csv += `"${s.name}","${s.cid}",${s.score},${s.mistakes},"${s.status}"\n`;
+      });
+
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "ganit_mitra_class3_mastery_report.csv";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>

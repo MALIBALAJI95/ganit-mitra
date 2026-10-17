@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>गणित मित्र — UI Wireframes & Interactive Prototype</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    /* Ensure high contrast and child-friendly touch targets */
+    .touch-target {
+      min-width: 56px;
+      min-height: 56px;
+    }
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.03); }
+    }
+    .animate-pulse-subtle {
+      animation: pulse-subtle 2s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-[var(--background)] text-[var(--foreground)] antialiased p-4 md:p-8 font-sans">
+
+  <!-- Header & Navigation Bar -->
+  <header class="max-w-4xl mx-auto mb-6 bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-sm flex flex-wrap items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-xl border border-amber-500/30">
+        ग
+      </div>
+      <div>
+        <h1 class="text-xl font-bold tracking-tight text-[var(--foreground)]">गणित मित्र (Ganit Mitra) — Wireframes</h1>
+        <p class="text-xs text-[var(--muted-foreground)]">इयत्ता ३: ३-अंकी संख्यांची हातच्याची बेरीज (100% Offline)</p>
+      </div>
+    </div>
+
+    <!-- Numeral Toggle & Offline Status -->
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full text-xs text-emerald-600 dark:text-emerald-400 font-medium">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 4.243a9 9 0 01-12.728 0m0 0l2.829-2.829m-2.829 2.829L3 21m2.829-5.657a5 5 0 010-7.072m0 0l2.829 2.829m4.243-4.243a1 1 0 011.414 0l1.414 1.414"></path></svg>
+        <span>Airplane Mode: ०% Network</span>
+      </div>
+
+      <div class="flex bg-[var(--content)] border border-[var(--border)] rounded-xl p-1 text-xs font-semibold">
+        <button id="toggle-devanagari" onclick="switchNumerals('devanagari')" class="px-2.5 py-1 rounded-lg bg-[var(--primary)] text-[var(--primary-foreground)] shadow-xs transition">१ २ ३</button>
+        <button id="toggle-western" onclick="switchNumerals('western')" class="px-2.5 py-1 rounded-lg text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition">1 2 3</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Interactive Screen Selector Tabs -->
+  <div class="max-w-4xl mx-auto mb-6 flex flex-wrap gap-2 justify-center">
+    <button onclick="showScreen('screen-hook')" class="screen-tab px-4 py-2 rounded-xl text-sm font-semibold transition border border-[var(--border)] bg-[var(--primary)] text-[var(--primary-foreground)] shadow-xs" data-target="screen-hook">१. हुक व मस्कॉट</button>
+    <button onclick="showScreen('screen-manipulative')" class="screen-tab px-4 py-2 rounded-xl text-sm font-semibold transition border border-[var(--border)] bg-[var(--card)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]" data-target="screen-manipulative">२. स्थानमूल्य नाणी-नोटा</button>
+    <button onclick="showScreen('screen-hints')" class="screen-tab px-4 py-2 rounded-xl text-sm font-semibold transition border border-[var(--border)] bg-[var(--card)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]" data-target="screen-hints">३. ३-स्तरीय हिंट्स</button>
+    <button onclick="showScreen('screen-keypad')" class="screen-tab px-4 py-2 rounded-xl text-sm font-semibold transition border border-[var(--border)] bg-[var(--card)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]" data-target="screen-keypad">४. आवाज + टॅप कीपॅड</button>
+    <button onclick="showScreen('screen-explain')" class="screen-tab px-4 py-2 rounded-xl text-sm font-semibold transition border border-[var(--border)] bg-[var(--card)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]" data-target="screen-explain">५. कारण सांगा (Explain-Back)</button>
+    <button onclick="showScreen('screen-teacher')" class="screen-tab px-4 py-2 rounded-xl text-sm font-semibold transition border border-[var(--border)] bg-[var(--card)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]" data-target="screen-teacher">६. शिक्षक डॅशबोर्ड</button>
+  </div>
+
+  <!-- Screen Container (Phone Shell Simulation) -->
+  <main class="max-w-md mx-auto bg-[var(--card)] border-2 border-[var(--border)] rounded-3xl p-5 shadow-xl relative min-h-[640px] flex flex-col justify-between">
+
+    <!-- SCREEN 1: CONCRETE RURAL HOOK & MASCOT -->
+    <div id="screen-hook" class="screen-view flex-1 flex flex-col justify-between">
+      <div>
+        <!-- Top App Bar -->
+        <div class="flex items-center justify-between mb-4 pb-3 border-b border-[var(--border)]">
+          <div class="flex items-center gap-2">
+            <span class="text-xs px-2.5 py-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold rounded-full">इयत्ता ३ • पाठ ३</span>
+            <span class="text-xs text-[var(--muted-foreground)]">पायरी १/७</span>
+          </div>
+          <button class="w-8 h-8 rounded-full bg-[var(--content)] border border-[var(--border)] flex items-center justify-center text-sm font-bold">🔊</button>
+        </div>
+
+        <!-- Scenario Context Card -->
+        <div class="bg-[var(--content)] rounded-2xl p-4 border border-[var(--border)] mb-4">
+          <div class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wide mb-1">आठवडी बाजार • भाजी हिशोब</div>
+          <h2 class="text-lg font-bold text-[var(--foreground)] mb-2">गण्याच्या भोपळ्यांची व वांग्यांची विक्री</h2>
+          <p class="text-sm text-[var(--muted-foreground)] leading-relaxed">
+            गण्याने आठवडी बाजारात मोठे भोपळे विकून <span class="font-bold text-[var(--foreground)] num-text">₹१४७</span> मिळवले आणि वांग्यांचे <span class="font-bold text-[var(--foreground)] num-text">₹२३५</span> मिळवले. गण्याकडे एकूण किती रुपये जमले?
+          </p>
+        </div>
+
+        <!-- Mascot Dialog Bubble -->
+        <div class="flex items-start gap-3 my-4 bg-amber-500/10 border border-amber-500/20 rounded-2xl p-4">
+          <div class="w-14 h-14 rounded-2xl bg-amber-500 text-white flex-shrink-0 flex items-center justify-center text-2xl shadow-sm">
+            🐿️
+          </div>
+          <div>
+            <div class="text-xs font-bold text-amber-700 dark:text-amber-300 mb-1">चिनू खारूताई बोलतेय:</div>
+            <p class="text-sm text-[var(--foreground)] italic">
+              "चला बालमित्रांनो! आपल्या नाणी आणि नोटा मोजून गण्याला मदत करूया. बोला <span class="font-bold underline">'पुढे'</span> किंवा खाली हिरव्या बटनावर दाबा!"
+            </p>
+            <div class="flex items-center gap-2 mt-2">
+              <span class="flex h-2 w-2 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+              </span>
+              <span class="text-xs text-amber-600 dark:text-amber-400 font-medium">आवाज सुरू आहे (Opus 32kbps)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Voice & Tap Action Bar -->
+      <div class="pt-4 border-t border-[var(--border)] flex items-center gap-3">
+        <button class="touch-target flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-2xl text-base flex items-center justify-center gap-2 shadow-md transition active:scale-95" onclick="showScreen('screen-manipulative')">
+          <span>पुढे चला</span>
+          <span class="text-xl">➔</span>
+        </button>
+        <button class="touch-target w-16 bg-blue-500/15 border border-blue-500/30 text-blue-600 dark:text-blue-400 font-bold rounded-2xl flex flex-col items-center justify-center text-xs active:scale-95">
+          <span class="text-lg">🎙️</span>
+          <span>सांग</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- SCREEN 2: INTERACTIVE PLACE-VALUE CURRENCY MANIPULATIVE -->
+    <div id="screen-manipulative" class="screen-view hidden flex-1 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-3 pb-2 border-b border-[var(--border)]">
+          <div class="flex items-center gap-2">
+            <span class="text-xs px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 font-bold rounded-full">स्थानमूल्य नाणी-नोटा</span>
+            <span class="text-xs text-[var(--muted-foreground)]">पायरी २/७</span>
+          </div>
+          <button class="text-xs text-[var(--primary)] font-bold" onclick="resetManipulative()">पूर्ववत करा</button>
+        </div>
+
+        <div class="text-center font-bold text-base mb-3">
+          <span class="num-text">१४७</span> + <span class="num-text">२३५</span> = ?
+        </div>
+
+        <!-- 3 Place-Value Columns -->
+        <div class="grid grid-cols-3 gap-2 bg-[var(--content)] p-3 rounded-2xl border border-[var(--border)] mb-3">
+          <!-- Hundreds (शतक) -->
+          <div class="text-center bg-[var(--card)] p-2 rounded-xl border border-amber-500/30">
+            <div class="text-xs font-bold text-amber-600 dark:text-amber-400 mb-1">शतक (₹१००)</div>
+            <div class="text-xl font-bold num-text mb-2 text-amber-600" id="val-hundreds">३</div>
+            <div class="flex flex-col gap-1 items-center min-h-[90px] justify-center">
+              <div class="w-10 h-6 bg-amber-400 text-amber-950 font-bold text-xs rounded flex items-center justify-center shadow-xs">१००</div>
+              <div class="w-10 h-6 bg-amber-400 text-amber-950 font-bold text-xs rounded flex items-center justify-center shadow-xs">१००</div>
+              <div class="w-10 h-6 bg-amber-400 text-amber-950 font-bold text-xs rounded flex items-center justify-center shadow-xs">१००</div>
+            </div>
+          </div>
+
+          <!-- Tens (दशक) -->
+          <div class="text-center bg-[var(--card)] p-2 rounded-xl border border-blue-500/30 relative">
+            <div class="text-xs font-bold text-blue-600 dark:text-blue-400 mb-1">दशक (₹१०)</div>
+            <div class="text-xl font-bold num-text mb-2 text-blue-600" id="val-tens">७</div>
+            <div id="carry-badge" class="hidden absolute top-1 right-1 bg-red-500 text-white text-[11px] font-bold px-1.5 py-0.5 rounded-full animate-pulse-subtle">हातचा +१</div>
+            <div class="flex flex-wrap gap-1 justify-center min-h-[90px] content-center" id="tens-container">
+              <span class="w-6 h-6 bg-blue-500 text-white rounded-md text-[10px] font-bold flex items-center justify-center">१०</span>
+              <span class="w-6 h-6 bg-blue-500 text-white rounded-md text-[10px] font-bold flex items-center justify-center">१०</span>
+              <span class="w-6 h-6 bg-blue-500 text-white rounded-md text-[10px] font-bold flex items-center justify-center">१०</span>
+              <span class="w-6 h-6 bg-blue-500 text-white rounded-md text-[10px] font-bold flex items-center justify-center">१०</span>
+              <span class="w-6 h-6 bg-blue-500 text-white rounded-md text-[10px] font-bold flex items-center justify-center">१०</span>
+              <span class="w-6 h-6 bg-blue-500 text-white rounded-md text-[10px] font-bold flex items-center justify-center">१०</span>
+              <span class="w-6 h-6 bg-blue-500 text-white rounded-md text-[10px] font-bold flex items-center justify-center">१०</span>
+            </div>
+          </div>
+
+          <!-- Units (एकक) -->
+          <div class="text-center bg-[var(--card)] p-2 rounded-xl border border-emerald-500/30">
+            <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 mb-1">एकक (₹१)</div>
+            <div class="text-xl font-bold num-text mb-2 text-emerald-600" id="val-units">१२</div>
+            <div class="flex flex-wrap gap-1 justify-center min-h-[90px] content-center" id="units-container">
+              <!-- 12 unit coins initially -->
+              <span class="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center">१</span>
+              <span class="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center">१</span>
+              <span class="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center">१</span>
+              <span class="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center">१</span>
+              <span class="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center">१</span>
+              <span class="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center">१</span>
+              <span class="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center">१</span>
+              <span class="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center">१</span>
+              <span class="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center">१</span>
+              <span class="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center">१</span>
+              <span class="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center">१</span>
+              <span class="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center">१</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Regrouping Action -->
+        <div id="regroup-panel" class="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-3 text-center">
+          <p class="text-xs text-[var(--foreground)] mb-2">
+            एककाच्या घरात १२ नाणी झाली आहेत! <span class="font-bold">१० नाणी एकत्र बांधून १ दशक बनवा.</span>
+          </p>
+          <button id="btn-regroup" onclick="triggerRegrouping()" class="touch-target w-full bg-amber-500 hover:bg-amber-600 text-amber-950 font-bold rounded-xl text-sm flex items-center justify-center gap-2 shadow-xs transition active:scale-95">
+            <span>✨ १० नाण्यांचा १ दशक हातचा करा</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-[var(--border)] flex items-center gap-3">
+        <button class="touch-target flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-2xl text-base flex items-center justify-center gap-2 shadow-md transition active:scale-95" onclick="showScreen('screen-hints')">
+          <span>पुढील पायरी</span>
+          <span class="text-xl">➔</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- SCREEN 3: 3-LEVEL SCAFFOLDED HINTS OVERLAY -->
+    <div id="screen-hints" class="screen-view hidden flex-1 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-3 pb-2 border-b border-[var(--border)]">
+          <div class="flex items-center gap-2">
+            <span class="text-xs px-2.5 py-1 bg-purple-500/10 text-purple-600 dark:text-purple-400 font-bold rounded-full">मार्गदर्शित सराव (Scaffolded Hints)</span>
+            <span class="text-xs text-[var(--muted-foreground)]">पायरी ४/७</span>
+          </div>
+          <button class="text-xs text-[var(--muted-foreground)]">मदत केंद्र</button>
+        </div>
+
+        <div class="bg-[var(--content)] p-3 rounded-2xl border border-[var(--border)] mb-4 text-center">
+          <div class="text-xs text-[var(--muted-foreground)] mb-1">पायरी २: दशकाची बेरीज</div>
+          <div class="text-xl font-bold font-mono">
+            <span class="text-red-500 text-sm block">हातचा: १</span>
+            &nbsp;१ ४ ७<br>+ २ ३ ५<br><hr class="my-1 border-[var(--border)]">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-emerald-500">२</span>
+          </div>
+          <p class="text-xs text-[var(--muted-foreground)] mt-2">आता दशकाच्या घराची बेरीज सांगा: १ + ४ + ३ = ?</p>
+        </div>
+
+        <!-- 3 Tier Hint Selector -->
+        <div class="space-y-2">
+          <div class="text-xs font-bold text-[var(--foreground)] flex items-center justify-between">
+            <span>३-स्तरीय मदत (सुलभ मार्गदर्शन):</span>
+            <span class="text-purple-600 text-xs font-normal">कधीही 'चूक' न म्हणता शिकवणे</span>
+          </div>
+
+          <!-- Level 1 Nudge -->
+          <div class="border border-blue-500/30 bg-blue-500/10 rounded-xl p-3">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-blue-700 dark:text-blue-300">स्तर १: सुगावा (Nudge)</span>
+              <span class="text-xs">🔊 ऐका</span>
+            </div>
+            <p class="text-xs text-[var(--foreground)]">"दशकाच्या घरात आधी ४ आणि ३ होते. एककातून १ हातचा आला. तिघांची बेरीज किती होईल?"</p>
+          </div>
+
+          <!-- Level 2 Visual Clue -->
+          <div class="border border-amber-500/30 bg-amber-500/10 rounded-xl p-3">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-amber-700 dark:text-amber-300">स्तर २: दृश्य मदत (Visual Clue)</span>
+              <span class="text-xs">✨ ॲनिमेशन</span>
+            </div>
+            <p class="text-xs text-[var(--foreground)]">दशकाच्या स्तंभातील निळ्या नोटा चमकतात: [१०] + [१०] [१०] [१०] [१०] + [१०] [१०] [१०] = एकूण ८ नोटा.</p>
+          </div>
+
+          <!-- Level 3 Concrete Walkthrough -->
+          <div class="border border-emerald-500/30 bg-emerald-500/10 rounded-xl p-3">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-emerald-700 dark:text-emerald-300">स्तर ३: पायरी-पायरीने उकल (Resolution)</span>
+              <span class="text-xs">🎯 पूर्ण स्पष्टीकरण</span>
+            </div>
+            <p class="text-xs text-[var(--foreground)]">"१ + ४ = ५, आणि ५ + ३ = ८! म्हणून दशकाच्या घरात ८ लिहा."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-[var(--border)] flex items-center gap-3">
+        <button class="touch-target flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-2xl text-base flex items-center justify-center gap-2 shadow-md transition active:scale-95" onclick="showScreen('screen-keypad')">
+          <span>उत्तर देण्यासाठी कीपॅड</span>
+          <span class="text-xl">➔</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- SCREEN 4: DUAL-MODE VOICE & TAP KEYPAD -->
+    <div id="screen-keypad" class="screen-view hidden flex-1 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-2 pb-2 border-b border-[var(--border)]">
+          <div class="flex items-center gap-2">
+            <span class="text-xs px-2.5 py-1 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold rounded-full">स्वाध्याय व सराव</span>
+            <span class="text-xs text-[var(--muted-foreground)]">पायरी ५/७</span>
+          </div>
+          <span class="text-xs font-bold text-amber-600">गुण: ⭐⭐⭐</span>
+        </div>
+
+        <div class="text-center my-2">
+          <div class="text-xs text-[var(--muted-foreground)]">प्रश्न: २३५ + १४७ चे अंतिम उत्तर काय?</div>
+          <div class="text-3xl font-extrabold tracking-wider my-2 font-mono" id="answer-display">
+            ---
+          </div>
+        </div>
+
+        <!-- Listening Banner -->
+        <div class="bg-blue-500/10 border border-blue-500/30 rounded-2xl p-2.5 mb-3 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-blue-500 animate-ping"></span>
+            <span class="text-xs font-bold text-blue-600 dark:text-blue-400">आवाज सुरू: "तीनशे ब्याऐंशी" बोला</span>
+          </div>
+          <span class="text-xs text-[var(--muted-foreground)]">किंवा टॅप करा</span>
+        </div>
+
+        <!-- High-Contrast Numeric Keypad (Min 56dp Touch Targets) -->
+        <div class="grid grid-cols-3 gap-2">
+          <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)] rounded-xl text-xl font-bold transition active:scale-95 num-key" onclick="pressKey(1)">१</button>
+          <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)] rounded-xl text-xl font-bold transition active:scale-95 num-key" onclick="pressKey(2)">२</button>
+          <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)] rounded-xl text-xl font-bold transition active:scale-95 num-key" onclick="pressKey(3)">३</button>
+          <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)] rounded-xl text-xl font-bold transition active:scale-95 num-key" onclick="pressKey(4)">४</button>
+          <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)] rounded-xl text-xl font-bold transition active:scale-95 num-key" onclick="pressKey(5)">५</button>
+          <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)] rounded-xl text-xl font-bold transition active:scale-95 num-key" onclick="pressKey(6)">६</button>
+          <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)] rounded-xl text-xl font-bold transition active:scale-95 num-key" onclick="pressKey(7)">७</button>
+          <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)] rounded-xl text-xl font-bold transition active:scale-95 num-key" onclick="pressKey(8)">८</button>
+          <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)] rounded-xl text-xl font-bold transition active:scale-95 num-key" onclick="pressKey(9)">९</button>
+          <button class="touch-target bg-red-500/10 text-red-600 border border-red-500/20 rounded-xl text-base font-bold transition active:scale-95" onclick="clearKeys()">हटवा</button>
+          <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)] rounded-xl text-xl font-bold transition active:scale-95 num-key" onclick="pressKey(0)">०</button>
+          <button class="touch-target bg-emerald-600 text-white rounded-xl text-base font-bold shadow-xs transition active:scale-95" onclick="submitAnswer()">तपासा ✓</button>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-[var(--border)] flex items-center justify-between text-xs text-[var(--muted-foreground)]">
+        <span>पायरी अडकल्यास कधीही ब्लॉक होत नाही</span>
+        <button class="text-blue-500 font-bold" onclick="showScreen('screen-explain')">पुढील चाचणी ➔</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 5: EXPLAIN-BACK CONCEPTUAL CHECK -->
+    <div id="screen-explain" class="screen-view hidden flex-1 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-3 pb-2 border-b border-[var(--border)]">
+          <div class="flex items-center gap-2">
+            <span class="text-xs px-2.5 py-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold rounded-full">संकल्पना स्पष्टीकरण (Explain-Back)</span>
+            <span class="text-xs text-[var(--muted-foreground)]">पायरी ६/७</span>
+          </div>
+          <button class="w-8 h-8 rounded-full bg-[var(--content)] flex items-center justify-center text-sm font-bold">🔊</button>
+        </div>
+
+        <div class="bg-[var(--content)] p-4 rounded-2xl border border-[var(--border)] mb-4">
+          <div class="text-xs text-amber-600 dark:text-amber-400 font-bold mb-1">चिनू खारूताईचा प्रश्न:</div>
+          <h3 class="text-base font-bold text-[var(--foreground)]">
+            "आपण एककातील हातचा १ दशकाच्या घरात का नेला?"
+          </h3>
+          <p class="text-xs text-[var(--muted-foreground)] mt-1">योग्य कारणावर टॅप करा किंवा आवाज देऊन सांगा:</p>
+        </div>
+
+        <!-- Multiple Choice Options (Large Touch Targets) -->
+        <div class="space-y-3">
+          <button onclick="selectOption(this, true)" class="touch-target w-full text-left p-3.5 rounded-2xl border-2 border-[var(--border)] hover:border-emerald-500 bg-[var(--card)] transition flex items-start gap-3 active:scale-95">
+            <div class="w-7 h-7 rounded-full bg-emerald-500/15 text-emerald-600 font-bold flex items-center justify-center flex-shrink-0 text-sm">अ</div>
+            <div class="flex-1 text-sm font-medium">
+              कारण १० सुटी नाणी मिळून १ दहा रुपयांची नोट (दशक) बनते.
+              <span class="block text-xs text-emerald-600 font-bold mt-1">✓ अचूक गणितीय कारण</span>
+            </div>
+          </button>
+
+          <button onclick="selectOption(this, false)" class="touch-target w-full text-left p-3.5 rounded-2xl border-2 border-[var(--border)] hover:border-red-500 bg-[var(--card)] transition flex items-start gap-3 active:scale-95">
+            <div class="w-7 h-7 rounded-full bg-red-500/15 text-red-600 font-bold flex items-center justify-center flex-shrink-0 text-sm">ब</div>
+            <div class="flex-1 text-sm font-medium">
+              कारण १ हा सर्वात लहान अंक आहे म्हणून.
+              <span class="block text-xs text-muted-foreground mt-1">चुकीचा पर्याय</span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-[var(--border)] flex items-center gap-3">
+        <button class="touch-target flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-2xl text-base flex items-center justify-center gap-2 shadow-md transition active:scale-95" onclick="showScreen('screen-teacher')">
+          <span>प्रगती नोंद पहा (शिक्षक स्क्रीन)</span>
+          <span class="text-xl">➔</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- SCREEN 6: TEACHER / PARENT DASHBOARD -->
+    <div id="screen-teacher" class="screen-view hidden flex-1 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-3 pb-2 border-b border-[var(--border)]">
+          <div class="flex items-center gap-2">
+            <span class="text-xs px-2.5 py-1 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-bold rounded-full">स्थानिक शिक्षक / पालक फलक</span>
+            <span class="text-xs text-emerald-600 font-bold">🔒 PIN Protected</span>
+          </div>
+          <span class="text-xs text-[var(--muted-foreground)]">Room DB (Local)</span>
+        </div>
+
+        <!-- Student Profile Summary -->
+        <div class="bg-[var(--content)] p-3 rounded-2xl border border-[var(--border)] mb-3">
+          <div class="flex items-center justify-between mb-2">
+            <div>
+              <div class="text-sm font-bold text-[var(--foreground)]">विद्यार्थी: गण्या (इयत्ता ३)</div>
+              <div class="text-xs text-[var(--muted-foreground)]">एकूण वेळ: ३२ मिनिटे • सत्र: ६</div>
+            </div>
+            <div class="text-right">
+              <div class="text-base font-extrabold text-emerald-600">९२%</div>
+              <div class="text-[10px] text-[var(--muted-foreground)]">स्थानमूल्य प्रावीण्य</div>
+            </div>
+          </div>
+          <div class="w-full bg-[var(--border)] h-2 rounded-full overflow-hidden">
+            <div class="bg-emerald-500 h-full rounded-full" style="width: 92%"></div>
+          </div>
+        </div>
+
+        <!-- Misconception Diagnostic Log -->
+        <div class="border border-[var(--border)] rounded-2xl p-3 mb-3 bg-[var(--card)]">
+          <div class="text-xs font-bold text-[var(--foreground)] mb-2 flex items-center justify-between">
+            <span>त्रुटी विश्लेषण (Common Mistakes):</span>
+            <span class="text-xs text-amber-600">२ नोंदी</span>
+          </div>
+          <div class="space-y-1.5 text-xs">
+            <div class="p-2 rounded-lg bg-amber-500/10 text-amber-800 dark:text-amber-300">
+              <span class="font-bold">हातचा विसरणे:</span> २ वेळा (उदा. ३७२ उत्तर दिले). प्रणालीने स्तर २ दृश्य मदत देऊन सुधारणा केली.
+            </div>
+            <div class="p-2 rounded-lg bg-blue-500/10 text-blue-800 dark:text-blue-300">
+              <span class="font-bold">स्थान अदलाबदल:</span> ० वेळा.
+            </div>
+          </div>
+        </div>
+
+        <!-- Zero Network Guarantee Proof -->
+        <div class="p-2.5 rounded-xl border border-emerald-500/30 bg-emerald-500/5 text-xs text-emerald-700 dark:text-emerald-300 flex items-center gap-2">
+          <span>🛡️</span>
+          <span>इंटरनेट संपर्क: शून्य. सर्व प्रगती डेटा फक्त या फोनवर सुरक्षित आहे.</span>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-[var(--border)] flex items-center gap-3">
+        <button class="touch-target flex-1 bg-[var(--primary)] text-[var(--primary-foreground)] font-bold rounded-2xl text-sm flex items-center justify-center gap-2 shadow-xs transition active:scale-95" onclick="showScreen('screen-hook')">
+          <span>नवीन पाठाची सुरुवात</span>
+          <span>🔄</span>
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    let currentNumeral = 'devanagari';
+    const devanagariDigits = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'];
+    let enteredValue = '';
+
+    function showScreen(screenId) {
+      document.querySelectorAll('.screen-view').forEach(s => s.classList.add('hidden'));
+      const target = document.getElementById(screenId);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.screen-tab').forEach(t => {
+        if (t.dataset.target === screenId) {
+          t.classList.add('bg-[var(--primary)]', 'text-[var(--primary-foreground)]');
+          t.classList.remove('bg-[var(--card)]', 'text-[var(--muted-foreground)]');
+        } else {
+          t.classList.remove('bg-[var(--primary)]', 'text-[var(--primary-foreground)]');
+          t.classList.add('bg-[var(--card)]', 'text-[var(--muted-foreground)]');
+        }
+      });
+    }
+
+    function switchNumerals(mode) {
+      currentNumeral = mode;
+      const devBtn = document.getElementById('toggle-devanagari');
+      const westBtn = document.getElementById('toggle-western');
+
+      if (mode === 'devanagari') {
+        devBtn.classList.add('bg-[var(--primary)]', 'text-[var(--primary-foreground)]');
+        devBtn.classList.remove('text-[var(--muted-foreground)]');
+        westBtn.classList.remove('bg-[var(--primary)]', 'text-[var(--primary-foreground)]');
+        westBtn.classList.add('text-[var(--muted-foreground)]');
+
+        document.querySelectorAll('.num-key').forEach((btn, idx) => {
+          btn.innerText = devanagariDigits[idx === 9 ? 0 : idx + 1];
+        });
+      } else {
+        westBtn.classList.add('bg-[var(--primary)]', 'text-[var(--primary-foreground)]');
+        westBtn.classList.remove('text-[var(--muted-foreground)]');
+        devBtn.classList.remove('bg-[var(--primary)]', 'text-[var(--primary-foreground)]');
+        devBtn.classList.add('text-[var(--muted-foreground)]');
+
+        document.querySelectorAll('.num-key').forEach((btn, idx) => {
+          btn.innerText = (idx === 9 ? 0 : idx + 1).toString();
+        });
+      }
+    }
+
+    function triggerRegrouping() {
+      document.getElementById('val-units').innerText = currentNumeral === 'devanagari' ? '२' : '2';
+      document.getElementById('val-tens').innerText = currentNumeral === 'devanagari' ? '८' : '8';
+      document.getElementById('carry-badge').classList.remove('hidden');
+
+      const unitsContainer = document.getElementById('units-container');
+      unitsContainer.innerHTML = `
+        <span class="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center">१</span>
+        <span class="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center">१</span>
+      `;
+
+      const tensContainer = document.getElementById('tens-container');
+      tensContainer.innerHTML += `
+        <span class="w-6 h-6 bg-red-500 text-white rounded-md text-[10px] font-bold flex items-center justify-center animate-pulse-subtle">हातचा</span>
+      `;
+
+      document.getElementById('regroup-panel').innerHTML = `
+        <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400">
+          ✓ १० नाणी बदलून १ दशक नोट हातचा म्हणून गेली! उरले २ एकक.
+        </div>
+      `;
+    }
+
+    function resetManipulative() {
+      document.getElementById('val-units').innerText = currentNumeral === 'devanagari' ? '१२' : '12';
+      document.getElementById('val-tens').innerText = currentNumeral === 'devanagari' ? '७' : '7';
+      document.getElementById('carry-badge').classList.add('hidden');
+      location.reload();
+    }
+
+    function pressKey(digit) {
+      const dStr = currentNumeral === 'devanagari' ? devanagariDigits[digit] : digit.toString();
+      enteredValue += dStr;
+      document.getElementById('answer-display').innerText = enteredValue;
+    }
+
+    function clearKeys() {
+      enteredValue = '';
+      document.getElementById('answer-display').innerText = '---';
+    }
+
+    function submitAnswer() {
+      if (enteredValue.includes('३८२') || enteredValue.includes('382')) {
+        alert('शाब्बास! अचूक उत्तर: ३८२ रुपये जमले!');
+        showScreen('screen-explain');
+      } else {
+        alert('पुन्हा प्रयत्न करा: एककातून आलेला हातचा १ मिळवला का?');
+      }
+    }
+
+    function selectOption(btn, isCorrect) {
+      if (isCorrect) {
+        btn.classList.add('border-emerald-500', 'bg-emerald-500/10');
+        alert('अतिशय सुंदर! १० एकक नाण्यांचा १ दशक बनतो म्हणूनच तो हातचा म्हणून दशकात जातो.');
+      } else {
+        btn.classList.add('border-red-500', 'bg-red-500/10');
+        alert('विचार करा: १ नाणे लहान असले तरी त्याचे मूल्य आणि घराचा नियम काय आहे?');
+      }
+    }
+  </script>
+</body>
+</html>

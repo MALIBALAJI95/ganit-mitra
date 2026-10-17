@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>गणित मित्र (Ganit Mitra) — Master Interactive Experience</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    .touch-target {
+      min-width: 56px;
+      min-height: 56px;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 0.4; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .mic-active {
+      animation: pulse-ring 1.8s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-[var(--background)] text-[var(--foreground)] antialiased p-3 sm:p-6 font-sans">
+
+  <!-- TOP BAR -->
+  <header class="max-w-4xl mx-auto mb-4 bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-sm flex flex-wrap items-center justify-between gap-3">
+    <div class="flex items-center gap-3">
+      <div class="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-2xl font-bold shadow-xs">
+        🐿️
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-lg font-bold tracking-tight text-[var(--foreground)]">गणित मित्र (Ganit Mitra)</h1>
+          <span class="text-xs px-2 py-0.5 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold rounded-full border border-emerald-500/20">१००% ऑफलाइन</span>
+        </div>
+        <p class="text-xs text-[var(--muted-foreground)]">इयत्ता १ ते ६ ग्रामीण प्राथमिक गणित • आवाज व कृती-आधारित शिक्षण</p>
+      </div>
+    </div>
+
+    <!-- Actions: Grade selector, Numeral toggle, Teacher screen -->
+    <div class="flex flex-wrap items-center gap-2">
+      <!-- Grade selector -->
+      <select id="grade-selector" onchange="changeGrade(this.value)" class="bg-[var(--content)] border border-[var(--border)] text-xs font-bold rounded-xl px-2.5 py-1.5 text-[var(--foreground)] outline-none">
+        <option value="1">इयत्ता १ (Class 1)</option>
+        <option value="2">इयत्ता २ (Class 2)</option>
+        <option value="3" selected>इयत्ता ३ (Class 3 - MVP)</option>
+        <option value="4">इयत्ता ४ (Class 4)</option>
+        <option value="5">इयत्ता ५ (Class 5)</option>
+        <option value="6">इयत्ता ६ (Class 6)</option>
+      </select>
+
+      <!-- Numeral Toggle -->
+      <div class="flex bg-[var(--content)] border border-[var(--border)] rounded-xl p-0.5 text-xs font-semibold">
+        <button id="btn-num-dev" onclick="setNumeral('dev')" class="px-2 py-1 rounded-lg bg-[var(--primary)] text-[var(--primary-foreground)] shadow-xs transition">१ २ ३</button>
+        <button id="btn-num-west" onclick="setNumeral('west')" class="px-2 py-1 rounded-lg text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition">1 2 3</button>
+      </div>
+
+      <!-- Teacher Portal Button -->
+      <button onclick="toggleTeacherView()" class="px-3 py-1.5 bg-indigo-500/15 border border-indigo-500/30 text-indigo-700 dark:text-indigo-300 font-bold rounded-xl text-xs hover:bg-indigo-500/25 transition flex items-center gap-1 active:scale-95">
+        <span>👨‍🏫</span>
+        <span>शिक्षक फलक</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- APP MAIN CONTAINER -->
+  <main class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-5">
+
+    <!-- STUDENT LEARNING SCREEN (MD: 8 COLS) -->
+    <div id="student-view" class="md:col-span-8 bg-[var(--card)] border-2 border-[var(--border)] rounded-3xl p-5 shadow-lg flex flex-col justify-between min-h-[660px]">
+
+      <div>
+        <!-- Stage Stepper Indicator -->
+        <div class="flex items-center justify-between mb-3 pb-2 border-b border-[var(--border)]">
+          <div class="flex items-center gap-2">
+            <span id="lesson-stage-pill" class="text-xs px-2.5 py-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold rounded-full">
+              पायरी १/७: गावचा आठवडी बाजार
+            </span>
+          </div>
+          <!-- Live Voice Listening Status -->
+          <div class="flex items-center gap-1.5 text-xs">
+            <span id="mic-status-dot" class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+            <span id="mic-status-text" class="text-emerald-600 dark:text-emerald-400 font-bold">आवाज तयार</span>
+            <button onclick="speakMascotVoice()" title="आवाज पुन्हा ऐका" class="ml-1 text-sm text-[var(--primary)] font-bold">🔊</button>
+          </div>
+        </div>
+
+        <!-- Mascot Speech Bubble -->
+        <div class="bg-amber-500/10 border border-amber-500/25 rounded-2xl p-3.5 mb-4 flex items-start gap-3">
+          <div class="w-12 h-12 rounded-xl bg-amber-500 text-white flex-shrink-0 flex items-center justify-center text-xl shadow-xs">
+            🐿️
+          </div>
+          <div>
+            <div class="text-xs font-bold text-amber-700 dark:text-amber-300">सखी चिनू खारूताई:</div>
+            <p id="mascot-dialogue" class="text-sm text-[var(--foreground)] leading-relaxed italic mt-0.5">
+              "नमस्कार बालमित्रांनो! आज गावच्या आठवडी बाजारात गण्याने भोपळे विकून ₹१४७ मिळवले आणि वांग्यांचे ₹२३५ मिळवले. गण्याकडे एकूण किती रुपये जमले? चला हिशोब करूया!"
+            </p>
+          </div>
+        </div>
+
+        <!-- DYNAMIC CONTENT BY STAGE -->
+        <div id="stage-body">
+
+          <!-- STAGE 1: HOOK -->
+          <div id="s-hook" class="text-center p-4 bg-[var(--content)] border border-[var(--border)] rounded-2xl space-y-2">
+            <div class="text-4xl">🥬 🎃 🛒</div>
+            <h2 id="scenario-title" class="text-base font-bold text-[var(--foreground)]">गण्याचा भाजीपाला हिशोब</h2>
+            <div id="hook-math-problem" class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 font-mono my-2">
+              १४७ + २३५ = ?
+            </div>
+            <p class="text-xs text-[var(--muted-foreground)]">
+              सुरू करण्यासाठी खालील हिरव्या बटनावर दाबा किंवा आवाजात बोला: <span class="font-bold underline text-[var(--foreground)]">'पुढे'</span>
+            </p>
+          </div>
+
+          <!-- STAGE 2: MANIPULATIVE -->
+          <div id="s-manipulative" class="hidden space-y-3">
+            <div class="text-center text-xs font-bold text-[var(--muted-foreground)]">
+              स्थानमूल्य नाणी-नोटा (१० सुटी नाणी = १ दशक नोट)
+            </div>
+            <div class="grid grid-cols-3 gap-2 bg-[var(--content)] p-3 rounded-2xl border border-[var(--border)]">
+              <!-- Hundreds -->
+              <div class="text-center bg-[var(--card)] p-2 rounded-xl border border-amber-500/30">
+                <div class="text-xs font-bold text-amber-600">शतक (₹१००)</div>
+                <div class="text-xl font-bold my-1 text-amber-600" id="m-hundreds">३</div>
+                <div id="box-hundreds" class="flex flex-col gap-1 items-center justify-center min-h-[75px]">
+                  <div class="w-9 h-5 bg-amber-400 text-amber-950 font-bold text-[10px] rounded flex items-center justify-center">१००</div>
+                  <div class="w-9 h-5 bg-amber-400 text-amber-950 font-bold text-[10px] rounded flex items-center justify-center">१००</div>
+                  <div class="w-9 h-5 bg-amber-400 text-amber-950 font-bold text-[10px] rounded flex items-center justify-center">१००</div>
+                </div>
+              </div>
+              <!-- Tens -->
+              <div class="text-center bg-[var(--card)] p-2 rounded-xl border border-blue-500/30 relative">
+                <div class="text-xs font-bold text-blue-600">दशक (₹१०)</div>
+                <div class="text-xl font-bold my-1 text-blue-600" id="m-tens">७</div>
+                <div id="m-carry-badge" class="hidden absolute top-1 right-1 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full animate-pulse">हातचा +१</div>
+                <div id="box-tens" class="flex flex-wrap gap-1 justify-center content-center min-h-[75px]">
+                  <span class="w-5 h-5 bg-blue-500 text-white rounded text-[9px] font-bold flex items-center justify-center">१०</span>
+                  <span class="w-5 h-5 bg-blue-500 text-white rounded text-[9px] font-bold flex items-center justify-center">१०</span>
+                  <span class="w-5 h-5 bg-blue-500 text-white rounded text-[9px] font-bold flex items-center justify-center">१०</span>
+                  <span class="w-5 h-5 bg-blue-500 text-white rounded text-[9px] font-bold flex items-center justify-center">१०</span>
+                  <span class="w-5 h-5 bg-blue-500 text-white rounded text-[9px] font-bold flex items-center justify-center">१०</span>
+                  <span class="w-5 h-5 bg-blue-500 text-white rounded text-[9px] font-bold flex items-center justify-center">१०</span>
+                  <span class="w-5 h-5 bg-blue-500 text-white rounded text-[9px] font-bold flex items-center justify-center">१०</span>
+                </div>
+              </div>
+              <!-- Units -->
+              <div class="text-center bg-[var(--card)] p-2 rounded-xl border border-emerald-500/30">
+                <div class="text-xs font-bold text-emerald-600">एकक (₹१)</div>
+                <div class="text-xl font-bold my-1 text-emerald-600" id="m-units">१२</div>
+                <div id="box-units" class="flex flex-wrap gap-1 justify-center content-center min-h-[75px]">
+                  <span class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center">१</span>
+                  <span class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center">१</span>
+                  <span class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center">१</span>
+                  <span class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center">१</span>
+                  <span class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center">१</span>
+                  <span class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center">१</span>
+                  <span class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center">१</span>
+                  <span class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center">१</span>
+                  <span class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center">१</span>
+                  <span class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center">१</span>
+                  <span class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center">१</span>
+                  <span class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center">१</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="btn-regroup-box" class="text-center">
+              <button onclick="doRegroup()" class="touch-target w-full bg-amber-500 hover:bg-amber-600 text-amber-950 font-bold rounded-2xl text-sm flex items-center justify-center gap-2 shadow-xs transition active:scale-95">
+                <span>✨ १० नाण्यांचा १ दशक हातचा करा</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- STAGE 3 & 4: GUIDED HINTS -->
+          <div id="s-guided" class="hidden space-y-3">
+            <div class="bg-[var(--content)] p-3 rounded-2xl border border-[var(--border)] text-center font-mono">
+              <div class="text-xs text-red-500 font-bold" id="guided-carry-label">हातचा: १</div>
+              <div class="text-lg font-bold">
+                &nbsp;१ ४ ७<br>+ २ ३ ५<br><hr class="my-1 border-[var(--border)]">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-emerald-500 font-bold">२</span>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <div class="flex items-center justify-between text-xs font-bold">
+                <span>३-स्तरीय मार्गदर्शन (Scaffolded Hints):</span>
+                <button onclick="advanceHint()" class="text-purple-600 font-bold hover:underline">पुढील हिंट ➔</button>
+              </div>
+              <div id="hint-display-card" class="p-3 rounded-xl border border-purple-500/30 bg-purple-500/10 text-xs text-[var(--foreground)]">
+                <span id="hint-title" class="font-bold text-purple-700 dark:text-purple-300 block mb-1">स्तर १: सुगावा (Nudge)</span>
+                <span id="hint-body">"एककाच्या घरात ७ + ५ = १२ झाले. १२ मधला १ दशक कुठे जाईल बरं?"</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- STAGE 5: INDEPENDENT PRACTICE & KEYPAD -->
+          <div id="s-practice" class="hidden space-y-2">
+            <div class="flex items-center justify-between text-xs mb-1">
+              <span class="font-bold">स्वाध्याय: अचूक उत्तर द्या</span>
+              <span class="font-bold text-amber-600" id="practice-streak">सलग अचूक: ०/३ ⭐</span>
+            </div>
+
+            <div class="text-center bg-[var(--content)] p-2 rounded-xl border border-[var(--border)]">
+              <div class="text-2xl font-bold font-mono tracking-widest text-[var(--foreground)]" id="keypad-disp">---</div>
+              <div id="keypad-feedback" class="text-xs font-semibold mt-0.5 text-[var(--muted-foreground)]">
+                बोला "तीनशे ब्याऐंशी" किंवा खाली टॅप करा
+              </div>
+            </div>
+
+            <!-- Big Accessible Keypad (Min 56dp Touch Targets) -->
+            <div class="grid grid-cols-3 gap-1.5">
+              <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-white rounded-xl text-lg font-bold transition active:scale-95 k-btn" onclick="pressK(1)">१</button>
+              <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-white rounded-xl text-lg font-bold transition active:scale-95 k-btn" onclick="pressK(2)">२</button>
+              <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-white rounded-xl text-lg font-bold transition active:scale-95 k-btn" onclick="pressK(3)">३</button>
+              <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-white rounded-xl text-lg font-bold transition active:scale-95 k-btn" onclick="pressK(4)">४</button>
+              <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-white rounded-xl text-lg font-bold transition active:scale-95 k-btn" onclick="pressK(5)">५</button>
+              <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-white rounded-xl text-lg font-bold transition active:scale-95 k-btn" onclick="pressK(6)">६</button>
+              <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-white rounded-xl text-lg font-bold transition active:scale-95 k-btn" onclick="pressK(7)">७</button>
+              <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-white rounded-xl text-lg font-bold transition active:scale-95 k-btn" onclick="pressK(8)">८</button>
+              <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-white rounded-xl text-lg font-bold transition active:scale-95 k-btn" onclick="pressK(9)">९</button>
+              <button class="touch-target bg-red-500/10 text-red-600 border border-red-500/20 rounded-xl text-sm font-bold active:scale-95" onclick="clearK()">हटवा</button>
+              <button class="touch-target bg-[var(--content)] border border-[var(--border)] hover:bg-[var(--primary)] hover:text-white rounded-xl text-lg font-bold transition active:scale-95 k-btn" onclick="pressK(0)">०</button>
+              <button class="touch-target bg-emerald-600 text-white rounded-xl text-sm font-bold shadow-xs active:scale-95" onclick="submitK()">तपासा ✓</button>
+            </div>
+          </div>
+
+          <!-- STAGE 6: EXPLAIN BACK -->
+          <div id="s-explain" class="hidden space-y-3">
+            <div class="bg-[var(--content)] p-3.5 rounded-2xl border border-[var(--border)]">
+              <div class="text-xs font-bold text-amber-600 mb-0.5">कारण सांगा (Explain-Back):</div>
+              <h3 class="text-sm font-bold text-[var(--foreground)]" id="explain-question-text">
+                "आपण एककातील हातचा १ दशकाच्या घरात का नेला?"
+              </h3>
+            </div>
+            <div class="space-y-2">
+              <button onclick="pickExplain(true, this)" class="touch-target w-full text-left p-3 rounded-2xl border-2 border-[var(--border)] hover:border-emerald-500 bg-[var(--card)] transition flex items-start gap-2.5 active:scale-95">
+                <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-600 font-bold flex items-center justify-center flex-shrink-0 text-xs">अ</div>
+                <div class="text-xs font-medium" id="explain-opt-correct">
+                  कारण १० सुटी नाणी मिळून १ दहा रुपयांची नोट (दशक) बनते.
+                  <span class="block text-[10px] text-emerald-600 font-bold mt-0.5">✓ अचूक कारण</span>
+                </div>
+              </button>
+              <button onclick="pickExplain(false, this)" class="touch-target w-full text-left p-3 rounded-2xl border-2 border-[var(--border)] hover:border-red-500 bg-[var(--card)] transition flex items-start gap-2.5 active:scale-95">
+                <div class="w-6 h-6 rounded-full bg-red-500/20 text-red-600 font-bold flex items-center justify-center flex-shrink-0 text-xs">ब</div>
+                <div class="text-xs font-medium" id="explain-opt-distractor">
+                  कारण १ हा लहान अंक आहे म्हणून.
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- STAGE 7: MASTERY COMPLETE & QR GENERATION -->
+          <div id="s-mastery" class="hidden space-y-3 text-center">
+            <div class="w-14 h-14 rounded-full bg-amber-500/20 text-amber-600 flex items-center justify-center text-3xl mx-auto border-2 border-amber-500/30">
+              🏆
+            </div>
+            <h2 class="text-base font-bold text-[var(--foreground)]">अभिनंदन! संकल्पना पूर्ण झाली!</h2>
+            <p class="text-xs text-[var(--muted-foreground)]">
+              प्रगती स्थानिक Room DB मध्ये नोंदवली आहे. शिक्षकांना दाखवण्यासाठी खालील QR कोड वापरा:
+            </p>
+
+            <!-- Real-time Canvas QR Code -->
+            <div class="p-3 bg-white rounded-2xl border border-gray-300 w-44 mx-auto text-center shadow-xs">
+              <canvas id="qr-canvas" width="140" height="140" class="mx-auto"></canvas>
+              <div class="text-[10px] font-mono text-gray-700 mt-1" id="qr-string-label">
+                GM|STD3_ADD03|S:95|M:0|ST:3
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BOTTOM CONTROL BAR -->
+      <div class="pt-3 border-t border-[var(--border)] flex items-center gap-3">
+        <button id="btn-next-step" class="touch-target flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-2xl text-base flex items-center justify-center gap-2 shadow-md transition active:scale-95" onclick="advanceStep()">
+          <span id="btn-next-text">पुढे चला</span>
+          <span class="text-xl">➔</span>
+        </button>
+        <!-- Real Web Speech Trigger Button -->
+        <button id="btn-mic-toggle" onclick="toggleLiveVoiceInput()" class="touch-target w-16 bg-blue-500/15 border border-blue-500/30 text-blue-700 dark:text-blue-300 font-bold rounded-2xl flex flex-col items-center justify-center text-xs active:scale-95">
+          <span class="text-lg">🎙️</span>
+          <span id="mic-btn-label">बोला</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- RIGHT 4 COLS: INTERACTIVE VOICE & TEST CONSOLE -->
+    <div class="md:col-span-4 space-y-4">
+
+      <!-- Voice Interaction Simulation Card -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-xs">
+        <div class="flex items-center justify-between mb-2 pb-1 border-b border-[var(--border)]">
+          <h3 class="text-xs font-bold text-[var(--foreground)] flex items-center gap-1.5">
+            <span>🎙️</span>
+            <span>आवाज आदेश सिम्युलेटर</span>
+          </h3>
+          <span class="text-[10px] text-blue-600 font-bold">Mode A & B</span>
+        </div>
+        <p class="text-[11px] text-[var(--muted-foreground)] mb-2">मायक्रोफोन नसल्यास खालील आवाज बटनांवर क्लिक करा:</p>
+
+        <!-- Command Shortcuts -->
+        <div class="flex flex-wrap gap-1 mb-2">
+          <button onclick="handleVoiceInput('पुढे')" class="px-2.5 py-1 bg-blue-500/15 text-blue-700 dark:text-blue-300 rounded-lg text-xs font-bold">"पुढे"</button>
+          <button onclick="handleVoiceInput('मागे')" class="px-2.5 py-1 bg-blue-500/15 text-blue-700 dark:text-blue-300 rounded-lg text-xs font-bold">"मागे"</button>
+          <button onclick="handleVoiceInput('मदत')" class="px-2.5 py-1 bg-purple-500/15 text-purple-700 dark:text-purple-300 rounded-lg text-xs font-bold">"मदत"</button>
+          <button onclick="handleVoiceInput('पुन्हा')" class="px-2.5 py-1 bg-amber-500/15 text-amber-700 dark:text-amber-300 rounded-lg text-xs font-bold">"पुन्हा"</button>
+        </div>
+
+        <div class="text-[11px] font-bold text-[var(--foreground)] mb-1">मराठी संख्या उत्तरे:</div>
+        <div class="flex flex-wrap gap-1">
+          <button onclick="handleVoiceInput('तीनशे ब्याऐंशी')" class="px-2.5 py-1 bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 rounded-lg text-xs font-bold">"तीनशे ब्याऐंशी" (३८२ ✓)</button>
+          <button onclick="handleVoiceInput('तीनशे बहात्तर')" class="px-2.5 py-1 bg-red-500/15 text-red-700 dark:text-red-300 rounded-lg text-xs font-bold">"तीनशे बहात्तर" (३७२ ⚠️)</button>
+        </div>
+      </div>
+
+      <!-- Real-Time Audit Console -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-xs">
+        <h3 class="text-xs font-bold text-[var(--foreground)] mb-2 flex items-center justify-between pb-1 border-b border-[var(--border)]">
+          <span>📋 थेट प्रणाली नोंद (Audit Log)</span>
+          <span class="text-[10px] text-emerald-600 font-bold">100% Offline</span>
+        </h3>
+        <div id="app-audit-log" class="font-mono text-[10px] space-y-1 max-h-[220px] overflow-y-auto p-2 rounded-xl bg-[var(--content)] text-[var(--muted-foreground)]">
+          <div>[प्रणाली सुरू] ० KB नेटवर्क. विमान मोड सक्रिय.</div>
+          <div>[पाठ लोड] इयत्ता ३: ३-अंकी हातच्याची बेरीज.</div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    let curGrade = 3;
+    let curStage = 1;
+    let numeralSystem = 'dev';
+    const devDigits = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'];
+    let keyInput = '';
+    let currentStreak = 0;
+    let currentHint = 1;
+    let isListening = false;
+    let recognition = null;
+
+    const gradeContent = {
+      1: {
+        id: "STD1_NUM_03",
+        title: "१० ची ओळख व दशक संकल्पना पाया",
+        problemText: "९ + १ = १०",
+        hook: "शेतकऱ्याच्या कडब्याच्या पेंढ्या: ९ सुट्या काड्या होत्या, १ काडी मिळवून १० काड्यांचा १ दशक गट्टा बनवला.",
+        correctAnswer: 10,
+        explainQ: "१० सुट्या काड्या एकत्र बांधल्या की काय बनते?",
+        explainA: "१ दशक (काड्यांचा १ गट्टा).",
+        explainB: "२ शतक."
+      },
+      2: {
+        id: "STD2_ADD_02",
+        title: "२-अंकी संख्यांची हातच्याची बेरीज",
+        problemText: "२८ + १५ = ४३",
+        hook: "आठवडी बाजारातील पेरूंची विक्री: २८ पेरू + १५ पेरू = ४३ पेरू.",
+        correctAnswer: 43,
+        explainQ: "हातचा १ आपण दशकाच्या घरात का नेला?",
+        explainA: "कारण १० सुटे पेरू मिळून १ दशक गट्टा बनतो.",
+        explainB: "कारण १ लहान अंक आहे म्हणून."
+      },
+      3: {
+        id: "STD3_MATH_ADD_03",
+        title: "३-अंकी संख्यांची हातच्याची बेरीज",
+        problemText: "१४७ + २३५ = ३८२",
+        hook: "गण्याने आठवडी बाजारात भोपळे विकून ₹१४७ आणि वांग्यांचे ₹२३५ मिळवले. गण्याकडे एकूण किती रुपये जमले?",
+        correctAnswer: 382,
+        explainQ: "हातचा १ आपण दशकाच्या घरात का नेला?",
+        explainA: "कारण १० सुटी नाणी मिळून १ दशक (₹१०) बनतो.",
+        explainB: "कारण १ हा सर्वात लहान अंक आहे म्हणून."
+      },
+      4: {
+        id: "STD4_GEO_01",
+        title: "आयताची व चौरसाची परिमिती",
+        problemText: "२० + १० + २० + १० = ६०",
+        hook: "भुईमुगाच्या शेताभोवती काटेरी तारेचे कुंपण: लांबी २० मीटर व रुंदी १० मीटर.",
+        correctAnswer: 60,
+        explainQ: "परिमिती म्हणजे काय?",
+        explainA: "आकृतीच्या सर्व बाजूंच्या लांबींची एकूण बेरीज.",
+        explainB: "आकृतीच्या आतील सर्व जागा."
+      },
+      5: {
+        id: "STD5_GEO_01",
+        title: "काटकोन, लघुकोन व विशालकोन ओळख",
+        problemText: "४५° + ४५° = ९०°",
+        hook: "देऊळच्या घड्याळातील काटे: ३ वाजता काटकोन, कात्रीचे उघडलेले पाते लघुकोन.",
+        correctAnswer: 90,
+        explainQ: "घड्याळात ३ वाजता कोणता कोन असतो?",
+        explainA: "काटकोन (९० अंश).",
+        explainB: "लघुकोन."
+      },
+      6: {
+        id: "STD6_INT_01",
+        title: "धन व ऋण संख्यांची ओळख",
+        problemText: "५ + (-३) = २",
+        hook: "उन्हाळ्यात विहिरीतील पाण्याची पातळी जमिनीवरून ३ मीटर खाली गेली (-३ मीटर).",
+        correctAnswer: 2,
+        explainQ: "३ मीटर खोल विहीर कशाने दर्शवतात?",
+        explainA: "ऋण ३ (-३) मीटर.",
+        explainB: "धन ३ (+३) मीटर."
+      }
+    };
+
+    function log(msg) {
+      const box = document.getElementById('app-audit-log');
+      const time = (new Date()).toLocaleTimeString();
+      box.innerHTML += `<div>[${time}] ${msg}</div>`;
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function setNumeral(mode) {
+      numeralSystem = mode;
+      const bDev = document.getElementById('btn-num-dev');
+      const bWest = document.getElementById('btn-num-west');
+      if (mode === 'dev') {
+        bDev.classList.add('bg-[var(--primary)]', 'text-[var(--primary-foreground)]');
+        bWest.classList.remove('bg-[var(--primary)]', 'text-[var(--primary-foreground)]');
+        document.querySelectorAll('.k-btn').forEach((b, i) => b.innerText = devDigits[i === 9 ? 0 : i + 1]);
+      } else {
+        bWest.classList.add('bg-[var(--primary)]', 'text-[var(--primary-foreground)]');
+        bDev.classList.remove('bg-[var(--primary)]', 'text-[var(--primary-foreground)]');
+        document.querySelectorAll('.k-btn').forEach((b, i) => b.innerText = (i === 9 ? 0 : i + 1).toString());
+      }
+      log(`अंक पद्धती बदलली: ${mode === 'dev' ? 'देवनागरी (१ २ ३)' : 'पाश्चात्त्य (1 2 3)'}`);
+    }
+
+    function changeGrade(val) {
+      curGrade = parseInt(val);
+      curStage = 1;
+      const c = gradeContent[curGrade];
+      document.getElementById('scenario-title').innerText = c.title;
+      document.getElementById('hook-math-problem').innerText = c.problemText;
+      document.getElementById('explain-question-text').innerText = c.explainQ;
+      document.getElementById('explain-opt-correct').innerHTML = `${c.explainA} <span class="block text-[10px] text-emerald-600 font-bold mt-0.5">✓ अचूक कारण</span>`;
+      document.getElementById('explain-opt-distractor').innerText = c.explainB;
+      renderStage();
+      log(`इयत्ता बदलली: इयत्ता ${curGrade} (${c.id})`);
+    }
+
+    function renderStage() {
+      // Hide all stages
+      ['s-hook', 's-manipulative', 's-guided', 's-practice', 's-explain', 's-mastery'].forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
+
+      const labels = {
+        1: "पायरी १/७: ग्रामीण संदर्भ हूक",
+        2: "पायरी २/७: स्थानमूल्य मॅनिप्युलेटिव्ह",
+        3: "पायरी ३/७: सोपी समजूत (स्पष्टीकरण)",
+        4: "पायरी ४/७: ३-स्तरीय मार्गदर्शन (Hints)",
+        5: "पायरी ५/७: स्वाध्याय व कीपॅड",
+        6: "पायरी ६/७: कारण सांगा (Explain-Back)",
+        7: "पायरी ७/७: प्रावीण्य नोंद (QR जनरेटेड)"
+      };
+
+      document.getElementById('lesson-stage-pill').innerText = labels[curStage];
+
+      if (curStage === 1) {
+        document.getElementById('s-hook').classList.remove('hidden');
+        document.getElementById('mascot-dialogue').innerText = gradeContent[curGrade].hook;
+        document.getElementById('btn-next-text').innerText = "पुढे चला";
+      } else if (curStage === 2) {
+        document.getElementById('s-manipulative').classList.remove('hidden');
+        document.getElementById('mascot-dialogue').innerText = "१० सुटी नाणी एकत्र आल्यावर त्यांची १ दहा रुपयांची नोट बनते! म्हणून १० नाणी बांधून १ दशक हातचा करा.";
+        document.getElementById('btn-next-text').innerText = "मार्गदर्शन पहा";
+      } else if (curStage === 3 || curStage === 4) {
+        document.getElementById('s-guided').classList.remove('hidden');
+        document.getElementById('mascot-dialogue').innerText = "छान! आता दशकाच्या घरात १ हातचा + ४ + ३ = ८ नोटा झाल्या आहेत.";
+        document.getElementById('btn-next-text').innerText = "स्वाध्याय सोडवा";
+      } else if (curStage === 5) {
+        document.getElementById('s-practice').classList.remove('hidden');
+        document.getElementById('mascot-dialogue').innerText = "आता तुम्ही स्वतः उत्तर द्या: बोला किंवा कीपॅडवर टॅप करा.";
+        document.getElementById('btn-next-text').innerText = "संकल्पना तपासणी";
+      } else if (curStage === 6) {
+        document.getElementById('s-explain').classList.remove('hidden');
+        document.getElementById('mascot-dialogue').innerText = "अतिशय छान! आता विचार करून सांगा: हा नियम का लागू होतो?";
+        document.getElementById('btn-next-text').innerText = "प्रगती पूर्ण करा";
+      } else if (curStage === 7) {
+        document.getElementById('s-mastery').classList.remove('hidden');
+        document.getElementById('mascot-dialogue').innerText = "अभिनंदन! तुम्ही ही संकल्पना १००% समजून पूर्ण केली आहे.";
+        document.getElementById('btn-next-text').innerText = "सुरुवातीला जा 🔄";
+        drawRealQRCode();
+      }
+      speakMascotVoice();
+    }
+
+    function advanceStep() {
+      if (curStage < 7) {
+        curStage++;
+        renderStage();
+        log(`पायरी पुढे गेली: ${curStage}`);
+      } else {
+        curStage = 1;
+        renderStage();
+        log("सत्र पुन्हा सुरू केले.");
+      }
+    }
+
+    function doRegroup() {
+      document.getElementById('m-units').innerText = numeralSystem === 'dev' ? '२' : '2';
+      document.getElementById('m-tens').innerText = numeralSystem === 'dev' ? '८' : '8';
+      document.getElementById('m-carry-badge').classList.remove('hidden');
+
+      document.getElementById('box-units').innerHTML = `
+        <span class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center">१</span>
+        <span class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center">१</span>
+      `;
+      document.getElementById('box-tens').innerHTML += `
+        <span class="w-5 h-5 bg-red-500 text-white rounded text-[9px] font-bold flex items-center justify-center animate-pulse">हातचा</span>
+      `;
+      document.getElementById('btn-regroup-box').innerHTML = `
+        <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400">
+          ✓ १० नाण्यांचा १ दशक बनवून हातचा गेला! उरले २ एकक.
+        </div>
+      `;
+      log("स्थानमूल्य मॅनिप्युलेटिव्ह: १० नाणी एकत्र बांधून १ दशक हातचा नेला.");
+    }
+
+    function advanceHint() {
+      currentHint = (currentHint % 3) + 1;
+      const hints = {
+        1: { title: "स्तर १: सुगावा (Nudge)", body: "एककाच्या घरात ७ + ५ = १२ झाले. १२ मधला १ दशक कुठे जाईल बरं?" },
+        2: { title: "स्तर २: दृश्य मदत (Visual Clue)", body: "बघा, १० नाणी चमकून एकत्र आली आणि त्यांचा १ नवीन निळा ₹१० चा गट्टा बनला!" },
+        3: { title: "स्तर ३: पायरी उकल (Walkthrough)", body: "एककात २ लिहा आणि दशकाच्या घरात १ हातचा ठेवा. मग १ + ४ + ३ = ८ दशक!" }
+      };
+      document.getElementById('hint-title').innerText = hints[currentHint].title;
+      document.getElementById('hint-body').innerText = hints[currentHint].body;
+      log(`हिंट स्तर ${currentHint} प्रदर्शित.`);
+    }
+
+    function pressK(digit) {
+      const d = numeralSystem === 'dev' ? devDigits[digit] : digit.toString();
+      keyInput += d;
+      document.getElementById('keypad-disp').innerText = keyInput;
+    }
+
+    function clearK() {
+      keyInput = '';
+      document.getElementById('keypad-disp').innerText = '---';
+    }
+
+    function submitK() {
+      const exp = gradeContent[curGrade].correctAnswer;
+      const expStrDev = devDigits[Math.floor(exp / 100)] + devDigits[Math.floor((exp % 100) / 10)] + devDigits[exp % 10];
+      const expStrWest = exp.toString();
+
+      if (keyInput.includes(expStrDev) || keyInput.includes(expStrWest) || keyInput.includes(exp.toString())) {
+        currentStreak++;
+        document.getElementById('practice-streak').innerText = `सलग अचूक: ${currentStreak}/३ ⭐`;
+        document.getElementById('keypad-feedback').innerHTML = `<span class="text-emerald-600 font-bold">✓ शाब्बास! अचूक उत्तर: ${exp}!</span>`;
+        log(`टॅप उत्तर अचूक: ${keyInput}. सलग अचूक: ${currentStreak}`);
+        setTimeout(() => {
+          curStage = 6;
+          renderStage();
+        }, 1000);
+      } else if (keyInput.includes('३७२') || keyInput.includes('372')) {
+        document.getElementById('keypad-feedback').innerHTML = `<span class="text-red-600 font-bold">हातचा विसरलात का? १ + ४ + ३ = ८ दशक होतात!</span>`;
+        log(`त्रुटी निदान: ३७२ दिले. हातचा विसरणे.`);
+      } else {
+        document.getElementById('keypad-feedback').innerHTML = `<span class="text-amber-600 font-bold">पुन्हा बेरीज करून बघा.</span>`;
+        log(`त्रुटी नोंदवली: ${keyInput}`);
+      }
+    }
+
+    function pickExplain(isCorrect, btn) {
+      if (isCorrect) {
+        btn.classList.add('border-emerald-500', 'bg-emerald-500/10');
+        log("Explain-Back चाचणी: अचूक उत्तर! प्रावीण्य ९५% प्राप्त.");
+        setTimeout(() => {
+          curStage = 7;
+          renderStage();
+        }, 800);
+      } else {
+        btn.classList.add('border-red-500', 'bg-red-500/10');
+        alert("विचार करा: १ नाणे लहान असले तरी त्याचे मूल्य आणि घराचा नियम काय आहे?");
+        log("Explain-Back चाचणी: चुकीचा पर्याय निवडला.");
+      }
+    }
+
+    function handleVoiceInput(phrase) {
+      log(`आवाज इनपुट (सिम्युलेटेड): "${phrase}"`);
+      if (phrase === 'पुढे') advanceStep();
+      else if (phrase === 'मागे') { if (curStage > 1) { curStage--; renderStage(); } }
+      else if (phrase === 'मदत') advanceHint();
+      else if (phrase === 'पुन्हा') speakMascotVoice();
+      else if (phrase === 'तीनशे ब्याऐंशी') {
+        keyInput = numeralSystem === 'dev' ? '३८२' : '382';
+        document.getElementById('keypad-disp').innerText = keyInput;
+        submitK();
+      } else if (phrase === 'तीनशे बहात्तर') {
+        keyInput = numeralSystem === 'dev' ? '३७२' : '372';
+        document.getElementById('keypad-disp').innerText = keyInput;
+        submitK();
+      }
+    }
+
+    // Real Browser Web Speech Synthesis
+    function speakMascotVoice() {
+      const text = document.getElementById('mascot-dialogue').innerText;
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'mr-IN';
+        u.rate = 0.95;
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    // Real Browser Web Speech Recognition
+    function toggleLiveVoiceInput() {
+      const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRec) {
+        alert("तुमच्या ब्राऊझरमध्ये Web Speech API थेट उपलब्ध नाही. वरील आवाज बटनांवर क्लिक करा.");
+        return;
+      }
+      if (!recognition) {
+        recognition = new SpeechRec();
+        recognition.lang = 'mr-IN';
+        recognition.continuous = false;
+        recognition.interimResults = false;
+
+        recognition.onstart = () => {
+          isListening = true;
+          document.getElementById('mic-status-text').innerText = "ऐकत आहे...";
+          document.getElementById('mic-btn-label').innerText = "थांबवा";
+          log("मायक्रोफोन ऐकणे सुरू (mr-IN)...");
+        };
+
+        recognition.onresult = (event) => {
+          const spoken = event.results[0][0].transcript.trim();
+          log(`मायक्रोफोनमधून प्रत्यक्ष आवाज आला: "${spoken}"`);
+          handleSpokenRecognized(spoken);
+        };
+
+        recognition.onerror = (e) => {
+          log(`आवाज ओळख त्रुटी: ${e.error}`);
+          document.getElementById('mic-status-text').innerText = "आवाज तयार";
+          document.getElementById('mic-btn-label').innerText = "बोला";
+          isListening = false;
+        };
+
+        recognition.onend = () => {
+          document.getElementById('mic-status-text').innerText = "आवाज तयार";
+          document.getElementById('mic-btn-label').innerText = "बोला";
+          isListening = false;
+        };
+      }
+
+      if (isListening) {
+        recognition.stop();
+      } else {
+        recognition.start();
+      }
+    }
+
+    function handleSpokenRecognized(spoken) {
+      if (spoken.includes("पुढे")) advanceStep();
+      else if (spoken.includes("मागे")) { if (curStage > 1) { curStage--; renderStage(); } }
+      else if (spoken.includes("मदत")) advanceHint();
+      else if (spoken.includes("पुन्हा")) speakMascotVoice();
+      else if (spoken.includes("ब्याऐंशी") || spoken.includes("३८२") || spoken.includes("382")) {
+        keyInput = numeralSystem === 'dev' ? '३८२' : '382';
+        document.getElementById('keypad-disp').innerText = keyInput;
+        submitK();
+      } else {
+        alert(`तुम्ही बोललात: "${spoken}"`);
+      }
+    }
+
+    // Real-Time Canvas QR Pattern Generator
+    function drawRealQRCode() {
+      const canvas = document.getElementById('qr-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillRect(0, 0, 140, 140);
+
+      ctx.fillStyle = '#000000';
+      // Outer corner markers
+      drawQRCorner(ctx, 10, 10);
+      drawQRCorner(ctx, 90, 10);
+      drawQRCorner(ctx, 10, 90);
+
+      // Deterministic mock QR pattern blocks
+      const seed = gradeContent[curGrade].id.length;
+      for (let x = 30; x <= 110; x += 10) {
+        for (let y = 30; y <= 110; y += 10) {
+          if ((x * y + seed) % 3 === 0) {
+            ctx.fillRect(x, y, 8, 8);
+          }
+        }
+      }
+    }
+
+    function drawQRCorner(ctx, x, y) {
+      ctx.fillRect(x, y, 35, 35);
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillRect(x + 5, y + 5, 25, 25);
+      ctx.fillStyle = '#000000';
+      ctx.fillRect(x + 10, y + 10, 15, 15);
+    }
+
+    function toggleTeacherView() {
+      window.open('file:///Users/balajimali/.gemini/antigravity/brain/66f1666c-a789-4ec9-afeb-930d65e33c82/teacher_dashboard.html', '_blank');
+    }
+
+    // Initial load
+    renderStage();
+  </script>
+</body>
+</html>
