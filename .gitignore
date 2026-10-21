@@ -1,0 +1,15 @@
+# Virtual environments
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Model weights and audio caches (downloaded via benchmark scripts)
+models/
+*.mp3
+*.wav
+*.opus
+/tmp/
+
+# OS files
+.DS_Store

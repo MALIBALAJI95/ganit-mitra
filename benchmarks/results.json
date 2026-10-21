@@ -1,0 +1,55 @@
+{
+  "vad": {
+    "model_file": "models/vad/silero_vad.onnx",
+    "file_size_mb": 1.7237873077392578,
+    "load_time_mean_ms": 14.13213340274524,
+    "load_time_std_ms": 13.893026886970446,
+    "memory_delta_mb": 33.234375
+  },
+  "asr_loading": {
+    "model_file": "models/asr/model.int8.onnx",
+    "file_size_mb": 188.4418420791626,
+    "tokens_file": "models/asr/tokens.txt",
+    "tokens_size_kb": 66.0205078125,
+    "load_time_mean_ms": 136.16354999685427,
+    "load_time_min_ms": 115.91899999621091,
+    "load_time_max_ms": 184.72570799349342,
+    "memory_delta_mb": 804.296875
+  },
+  "asr_latency": [
+    {
+      "audio_duration_sec": 0.5,
+      "inference_latency_ms": 11.668008200649638,
+      "rtf": 0.023336016401299276
+    },
+    {
+      "audio_duration_sec": 1.0,
+      "inference_latency_ms": 19.69614979752805,
+      "rtf": 0.01969614979752805
+    },
+    {
+      "audio_duration_sec": 2.0,
+      "inference_latency_ms": 35.089783200237434,
+      "rtf": 0.01754489160011872
+    },
+    {
+      "audio_duration_sec": 3.0,
+      "inference_latency_ms": 62.694558600196615,
+      "rtf": 0.020898186200065536
+    },
+    {
+      "audio_duration_sec": 5.0,
+      "inference_latency_ms": 98.45213299995521,
+      "rtf": 0.019690426599991043
+    }
+  ],
+  "e2e_latency": {
+    "vad_endpoint_silence_window_ms": 250.0,
+    "asr_inference_ms": 35.089783200237434,
+    "marathi_grammar_parser_ms": 1.5,
+    "audio_bank_lookup_ms": 0.5,
+    "total_e2e_latency_ms": 287.08978320023743,
+    "target_constraint_ms": 2500.0,
+    "headroom_percentage": 88.5164086719905
+  }
+}
