@@ -1,0 +1,886 @@
+{
+  "summary": {
+    "clean": {
+      "total": 15,
+      "correct": 13
+    },
+    "noise_15db": {
+      "total": 15,
+      "correct": 13
+    },
+    "slow_0.85x": {
+      "total": 15,
+      "correct": 11
+    },
+    "fast_1.15x": {
+      "total": 15,
+      "correct": 13
+    }
+  },
+  "details": [
+    {
+      "gt": "सात",
+      "pred": "सात",
+      "category": "number_single",
+      "variant": "clean",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " स",
+        "ात"
+      ]
+    },
+    {
+      "gt": "सात",
+      "pred": "सा",
+      "category": "number_single",
+      "variant": "noise_15db",
+      "exact_match": false,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " सा"
+      ]
+    },
+    {
+      "gt": "सात",
+      "pred": "सात",
+      "category": "number_single",
+      "variant": "slow_0.85x",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " स",
+        "ात"
+      ]
+    },
+    {
+      "gt": "सात",
+      "pred": "सात",
+      "category": "number_single",
+      "variant": "fast_1.15x",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " स",
+        "ात"
+      ]
+    },
+    {
+      "gt": "आठ",
+      "pred": "आठ",
+      "category": "number_single",
+      "variant": "clean",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " आ",
+        "ठ"
+      ]
+    },
+    {
+      "gt": "आठ",
+      "pred": "आठ",
+      "category": "number_single",
+      "variant": "noise_15db",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " आ",
+        "ठ"
+      ]
+    },
+    {
+      "gt": "आठ",
+      "pred": "आठ",
+      "category": "number_single",
+      "variant": "slow_0.85x",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " आ",
+        "ठ"
+      ]
+    },
+    {
+      "gt": "आठ",
+      "pred": "आठ",
+      "category": "number_single",
+      "variant": "fast_1.15x",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " आ",
+        "ठ"
+      ]
+    },
+    {
+      "gt": "पाच",
+      "pred": "पाच",
+      "category": "number_single",
+      "variant": "clean",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " पा",
+        "च"
+      ]
+    },
+    {
+      "gt": "पाच",
+      "pred": "पाच",
+      "category": "number_single",
+      "variant": "noise_15db",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " पा",
+        "च"
+      ]
+    },
+    {
+      "gt": "पाच",
+      "pred": "पाच",
+      "category": "number_single",
+      "variant": "slow_0.85x",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " पा",
+        "च"
+      ]
+    },
+    {
+      "gt": "पाच",
+      "pred": "पाच",
+      "category": "number_single",
+      "variant": "fast_1.15x",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " पा",
+        "च"
+      ]
+    },
+    {
+      "gt": "बारा",
+      "pred": "बारा",
+      "category": "number_double",
+      "variant": "clean",
+      "exact_match": true,
+      "confidence": 0.9512294245007139,
+      "tokens": [
+        " ब",
+        "ार",
+        "ा"
+      ]
+    },
+    {
+      "gt": "बारा",
+      "pred": "बारा",
+      "category": "number_double",
+      "variant": "noise_15db",
+      "exact_match": true,
+      "confidence": 0.9512294245007139,
+      "tokens": [
+        " ब",
+        "ार",
+        "ा"
+      ]
+    },
+    {
+      "gt": "बारा",
+      "pred": "बारा",
+      "category": "number_double",
+      "variant": "slow_0.85x",
+      "exact_match": true,
+      "confidence": 0.9512294245007139,
+      "tokens": [
+        " ब",
+        "ार",
+        "ा"
+      ]
+    },
+    {
+      "gt": "बारा",
+      "pred": "बारा",
+      "category": "number_double",
+      "variant": "fast_1.15x",
+      "exact_match": true,
+      "confidence": 0.9512294245007139,
+      "tokens": [
+        " ब",
+        "ार",
+        "ा"
+      ]
+    },
+    {
+      "gt": "पंधरा",
+      "pred": "पंधरा",
+      "category": "number_double",
+      "variant": "clean",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " प",
+        "ं",
+        "ध",
+        "रा"
+      ]
+    },
+    {
+      "gt": "पंधरा",
+      "pred": "पंधरा",
+      "category": "number_double",
+      "variant": "noise_15db",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " प",
+        "ं",
+        "ध",
+        "रा"
+      ]
+    },
+    {
+      "gt": "पंधरा",
+      "pred": "पंधरा",
+      "category": "number_double",
+      "variant": "slow_0.85x",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " प",
+        "ं",
+        "ध",
+        "रा"
+      ]
+    },
+    {
+      "gt": "पंधरा",
+      "pred": "पंधरा",
+      "category": "number_double",
+      "variant": "fast_1.15x",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " प",
+        "ं",
+        "ध",
+        "रा"
+      ]
+    },
+    {
+      "gt": "वीस",
+      "pred": "वीस",
+      "category": "number_double",
+      "variant": "clean",
+      "exact_match": true,
+      "confidence": 0.9512294245007139,
+      "tokens": [
+        " व",
+        "ी",
+        "स"
+      ]
+    },
+    {
+      "gt": "वीस",
+      "pred": "वीस",
+      "category": "number_double",
+      "variant": "noise_15db",
+      "exact_match": true,
+      "confidence": 0.9512294245007139,
+      "tokens": [
+        " व",
+        "ी",
+        "स"
+      ]
+    },
+    {
+      "gt": "वीस",
+      "pred": "व्रीस",
+      "category": "number_double",
+      "variant": "slow_0.85x",
+      "exact_match": false,
+      "confidence": 0.9512294245007139,
+      "tokens": [
+        " व",
+        "्री",
+        "स"
+      ]
+    },
+    {
+      "gt": "वीस",
+      "pred": "वीस",
+      "category": "number_double",
+      "variant": "fast_1.15x",
+      "exact_match": true,
+      "confidence": 0.9512294245007139,
+      "tokens": [
+        " व",
+        "ी",
+        "स"
+      ]
+    },
+    {
+      "gt": "पंचवीस",
+      "pred": "पंचवीस",
+      "category": "number_double",
+      "variant": "clean",
+      "exact_match": true,
+      "confidence": 0.9512294245007141,
+      "tokens": [
+        " प",
+        "ं",
+        "च",
+        "व",
+        "ी",
+        "स"
+      ]
+    },
+    {
+      "gt": "पंचवीस",
+      "pred": "पंचवीस",
+      "category": "number_double",
+      "variant": "noise_15db",
+      "exact_match": true,
+      "confidence": 0.9512294245007141,
+      "tokens": [
+        " प",
+        "ं",
+        "च",
+        "व",
+        "ी",
+        "स"
+      ]
+    },
+    {
+      "gt": "पंचवीस",
+      "pred": "पंचवीस",
+      "category": "number_double",
+      "variant": "slow_0.85x",
+      "exact_match": true,
+      "confidence": 0.9512294245007141,
+      "tokens": [
+        " प",
+        "ं",
+        "च",
+        "व",
+        "ी",
+        "स"
+      ]
+    },
+    {
+      "gt": "पंचवीस",
+      "pred": "पंचवीस",
+      "category": "number_double",
+      "variant": "fast_1.15x",
+      "exact_match": true,
+      "confidence": 0.9512294245007141,
+      "tokens": [
+        " प",
+        "ं",
+        "च",
+        "व",
+        "ी",
+        "स"
+      ]
+    },
+    {
+      "gt": "सात आणि आठ किती",
+      "pred": "आणि आठ किती",
+      "category": "addition_question",
+      "variant": "clean",
+      "exact_match": false,
+      "confidence": 0.9512294245007141,
+      "tokens": [
+        " आणि",
+        " आ",
+        "ठ",
+        " क",
+        "ि",
+        "ती"
+      ]
+    },
+    {
+      "gt": "सात आणि आठ किती",
+      "pred": "ात आणि ठ किती",
+      "category": "addition_question",
+      "variant": "noise_15db",
+      "exact_match": false,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " ",
+        "ात",
+        " आणि",
+        " ",
+        "ठ",
+        " क",
+        "ि",
+        "ती"
+      ]
+    },
+    {
+      "gt": "सात आणि आठ किती",
+      "pred": "सात आणि आठ किती",
+      "category": "addition_question",
+      "variant": "slow_0.85x",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " स",
+        "ात",
+        " आणि",
+        " आ",
+        "ठ",
+        " क",
+        "ि",
+        "ती"
+      ]
+    },
+    {
+      "gt": "सात आणि आठ किती",
+      "pred": "आणि आठ किती",
+      "category": "addition_question",
+      "variant": "fast_1.15x",
+      "exact_match": false,
+      "confidence": 0.9512294245007141,
+      "tokens": [
+        " आणि",
+        " आ",
+        "ठ",
+        " क",
+        "ि",
+        "ती"
+      ]
+    },
+    {
+      "gt": "सात अधिक आठ",
+      "pred": "सात अधिक आठ",
+      "category": "addition_direct",
+      "variant": "clean",
+      "exact_match": true,
+      "confidence": 0.9512294245007141,
+      "tokens": [
+        " स",
+        "ात",
+        " अ",
+        "ध",
+        "िक",
+        " आ",
+        "ठ"
+      ]
+    },
+    {
+      "gt": "सात अधिक आठ",
+      "pred": "सात अधिक आठ",
+      "category": "addition_direct",
+      "variant": "noise_15db",
+      "exact_match": true,
+      "confidence": 0.9512294245007141,
+      "tokens": [
+        " स",
+        "ात",
+        " अ",
+        "ध",
+        "िक",
+        " आ",
+        "ठ"
+      ]
+    },
+    {
+      "gt": "सात अधिक आठ",
+      "pred": "सात अधिक आठ",
+      "category": "addition_direct",
+      "variant": "slow_0.85x",
+      "exact_match": true,
+      "confidence": 0.9512294245007141,
+      "tokens": [
+        " स",
+        "ात",
+        " अ",
+        "ध",
+        "िक",
+        " आ",
+        "ठ"
+      ]
+    },
+    {
+      "gt": "सात अधिक आठ",
+      "pred": "सात अधिक आठ",
+      "category": "addition_direct",
+      "variant": "fast_1.15x",
+      "exact_match": true,
+      "confidence": 0.9512294245007141,
+      "tokens": [
+        " स",
+        "ात",
+        " अ",
+        "ध",
+        "िक",
+        " आ",
+        "ठ"
+      ]
+    },
+    {
+      "gt": "बारा वजा पाच",
+      "pred": "बारा वजा पाच",
+      "category": "subtraction_direct",
+      "variant": "clean",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " ब",
+        "ार",
+        "ा",
+        " व",
+        "ज",
+        "ा",
+        " पा",
+        "च"
+      ]
+    },
+    {
+      "gt": "बारा वजा पाच",
+      "pred": "बारा वजा पाच",
+      "category": "subtraction_direct",
+      "variant": "noise_15db",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " ब",
+        "ार",
+        "ा",
+        " व",
+        "ज",
+        "ा",
+        " पा",
+        "च"
+      ]
+    },
+    {
+      "gt": "बारा वजा पाच",
+      "pred": "बारा वजा पाच",
+      "category": "subtraction_direct",
+      "variant": "slow_0.85x",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " ब",
+        "ार",
+        "ा",
+        " व",
+        "ज",
+        "ा",
+        " पा",
+        "च"
+      ]
+    },
+    {
+      "gt": "बारा वजा पाच",
+      "pred": "बारा वजा पाच",
+      "category": "subtraction_direct",
+      "variant": "fast_1.15x",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " ब",
+        "ार",
+        "ा",
+        " व",
+        "ज",
+        "ा",
+        " पा",
+        "च"
+      ]
+    },
+    {
+      "gt": "पंधरा मधून सात वजा",
+      "pred": "पंधरामधून सात वजा",
+      "category": "subtraction_phrase",
+      "variant": "clean",
+      "exact_match": false,
+      "confidence": 0.9512294245007138,
+      "tokens": [
+        " प",
+        "ं",
+        "ध",
+        "रा",
+        "म",
+        "ध",
+        "ून",
+        " स",
+        "ात",
+        " व",
+        "ज",
+        "ा"
+      ]
+    },
+    {
+      "gt": "पंधरा मधून सात वजा",
+      "pred": "पंधरा मधून सात वजा",
+      "category": "subtraction_phrase",
+      "variant": "noise_15db",
+      "exact_match": true,
+      "confidence": 0.9512294245007138,
+      "tokens": [
+        " प",
+        "ं",
+        "ध",
+        "रा",
+        " म",
+        "ध",
+        "ून",
+        " स",
+        "ात",
+        " व",
+        "ज",
+        "ा"
+      ]
+    },
+    {
+      "gt": "पंधरा मधून सात वजा",
+      "pred": "पंधरामधून सात वजा",
+      "category": "subtraction_phrase",
+      "variant": "slow_0.85x",
+      "exact_match": false,
+      "confidence": 0.9512294245007138,
+      "tokens": [
+        " प",
+        "ं",
+        "ध",
+        "रा",
+        "म",
+        "ध",
+        "ून",
+        " स",
+        "ात",
+        " व",
+        "ज",
+        "ा"
+      ]
+    },
+    {
+      "gt": "पंधरा मधून सात वजा",
+      "pred": "प मधून सात वजा",
+      "category": "subtraction_phrase",
+      "variant": "fast_1.15x",
+      "exact_match": false,
+      "confidence": 0.9512294245007139,
+      "tokens": [
+        " प",
+        " म",
+        "ध",
+        "ून",
+        " स",
+        "ात",
+        " व",
+        "ज",
+        "ा"
+      ]
+    },
+    {
+      "gt": "हो",
+      "pred": "हो",
+      "category": "command_affirmative",
+      "variant": "clean",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " हो"
+      ]
+    },
+    {
+      "gt": "हो",
+      "pred": "हो",
+      "category": "command_affirmative",
+      "variant": "noise_15db",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " हो"
+      ]
+    },
+    {
+      "gt": "हो",
+      "pred": "ह",
+      "category": "command_affirmative",
+      "variant": "slow_0.85x",
+      "exact_match": false,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " ह"
+      ]
+    },
+    {
+      "gt": "हो",
+      "pred": "हो",
+      "category": "command_affirmative",
+      "variant": "fast_1.15x",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " हो"
+      ]
+    },
+    {
+      "gt": "नाही",
+      "pred": "नाही",
+      "category": "command_negative",
+      "variant": "clean",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " नाही"
+      ]
+    },
+    {
+      "gt": "नाही",
+      "pred": "नाही",
+      "category": "command_negative",
+      "variant": "noise_15db",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " नाही"
+      ]
+    },
+    {
+      "gt": "नाही",
+      "pred": "नाही",
+      "category": "command_negative",
+      "variant": "slow_0.85x",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " नाही"
+      ]
+    },
+    {
+      "gt": "नाही",
+      "pred": "नाही",
+      "category": "command_negative",
+      "variant": "fast_1.15x",
+      "exact_match": true,
+      "confidence": 0.951229424500714,
+      "tokens": [
+        " नाही"
+      ]
+    },
+    {
+      "gt": "पुढचा",
+      "pred": "पुढचा",
+      "category": "command_next",
+      "variant": "clean",
+      "exact_match": true,
+      "confidence": 0.9512294245007139,
+      "tokens": [
+        " पु",
+        "ढ",
+        "चा"
+      ]
+    },
+    {
+      "gt": "पुढचा",
+      "pred": "पुढचा",
+      "category": "command_next",
+      "variant": "noise_15db",
+      "exact_match": true,
+      "confidence": 0.9512294245007139,
+      "tokens": [
+        " पु",
+        "ढ",
+        "चा"
+      ]
+    },
+    {
+      "gt": "पुढचा",
+      "pred": "पुढच्या",
+      "category": "command_next",
+      "variant": "slow_0.85x",
+      "exact_match": false,
+      "confidence": 0.9512294245007139,
+      "tokens": [
+        " पु",
+        "ढ",
+        "च्या"
+      ]
+    },
+    {
+      "gt": "पुढचा",
+      "pred": "पुढचा",
+      "category": "command_next",
+      "variant": "fast_1.15x",
+      "exact_match": true,
+      "confidence": 0.9512294245007139,
+      "tokens": [
+        " पु",
+        "ढ",
+        "चा"
+      ]
+    },
+    {
+      "gt": "पुन्हा सांग",
+      "pred": "पुन्हा सांग",
+      "category": "command_repeat",
+      "variant": "clean",
+      "exact_match": true,
+      "confidence": 0.9512294245007141,
+      "tokens": [
+        " पु",
+        "न",
+        "्हा",
+        " स",
+        "ां",
+        "ग"
+      ]
+    },
+    {
+      "gt": "पुन्हा सांग",
+      "pred": "पुन्हा सांग",
+      "category": "command_repeat",
+      "variant": "noise_15db",
+      "exact_match": true,
+      "confidence": 0.9512294245007141,
+      "tokens": [
+        " पु",
+        "न",
+        "्हा",
+        " स",
+        "ां",
+        "ग"
+      ]
+    },
+    {
+      "gt": "पुन्हा सांग",
+      "pred": "पुन्हा सांग",
+      "category": "command_repeat",
+      "variant": "slow_0.85x",
+      "exact_match": true,
+      "confidence": 0.9512294245007141,
+      "tokens": [
+        " पु",
+        "न",
+        "्हा",
+        " स",
+        "ां",
+        "ग"
+      ]
+    },
+    {
+      "gt": "पुन्हा सांग",
+      "pred": "पुन्हा सांग",
+      "category": "command_repeat",
+      "variant": "fast_1.15x",
+      "exact_match": true,
+      "confidence": 0.9512294245007141,
+      "tokens": [
+        " पु",
+        "न",
+        "्हा",
+        " स",
+        "ां",
+        "ग"
+      ]
+    }
+  ]
+}
