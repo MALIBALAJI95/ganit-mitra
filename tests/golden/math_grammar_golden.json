@@ -1,0 +1,5142 @@
+[
+  {
+    "id": "add_word_1_1",
+    "input": "एक अधिक एक",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 1,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_1_1",
+    "input": "एक आणि एक किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 1,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_1_2",
+    "input": "एक अधिक दोन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 2,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_1_2",
+    "input": "एक आणि दोन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 2,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_1_3",
+    "input": "एक अधिक तीन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 3,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_1_3",
+    "input": "एक आणि तीन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 3,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_1_4",
+    "input": "एक अधिक चार",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 4,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_1_4",
+    "input": "एक आणि चार किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 4,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_1_5",
+    "input": "एक अधिक पाच",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 5,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_1_5",
+    "input": "एक आणि पाच किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 5,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_1_6",
+    "input": "एक अधिक सहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 6,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_1_6",
+    "input": "एक आणि सहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 6,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_1_7",
+    "input": "एक अधिक सात",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 7,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_1_7",
+    "input": "एक आणि सात किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 7,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_1_8",
+    "input": "एक अधिक आठ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 8,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_1_8",
+    "input": "एक आणि आठ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 8,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_1_9",
+    "input": "एक अधिक नऊ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 9,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_1_9",
+    "input": "एक आणि नऊ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 9,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_1_10",
+    "input": "एक अधिक दहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 10,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_1_10",
+    "input": "एक आणि दहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 10,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_2_1",
+    "input": "दोन अधिक एक",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 1,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_2_1",
+    "input": "दोन आणि एक किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 1,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_2_2",
+    "input": "दोन अधिक दोन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 2,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_2_2",
+    "input": "दोन आणि दोन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 2,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_2_3",
+    "input": "दोन अधिक तीन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 3,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_2_3",
+    "input": "दोन आणि तीन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 3,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_2_4",
+    "input": "दोन अधिक चार",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 4,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_2_4",
+    "input": "दोन आणि चार किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 4,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_2_5",
+    "input": "दोन अधिक पाच",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 5,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_2_5",
+    "input": "दोन आणि पाच किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 5,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_2_6",
+    "input": "दोन अधिक सहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 6,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_2_6",
+    "input": "दोन आणि सहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 6,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_2_7",
+    "input": "दोन अधिक सात",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 7,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_2_7",
+    "input": "दोन आणि सात किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 7,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_2_8",
+    "input": "दोन अधिक आठ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 8,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_2_8",
+    "input": "दोन आणि आठ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 8,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_2_9",
+    "input": "दोन अधिक नऊ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 9,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_2_9",
+    "input": "दोन आणि नऊ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 9,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_2_10",
+    "input": "दोन अधिक दहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 10,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_2_10",
+    "input": "दोन आणि दहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 10,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_3_1",
+    "input": "तीन अधिक एक",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 1,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_3_1",
+    "input": "तीन आणि एक किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 1,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_3_2",
+    "input": "तीन अधिक दोन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 2,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_3_2",
+    "input": "तीन आणि दोन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 2,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_3_3",
+    "input": "तीन अधिक तीन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 3,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_3_3",
+    "input": "तीन आणि तीन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 3,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_3_4",
+    "input": "तीन अधिक चार",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 4,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_3_4",
+    "input": "तीन आणि चार किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 4,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_3_5",
+    "input": "तीन अधिक पाच",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 5,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_3_5",
+    "input": "तीन आणि पाच किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 5,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_3_6",
+    "input": "तीन अधिक सहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 6,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_3_6",
+    "input": "तीन आणि सहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 6,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_3_7",
+    "input": "तीन अधिक सात",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 7,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_3_7",
+    "input": "तीन आणि सात किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 7,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_3_8",
+    "input": "तीन अधिक आठ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 8,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_3_8",
+    "input": "तीन आणि आठ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 8,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_3_9",
+    "input": "तीन अधिक नऊ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 9,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_3_9",
+    "input": "तीन आणि नऊ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 9,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_3_10",
+    "input": "तीन अधिक दहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 10,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_3_10",
+    "input": "तीन आणि दहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 10,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_4_1",
+    "input": "चार अधिक एक",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 1,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_4_1",
+    "input": "चार आणि एक किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 1,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_4_2",
+    "input": "चार अधिक दोन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 2,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_4_2",
+    "input": "चार आणि दोन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 2,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_4_3",
+    "input": "चार अधिक तीन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 3,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_4_3",
+    "input": "चार आणि तीन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 3,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_4_4",
+    "input": "चार अधिक चार",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 4,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_4_4",
+    "input": "चार आणि चार किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 4,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_4_5",
+    "input": "चार अधिक पाच",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 5,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_4_5",
+    "input": "चार आणि पाच किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 5,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_4_6",
+    "input": "चार अधिक सहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 6,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_4_6",
+    "input": "चार आणि सहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 6,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_4_7",
+    "input": "चार अधिक सात",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 7,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_4_7",
+    "input": "चार आणि सात किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 7,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_4_8",
+    "input": "चार अधिक आठ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 8,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_4_8",
+    "input": "चार आणि आठ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 8,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_4_9",
+    "input": "चार अधिक नऊ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 9,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_4_9",
+    "input": "चार आणि नऊ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 9,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_4_10",
+    "input": "चार अधिक दहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 10,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_4_10",
+    "input": "चार आणि दहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 10,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_5_1",
+    "input": "पाच अधिक एक",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 1,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_5_1",
+    "input": "पाच आणि एक किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 1,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_5_2",
+    "input": "पाच अधिक दोन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 2,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_5_2",
+    "input": "पाच आणि दोन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 2,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_5_3",
+    "input": "पाच अधिक तीन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 3,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_5_3",
+    "input": "पाच आणि तीन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 3,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_5_4",
+    "input": "पाच अधिक चार",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 4,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_5_4",
+    "input": "पाच आणि चार किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 4,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_5_5",
+    "input": "पाच अधिक पाच",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 5,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_5_5",
+    "input": "पाच आणि पाच किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 5,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_5_6",
+    "input": "पाच अधिक सहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 6,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_5_6",
+    "input": "पाच आणि सहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 6,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_5_7",
+    "input": "पाच अधिक सात",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 7,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_5_7",
+    "input": "पाच आणि सात किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 7,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_5_8",
+    "input": "पाच अधिक आठ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 8,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_5_8",
+    "input": "पाच आणि आठ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 8,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_5_9",
+    "input": "पाच अधिक नऊ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 9,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_5_9",
+    "input": "पाच आणि नऊ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 9,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_5_10",
+    "input": "पाच अधिक दहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 10,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_5_10",
+    "input": "पाच आणि दहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 10,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_6_1",
+    "input": "सहा अधिक एक",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 1,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_6_1",
+    "input": "सहा आणि एक किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 1,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_6_2",
+    "input": "सहा अधिक दोन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 2,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_6_2",
+    "input": "सहा आणि दोन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 2,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_6_3",
+    "input": "सहा अधिक तीन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 3,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_6_3",
+    "input": "सहा आणि तीन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 3,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_6_4",
+    "input": "सहा अधिक चार",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 4,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_6_4",
+    "input": "सहा आणि चार किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 4,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_6_5",
+    "input": "सहा अधिक पाच",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 5,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_6_5",
+    "input": "सहा आणि पाच किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 5,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_6_6",
+    "input": "सहा अधिक सहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 6,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_6_6",
+    "input": "सहा आणि सहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 6,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_6_7",
+    "input": "सहा अधिक सात",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 7,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_6_7",
+    "input": "सहा आणि सात किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 7,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_6_8",
+    "input": "सहा अधिक आठ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 8,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_6_8",
+    "input": "सहा आणि आठ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 8,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_6_9",
+    "input": "सहा अधिक नऊ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 9,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_6_9",
+    "input": "सहा आणि नऊ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 9,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_6_10",
+    "input": "सहा अधिक दहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 10,
+    "expected_ans": 16,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_6_10",
+    "input": "सहा आणि दहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 10,
+    "expected_ans": 16,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_7_1",
+    "input": "सात अधिक एक",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 1,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_7_1",
+    "input": "सात आणि एक किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 1,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_7_2",
+    "input": "सात अधिक दोन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 2,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_7_2",
+    "input": "सात आणि दोन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 2,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_7_3",
+    "input": "सात अधिक तीन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 3,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_7_3",
+    "input": "सात आणि तीन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 3,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_7_4",
+    "input": "सात अधिक चार",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 4,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_7_4",
+    "input": "सात आणि चार किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 4,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_7_5",
+    "input": "सात अधिक पाच",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 5,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_7_5",
+    "input": "सात आणि पाच किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 5,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_7_6",
+    "input": "सात अधिक सहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 6,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_7_6",
+    "input": "सात आणि सहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 6,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_7_7",
+    "input": "सात अधिक सात",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 7,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_7_7",
+    "input": "सात आणि सात किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 7,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_7_8",
+    "input": "सात अधिक आठ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 8,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_7_8",
+    "input": "सात आणि आठ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 8,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_7_9",
+    "input": "सात अधिक नऊ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 9,
+    "expected_ans": 16,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_7_9",
+    "input": "सात आणि नऊ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 9,
+    "expected_ans": 16,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_7_10",
+    "input": "सात अधिक दहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 10,
+    "expected_ans": 17,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_7_10",
+    "input": "सात आणि दहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 10,
+    "expected_ans": 17,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_8_1",
+    "input": "आठ अधिक एक",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 1,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_8_1",
+    "input": "आठ आणि एक किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 1,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_8_2",
+    "input": "आठ अधिक दोन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 2,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_8_2",
+    "input": "आठ आणि दोन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 2,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_8_3",
+    "input": "आठ अधिक तीन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 3,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_8_3",
+    "input": "आठ आणि तीन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 3,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_8_4",
+    "input": "आठ अधिक चार",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 4,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_8_4",
+    "input": "आठ आणि चार किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 4,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_8_5",
+    "input": "आठ अधिक पाच",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 5,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_8_5",
+    "input": "आठ आणि पाच किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 5,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_8_6",
+    "input": "आठ अधिक सहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 6,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_8_6",
+    "input": "आठ आणि सहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 6,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_8_7",
+    "input": "आठ अधिक सात",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 7,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_8_7",
+    "input": "आठ आणि सात किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 7,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_8_8",
+    "input": "आठ अधिक आठ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 8,
+    "expected_ans": 16,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_8_8",
+    "input": "आठ आणि आठ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 8,
+    "expected_ans": 16,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_8_9",
+    "input": "आठ अधिक नऊ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 9,
+    "expected_ans": 17,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_8_9",
+    "input": "आठ आणि नऊ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 9,
+    "expected_ans": 17,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_8_10",
+    "input": "आठ अधिक दहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 10,
+    "expected_ans": 18,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_8_10",
+    "input": "आठ आणि दहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 10,
+    "expected_ans": 18,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_9_1",
+    "input": "नऊ अधिक एक",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 1,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_9_1",
+    "input": "नऊ आणि एक किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 1,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_9_2",
+    "input": "नऊ अधिक दोन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 2,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_9_2",
+    "input": "नऊ आणि दोन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 2,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_9_3",
+    "input": "नऊ अधिक तीन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 3,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_9_3",
+    "input": "नऊ आणि तीन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 3,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_9_4",
+    "input": "नऊ अधिक चार",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 4,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_9_4",
+    "input": "नऊ आणि चार किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 4,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_9_5",
+    "input": "नऊ अधिक पाच",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 5,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_9_5",
+    "input": "नऊ आणि पाच किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 5,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_9_6",
+    "input": "नऊ अधिक सहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 6,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_9_6",
+    "input": "नऊ आणि सहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 6,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_9_7",
+    "input": "नऊ अधिक सात",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 7,
+    "expected_ans": 16,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_9_7",
+    "input": "नऊ आणि सात किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 7,
+    "expected_ans": 16,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_9_8",
+    "input": "नऊ अधिक आठ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 8,
+    "expected_ans": 17,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_9_8",
+    "input": "नऊ आणि आठ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 8,
+    "expected_ans": 17,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_9_9",
+    "input": "नऊ अधिक नऊ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 9,
+    "expected_ans": 18,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_9_9",
+    "input": "नऊ आणि नऊ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 9,
+    "expected_ans": 18,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_9_10",
+    "input": "नऊ अधिक दहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 10,
+    "expected_ans": 19,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_9_10",
+    "input": "नऊ आणि दहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 10,
+    "expected_ans": 19,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_10_1",
+    "input": "दहा अधिक एक",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 1,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_10_1",
+    "input": "दहा आणि एक किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 1,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_10_2",
+    "input": "दहा अधिक दोन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 2,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_10_2",
+    "input": "दहा आणि दोन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 2,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_10_3",
+    "input": "दहा अधिक तीन",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 3,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_10_3",
+    "input": "दहा आणि तीन किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 3,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_10_4",
+    "input": "दहा अधिक चार",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 4,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_10_4",
+    "input": "दहा आणि चार किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 4,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_10_5",
+    "input": "दहा अधिक पाच",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 5,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_10_5",
+    "input": "दहा आणि पाच किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 5,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_10_6",
+    "input": "दहा अधिक सहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 6,
+    "expected_ans": 16,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_10_6",
+    "input": "दहा आणि सहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 6,
+    "expected_ans": 16,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_10_7",
+    "input": "दहा अधिक सात",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 7,
+    "expected_ans": 17,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_10_7",
+    "input": "दहा आणि सात किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 7,
+    "expected_ans": 17,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_10_8",
+    "input": "दहा अधिक आठ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 8,
+    "expected_ans": 18,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_10_8",
+    "input": "दहा आणि आठ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 8,
+    "expected_ans": 18,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_10_9",
+    "input": "दहा अधिक नऊ",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 9,
+    "expected_ans": 19,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_10_9",
+    "input": "दहा आणि नऊ किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 9,
+    "expected_ans": 19,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_word_10_10",
+    "input": "दहा अधिक दहा",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 10,
+    "expected_ans": 20,
+    "is_ambiguous": false
+  },
+  {
+    "id": "add_aani_10_10",
+    "input": "दहा आणि दहा किती",
+    "category": "addition",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 10,
+    "expected_ans": 20,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_5_1",
+    "input": "पाच वजा एक",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 5,
+    "right_val": 1,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_5_1",
+    "input": "पाच मधून एक वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 5,
+    "right_val": 1,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_5_2",
+    "input": "पाच वजा दोन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 5,
+    "right_val": 2,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_5_2",
+    "input": "पाच मधून दोन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 5,
+    "right_val": 2,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_5_3",
+    "input": "पाच वजा तीन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 5,
+    "right_val": 3,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_5_3",
+    "input": "पाच मधून तीन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 5,
+    "right_val": 3,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_5_4",
+    "input": "पाच वजा चार",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 5,
+    "right_val": 4,
+    "expected_ans": 1,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_5_4",
+    "input": "पाच मधून चार वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 5,
+    "right_val": 4,
+    "expected_ans": 1,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_5_5",
+    "input": "पाच वजा पाच",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 5,
+    "right_val": 5,
+    "expected_ans": 0,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_5_5",
+    "input": "पाच मधून पाच वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 5,
+    "right_val": 5,
+    "expected_ans": 0,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_6_1",
+    "input": "सहा वजा एक",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 6,
+    "right_val": 1,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_6_1",
+    "input": "सहा मधून एक वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 6,
+    "right_val": 1,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_6_2",
+    "input": "सहा वजा दोन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 6,
+    "right_val": 2,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_6_2",
+    "input": "सहा मधून दोन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 6,
+    "right_val": 2,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_6_3",
+    "input": "सहा वजा तीन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 6,
+    "right_val": 3,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_6_3",
+    "input": "सहा मधून तीन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 6,
+    "right_val": 3,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_6_4",
+    "input": "सहा वजा चार",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 6,
+    "right_val": 4,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_6_4",
+    "input": "सहा मधून चार वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 6,
+    "right_val": 4,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_6_5",
+    "input": "सहा वजा पाच",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 6,
+    "right_val": 5,
+    "expected_ans": 1,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_6_5",
+    "input": "सहा मधून पाच वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 6,
+    "right_val": 5,
+    "expected_ans": 1,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_7_1",
+    "input": "सात वजा एक",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 7,
+    "right_val": 1,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_7_1",
+    "input": "सात मधून एक वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 7,
+    "right_val": 1,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_7_2",
+    "input": "सात वजा दोन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 7,
+    "right_val": 2,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_7_2",
+    "input": "सात मधून दोन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 7,
+    "right_val": 2,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_7_3",
+    "input": "सात वजा तीन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 7,
+    "right_val": 3,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_7_3",
+    "input": "सात मधून तीन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 7,
+    "right_val": 3,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_7_4",
+    "input": "सात वजा चार",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 7,
+    "right_val": 4,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_7_4",
+    "input": "सात मधून चार वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 7,
+    "right_val": 4,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_7_5",
+    "input": "सात वजा पाच",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 7,
+    "right_val": 5,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_7_5",
+    "input": "सात मधून पाच वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 7,
+    "right_val": 5,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_8_1",
+    "input": "आठ वजा एक",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 8,
+    "right_val": 1,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_8_1",
+    "input": "आठ मधून एक वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 8,
+    "right_val": 1,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_8_2",
+    "input": "आठ वजा दोन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 8,
+    "right_val": 2,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_8_2",
+    "input": "आठ मधून दोन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 8,
+    "right_val": 2,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_8_3",
+    "input": "आठ वजा तीन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 8,
+    "right_val": 3,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_8_3",
+    "input": "आठ मधून तीन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 8,
+    "right_val": 3,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_8_4",
+    "input": "आठ वजा चार",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 8,
+    "right_val": 4,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_8_4",
+    "input": "आठ मधून चार वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 8,
+    "right_val": 4,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_8_5",
+    "input": "आठ वजा पाच",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 8,
+    "right_val": 5,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_8_5",
+    "input": "आठ मधून पाच वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 8,
+    "right_val": 5,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_9_1",
+    "input": "नऊ वजा एक",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 9,
+    "right_val": 1,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_9_1",
+    "input": "नऊ मधून एक वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 9,
+    "right_val": 1,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_9_2",
+    "input": "नऊ वजा दोन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 9,
+    "right_val": 2,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_9_2",
+    "input": "नऊ मधून दोन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 9,
+    "right_val": 2,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_9_3",
+    "input": "नऊ वजा तीन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 9,
+    "right_val": 3,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_9_3",
+    "input": "नऊ मधून तीन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 9,
+    "right_val": 3,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_9_4",
+    "input": "नऊ वजा चार",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 9,
+    "right_val": 4,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_9_4",
+    "input": "नऊ मधून चार वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 9,
+    "right_val": 4,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_9_5",
+    "input": "नऊ वजा पाच",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 9,
+    "right_val": 5,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_9_5",
+    "input": "नऊ मधून पाच वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 9,
+    "right_val": 5,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_10_1",
+    "input": "दहा वजा एक",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 10,
+    "right_val": 1,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_10_1",
+    "input": "दहा मधून एक वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 10,
+    "right_val": 1,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_10_2",
+    "input": "दहा वजा दोन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 10,
+    "right_val": 2,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_10_2",
+    "input": "दहा मधून दोन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 10,
+    "right_val": 2,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_10_3",
+    "input": "दहा वजा तीन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 10,
+    "right_val": 3,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_10_3",
+    "input": "दहा मधून तीन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 10,
+    "right_val": 3,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_10_4",
+    "input": "दहा वजा चार",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 10,
+    "right_val": 4,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_10_4",
+    "input": "दहा मधून चार वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 10,
+    "right_val": 4,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_10_5",
+    "input": "दहा वजा पाच",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 10,
+    "right_val": 5,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_10_5",
+    "input": "दहा मधून पाच वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 10,
+    "right_val": 5,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_11_1",
+    "input": "अकरा वजा एक",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 11,
+    "right_val": 1,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_11_1",
+    "input": "अकरा मधून एक वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 11,
+    "right_val": 1,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_11_2",
+    "input": "अकरा वजा दोन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 11,
+    "right_val": 2,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_11_2",
+    "input": "अकरा मधून दोन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 11,
+    "right_val": 2,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_11_3",
+    "input": "अकरा वजा तीन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 11,
+    "right_val": 3,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_11_3",
+    "input": "अकरा मधून तीन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 11,
+    "right_val": 3,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_11_4",
+    "input": "अकरा वजा चार",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 11,
+    "right_val": 4,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_11_4",
+    "input": "अकरा मधून चार वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 11,
+    "right_val": 4,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_11_5",
+    "input": "अकरा वजा पाच",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 11,
+    "right_val": 5,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_11_5",
+    "input": "अकरा मधून पाच वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 11,
+    "right_val": 5,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_12_1",
+    "input": "बारा वजा एक",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 12,
+    "right_val": 1,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_12_1",
+    "input": "बारा मधून एक वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 12,
+    "right_val": 1,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_12_2",
+    "input": "बारा वजा दोन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 12,
+    "right_val": 2,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_12_2",
+    "input": "बारा मधून दोन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 12,
+    "right_val": 2,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_12_3",
+    "input": "बारा वजा तीन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 12,
+    "right_val": 3,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_12_3",
+    "input": "बारा मधून तीन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 12,
+    "right_val": 3,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_12_4",
+    "input": "बारा वजा चार",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 12,
+    "right_val": 4,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_12_4",
+    "input": "बारा मधून चार वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 12,
+    "right_val": 4,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_12_5",
+    "input": "बारा वजा पाच",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 12,
+    "right_val": 5,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_12_5",
+    "input": "बारा मधून पाच वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 12,
+    "right_val": 5,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_13_1",
+    "input": "तेरा वजा एक",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 13,
+    "right_val": 1,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_13_1",
+    "input": "तेरा मधून एक वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 13,
+    "right_val": 1,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_13_2",
+    "input": "तेरा वजा दोन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 13,
+    "right_val": 2,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_13_2",
+    "input": "तेरा मधून दोन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 13,
+    "right_val": 2,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_13_3",
+    "input": "तेरा वजा तीन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 13,
+    "right_val": 3,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_13_3",
+    "input": "तेरा मधून तीन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 13,
+    "right_val": 3,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_13_4",
+    "input": "तेरा वजा चार",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 13,
+    "right_val": 4,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_13_4",
+    "input": "तेरा मधून चार वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 13,
+    "right_val": 4,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_13_5",
+    "input": "तेरा वजा पाच",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 13,
+    "right_val": 5,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_13_5",
+    "input": "तेरा मधून पाच वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 13,
+    "right_val": 5,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_14_1",
+    "input": "चौदा वजा एक",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 14,
+    "right_val": 1,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_14_1",
+    "input": "चौदा मधून एक वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 14,
+    "right_val": 1,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_14_2",
+    "input": "चौदा वजा दोन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 14,
+    "right_val": 2,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_14_2",
+    "input": "चौदा मधून दोन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 14,
+    "right_val": 2,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_14_3",
+    "input": "चौदा वजा तीन",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 14,
+    "right_val": 3,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_14_3",
+    "input": "चौदा मधून तीन वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 14,
+    "right_val": 3,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_14_4",
+    "input": "चौदा वजा चार",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 14,
+    "right_val": 4,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_14_4",
+    "input": "चौदा मधून चार वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 14,
+    "right_val": 4,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_vaja_14_5",
+    "input": "चौदा वजा पाच",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 14,
+    "right_val": 5,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "sub_madhun_14_5",
+    "input": "चौदा मधून पाच वजा केले",
+    "category": "subtraction",
+    "expected_op": "SUB",
+    "left_val": 14,
+    "right_val": 5,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_1_1",
+    "input": "एक गुणिले एक",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 1,
+    "right_val": 1,
+    "expected_ans": 1,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_1_2",
+    "input": "एक गुणिले दोन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 1,
+    "right_val": 2,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_1_3",
+    "input": "एक गुणिले तीन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 1,
+    "right_val": 3,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_1_4",
+    "input": "एक गुणिले चार",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 1,
+    "right_val": 4,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_1_5",
+    "input": "एक गुणिले पाच",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 1,
+    "right_val": 5,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_1_6",
+    "input": "एक गुणिले सहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 1,
+    "right_val": 6,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_1_7",
+    "input": "एक गुणिले सात",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 1,
+    "right_val": 7,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_1_8",
+    "input": "एक गुणिले आठ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 1,
+    "right_val": 8,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_1_9",
+    "input": "एक गुणिले नऊ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 1,
+    "right_val": 9,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_1_10",
+    "input": "एक गुणिले दहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 1,
+    "right_val": 10,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_2_1",
+    "input": "दोन गुणिले एक",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 2,
+    "right_val": 1,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_2_2",
+    "input": "दोन गुणिले दोन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 2,
+    "right_val": 2,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_2_3",
+    "input": "दोन गुणिले तीन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 2,
+    "right_val": 3,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_2_4",
+    "input": "दोन गुणिले चार",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 2,
+    "right_val": 4,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_2_5",
+    "input": "दोन गुणिले पाच",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 2,
+    "right_val": 5,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_2_6",
+    "input": "दोन गुणिले सहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 2,
+    "right_val": 6,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_2_7",
+    "input": "दोन गुणिले सात",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 2,
+    "right_val": 7,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_2_8",
+    "input": "दोन गुणिले आठ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 2,
+    "right_val": 8,
+    "expected_ans": 16,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_2_9",
+    "input": "दोन गुणिले नऊ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 2,
+    "right_val": 9,
+    "expected_ans": 18,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_2_10",
+    "input": "दोन गुणिले दहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 2,
+    "right_val": 10,
+    "expected_ans": 20,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_3_1",
+    "input": "तीन गुणिले एक",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 3,
+    "right_val": 1,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_3_2",
+    "input": "तीन गुणिले दोन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 3,
+    "right_val": 2,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_3_3",
+    "input": "तीन गुणिले तीन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 3,
+    "right_val": 3,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_3_4",
+    "input": "तीन गुणिले चार",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 3,
+    "right_val": 4,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_3_5",
+    "input": "तीन गुणिले पाच",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 3,
+    "right_val": 5,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_3_6",
+    "input": "तीन गुणिले सहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 3,
+    "right_val": 6,
+    "expected_ans": 18,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_3_7",
+    "input": "तीन गुणिले सात",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 3,
+    "right_val": 7,
+    "expected_ans": 21,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_3_8",
+    "input": "तीन गुणिले आठ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 3,
+    "right_val": 8,
+    "expected_ans": 24,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_3_9",
+    "input": "तीन गुणिले नऊ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 3,
+    "right_val": 9,
+    "expected_ans": 27,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_3_10",
+    "input": "तीन गुणिले दहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 3,
+    "right_val": 10,
+    "expected_ans": 30,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_4_1",
+    "input": "चार गुणिले एक",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 4,
+    "right_val": 1,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_4_2",
+    "input": "चार गुणिले दोन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 4,
+    "right_val": 2,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_4_3",
+    "input": "चार गुणिले तीन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 4,
+    "right_val": 3,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_4_4",
+    "input": "चार गुणिले चार",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 4,
+    "right_val": 4,
+    "expected_ans": 16,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_4_5",
+    "input": "चार गुणिले पाच",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 4,
+    "right_val": 5,
+    "expected_ans": 20,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_4_6",
+    "input": "चार गुणिले सहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 4,
+    "right_val": 6,
+    "expected_ans": 24,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_4_7",
+    "input": "चार गुणिले सात",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 4,
+    "right_val": 7,
+    "expected_ans": 28,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_4_8",
+    "input": "चार गुणिले आठ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 4,
+    "right_val": 8,
+    "expected_ans": 32,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_4_9",
+    "input": "चार गुणिले नऊ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 4,
+    "right_val": 9,
+    "expected_ans": 36,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_4_10",
+    "input": "चार गुणिले दहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 4,
+    "right_val": 10,
+    "expected_ans": 40,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_5_1",
+    "input": "पाच गुणिले एक",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 5,
+    "right_val": 1,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_5_2",
+    "input": "पाच गुणिले दोन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 5,
+    "right_val": 2,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_5_3",
+    "input": "पाच गुणिले तीन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 5,
+    "right_val": 3,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_5_4",
+    "input": "पाच गुणिले चार",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 5,
+    "right_val": 4,
+    "expected_ans": 20,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_5_5",
+    "input": "पाच गुणिले पाच",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 5,
+    "right_val": 5,
+    "expected_ans": 25,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_5_6",
+    "input": "पाच गुणिले सहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 5,
+    "right_val": 6,
+    "expected_ans": 30,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_5_7",
+    "input": "पाच गुणिले सात",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 5,
+    "right_val": 7,
+    "expected_ans": 35,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_5_8",
+    "input": "पाच गुणिले आठ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 5,
+    "right_val": 8,
+    "expected_ans": 40,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_5_9",
+    "input": "पाच गुणिले नऊ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 5,
+    "right_val": 9,
+    "expected_ans": 45,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_5_10",
+    "input": "पाच गुणिले दहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 5,
+    "right_val": 10,
+    "expected_ans": 50,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_6_1",
+    "input": "सहा गुणिले एक",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 6,
+    "right_val": 1,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_6_2",
+    "input": "सहा गुणिले दोन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 6,
+    "right_val": 2,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_6_3",
+    "input": "सहा गुणिले तीन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 6,
+    "right_val": 3,
+    "expected_ans": 18,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_6_4",
+    "input": "सहा गुणिले चार",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 6,
+    "right_val": 4,
+    "expected_ans": 24,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_6_5",
+    "input": "सहा गुणिले पाच",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 6,
+    "right_val": 5,
+    "expected_ans": 30,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_6_6",
+    "input": "सहा गुणिले सहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 6,
+    "right_val": 6,
+    "expected_ans": 36,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_6_7",
+    "input": "सहा गुणिले सात",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 6,
+    "right_val": 7,
+    "expected_ans": 42,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_6_8",
+    "input": "सहा गुणिले आठ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 6,
+    "right_val": 8,
+    "expected_ans": 48,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_6_9",
+    "input": "सहा गुणिले नऊ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 6,
+    "right_val": 9,
+    "expected_ans": 54,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_6_10",
+    "input": "सहा गुणिले दहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 6,
+    "right_val": 10,
+    "expected_ans": 60,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_7_1",
+    "input": "सात गुणिले एक",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 7,
+    "right_val": 1,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_7_2",
+    "input": "सात गुणिले दोन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 7,
+    "right_val": 2,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_7_3",
+    "input": "सात गुणिले तीन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 7,
+    "right_val": 3,
+    "expected_ans": 21,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_7_4",
+    "input": "सात गुणिले चार",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 7,
+    "right_val": 4,
+    "expected_ans": 28,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_7_5",
+    "input": "सात गुणिले पाच",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 7,
+    "right_val": 5,
+    "expected_ans": 35,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_7_6",
+    "input": "सात गुणिले सहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 7,
+    "right_val": 6,
+    "expected_ans": 42,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_7_7",
+    "input": "सात गुणिले सात",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 7,
+    "right_val": 7,
+    "expected_ans": 49,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_7_8",
+    "input": "सात गुणिले आठ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 7,
+    "right_val": 8,
+    "expected_ans": 56,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_7_9",
+    "input": "सात गुणिले नऊ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 7,
+    "right_val": 9,
+    "expected_ans": 63,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_7_10",
+    "input": "सात गुणिले दहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 7,
+    "right_val": 10,
+    "expected_ans": 70,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_8_1",
+    "input": "आठ गुणिले एक",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 8,
+    "right_val": 1,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_8_2",
+    "input": "आठ गुणिले दोन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 8,
+    "right_val": 2,
+    "expected_ans": 16,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_8_3",
+    "input": "आठ गुणिले तीन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 8,
+    "right_val": 3,
+    "expected_ans": 24,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_8_4",
+    "input": "आठ गुणिले चार",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 8,
+    "right_val": 4,
+    "expected_ans": 32,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_8_5",
+    "input": "आठ गुणिले पाच",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 8,
+    "right_val": 5,
+    "expected_ans": 40,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_8_6",
+    "input": "आठ गुणिले सहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 8,
+    "right_val": 6,
+    "expected_ans": 48,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_8_7",
+    "input": "आठ गुणिले सात",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 8,
+    "right_val": 7,
+    "expected_ans": 56,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_8_8",
+    "input": "आठ गुणिले आठ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 8,
+    "right_val": 8,
+    "expected_ans": 64,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_8_9",
+    "input": "आठ गुणिले नऊ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 8,
+    "right_val": 9,
+    "expected_ans": 72,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_8_10",
+    "input": "आठ गुणिले दहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 8,
+    "right_val": 10,
+    "expected_ans": 80,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_9_1",
+    "input": "नऊ गुणिले एक",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 9,
+    "right_val": 1,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_9_2",
+    "input": "नऊ गुणिले दोन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 9,
+    "right_val": 2,
+    "expected_ans": 18,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_9_3",
+    "input": "नऊ गुणिले तीन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 9,
+    "right_val": 3,
+    "expected_ans": 27,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_9_4",
+    "input": "नऊ गुणिले चार",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 9,
+    "right_val": 4,
+    "expected_ans": 36,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_9_5",
+    "input": "नऊ गुणिले पाच",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 9,
+    "right_val": 5,
+    "expected_ans": 45,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_9_6",
+    "input": "नऊ गुणिले सहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 9,
+    "right_val": 6,
+    "expected_ans": 54,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_9_7",
+    "input": "नऊ गुणिले सात",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 9,
+    "right_val": 7,
+    "expected_ans": 63,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_9_8",
+    "input": "नऊ गुणिले आठ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 9,
+    "right_val": 8,
+    "expected_ans": 72,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_9_9",
+    "input": "नऊ गुणिले नऊ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 9,
+    "right_val": 9,
+    "expected_ans": 81,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_9_10",
+    "input": "नऊ गुणिले दहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 9,
+    "right_val": 10,
+    "expected_ans": 90,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_10_1",
+    "input": "दहा गुणिले एक",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 10,
+    "right_val": 1,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_10_2",
+    "input": "दहा गुणिले दोन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 10,
+    "right_val": 2,
+    "expected_ans": 20,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_10_3",
+    "input": "दहा गुणिले तीन",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 10,
+    "right_val": 3,
+    "expected_ans": 30,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_10_4",
+    "input": "दहा गुणिले चार",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 10,
+    "right_val": 4,
+    "expected_ans": 40,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_10_5",
+    "input": "दहा गुणिले पाच",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 10,
+    "right_val": 5,
+    "expected_ans": 50,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_10_6",
+    "input": "दहा गुणिले सहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 10,
+    "right_val": 6,
+    "expected_ans": 60,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_10_7",
+    "input": "दहा गुणिले सात",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 10,
+    "right_val": 7,
+    "expected_ans": 70,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_10_8",
+    "input": "दहा गुणिले आठ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 10,
+    "right_val": 8,
+    "expected_ans": 80,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_10_9",
+    "input": "दहा गुणिले नऊ",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 10,
+    "right_val": 9,
+    "expected_ans": 90,
+    "is_ambiguous": false
+  },
+  {
+    "id": "mul_gunile_10_10",
+    "input": "दहा गुणिले दहा",
+    "category": "multiplication",
+    "expected_op": "MUL",
+    "left_val": 10,
+    "right_val": 10,
+    "expected_ans": 100,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_1_1",
+    "input": "एक भागिले एक",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 1,
+    "right_val": 1,
+    "expected_ans": 1,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_2_1",
+    "input": "दोन भागिले एक",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 2,
+    "right_val": 1,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_3_1",
+    "input": "तीन भागिले एक",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 3,
+    "right_val": 1,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_4_1",
+    "input": "चार भागिले एक",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 4,
+    "right_val": 1,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_5_1",
+    "input": "पाच भागिले एक",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 5,
+    "right_val": 1,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_2_2",
+    "input": "दोन भागिले दोन",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 2,
+    "right_val": 2,
+    "expected_ans": 1,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_4_2",
+    "input": "चार भागिले दोन",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 4,
+    "right_val": 2,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_6_2",
+    "input": "सहा भागिले दोन",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 6,
+    "right_val": 2,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_8_2",
+    "input": "आठ भागिले दोन",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 8,
+    "right_val": 2,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_10_2",
+    "input": "दहा भागिले दोन",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 10,
+    "right_val": 2,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_3_3",
+    "input": "तीन भागिले तीन",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 3,
+    "right_val": 3,
+    "expected_ans": 1,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_6_3",
+    "input": "सहा भागिले तीन",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 6,
+    "right_val": 3,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_9_3",
+    "input": "नऊ भागिले तीन",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 9,
+    "right_val": 3,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_12_3",
+    "input": "बारा भागिले तीन",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 12,
+    "right_val": 3,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_15_3",
+    "input": "पंधरा भागिले तीन",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 15,
+    "right_val": 3,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_4_4",
+    "input": "चार भागिले चार",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 4,
+    "right_val": 4,
+    "expected_ans": 1,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_8_4",
+    "input": "आठ भागिले चार",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 8,
+    "right_val": 4,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_12_4",
+    "input": "बारा भागिले चार",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 12,
+    "right_val": 4,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_16_4",
+    "input": "सोळा भागिले चार",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 16,
+    "right_val": 4,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_20_4",
+    "input": "वीस भागिले चार",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 20,
+    "right_val": 4,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_5_5",
+    "input": "पाच भागिले पाच",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 5,
+    "right_val": 5,
+    "expected_ans": 1,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_10_5",
+    "input": "दहा भागिले पाच",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 10,
+    "right_val": 5,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_15_5",
+    "input": "पंधरा भागिले पाच",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 15,
+    "right_val": 5,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_20_5",
+    "input": "वीस भागिले पाच",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 20,
+    "right_val": 5,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_25_5",
+    "input": "पंचवीस भागिले पाच",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 25,
+    "right_val": 5,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_6_6",
+    "input": "सहा भागिले सहा",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 6,
+    "right_val": 6,
+    "expected_ans": 1,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_12_6",
+    "input": "बारा भागिले सहा",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 12,
+    "right_val": 6,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_18_6",
+    "input": "अठरा भागिले सहा",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 18,
+    "right_val": 6,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_24_6",
+    "input": "चोवीस भागिले सहा",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 24,
+    "right_val": 6,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_30_6",
+    "input": "तीस भागिले सहा",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 30,
+    "right_val": 6,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_7_7",
+    "input": "सात भागिले सात",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 7,
+    "right_val": 7,
+    "expected_ans": 1,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_14_7",
+    "input": "चौदा भागिले सात",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 14,
+    "right_val": 7,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_21_7",
+    "input": "एकवीस भागिले सात",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 21,
+    "right_val": 7,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_28_7",
+    "input": "अठ्ठावीस भागिले सात",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 28,
+    "right_val": 7,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_35_7",
+    "input": "पस्तीस भागिले सात",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 35,
+    "right_val": 7,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_8_8",
+    "input": "आठ भागिले आठ",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 8,
+    "right_val": 8,
+    "expected_ans": 1,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_16_8",
+    "input": "सोळा भागिले आठ",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 16,
+    "right_val": 8,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_24_8",
+    "input": "चोवीस भागिले आठ",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 24,
+    "right_val": 8,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_32_8",
+    "input": "बत्तीस भागिले आठ",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 32,
+    "right_val": 8,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_40_8",
+    "input": "चाळीस भागिले आठ",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 40,
+    "right_val": 8,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_9_9",
+    "input": "नऊ भागिले नऊ",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 9,
+    "right_val": 9,
+    "expected_ans": 1,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_18_9",
+    "input": "अठरा भागिले नऊ",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 18,
+    "right_val": 9,
+    "expected_ans": 2,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_27_9",
+    "input": "सत्तावीस भागिले नऊ",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 27,
+    "right_val": 9,
+    "expected_ans": 3,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_36_9",
+    "input": "छत्तीस भागिले नऊ",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 36,
+    "right_val": 9,
+    "expected_ans": 4,
+    "is_ambiguous": false
+  },
+  {
+    "id": "div_bhagile_45_9",
+    "input": "पंचेचाळीस भागिले नऊ",
+    "category": "division",
+    "expected_op": "DIV",
+    "left_val": 45,
+    "right_val": 9,
+    "expected_ans": 5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_1",
+    "input": "१ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 5,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_1",
+    "input": "1 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 1,
+    "right_val": 5,
+    "expected_ans": 6,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_2",
+    "input": "२ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 5,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_2",
+    "input": "2 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 2,
+    "right_val": 5,
+    "expected_ans": 7,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_3",
+    "input": "३ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 5,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_3",
+    "input": "3 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 3,
+    "right_val": 5,
+    "expected_ans": 8,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_4",
+    "input": "४ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 5,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_4",
+    "input": "4 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 4,
+    "right_val": 5,
+    "expected_ans": 9,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_5",
+    "input": "५ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 5,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_5",
+    "input": "5 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 5,
+    "right_val": 5,
+    "expected_ans": 10,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_6",
+    "input": "६ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 5,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_6",
+    "input": "6 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 6,
+    "right_val": 5,
+    "expected_ans": 11,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_7",
+    "input": "७ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 5,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_7",
+    "input": "7 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 7,
+    "right_val": 5,
+    "expected_ans": 12,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_8",
+    "input": "८ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 5,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_8",
+    "input": "8 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 8,
+    "right_val": 5,
+    "expected_ans": 13,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_9",
+    "input": "९ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 5,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_9",
+    "input": "9 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 9,
+    "right_val": 5,
+    "expected_ans": 14,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_10",
+    "input": "१० अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 5,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_10",
+    "input": "10 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 5,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_11",
+    "input": "११ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 11,
+    "right_val": 5,
+    "expected_ans": 16,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_11",
+    "input": "11 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 11,
+    "right_val": 5,
+    "expected_ans": 16,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_12",
+    "input": "१२ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 12,
+    "right_val": 5,
+    "expected_ans": 17,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_12",
+    "input": "12 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 12,
+    "right_val": 5,
+    "expected_ans": 17,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_13",
+    "input": "१३ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 13,
+    "right_val": 5,
+    "expected_ans": 18,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_13",
+    "input": "13 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 13,
+    "right_val": 5,
+    "expected_ans": 18,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_14",
+    "input": "१४ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 14,
+    "right_val": 5,
+    "expected_ans": 19,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_14",
+    "input": "14 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 14,
+    "right_val": 5,
+    "expected_ans": 19,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_15",
+    "input": "१५ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 15,
+    "right_val": 5,
+    "expected_ans": 20,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_15",
+    "input": "15 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 15,
+    "right_val": 5,
+    "expected_ans": 20,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_16",
+    "input": "१६ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 16,
+    "right_val": 5,
+    "expected_ans": 21,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_16",
+    "input": "16 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 16,
+    "right_val": 5,
+    "expected_ans": 21,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_17",
+    "input": "१७ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 17,
+    "right_val": 5,
+    "expected_ans": 22,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_17",
+    "input": "17 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 17,
+    "right_val": 5,
+    "expected_ans": 22,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_18",
+    "input": "१८ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 18,
+    "right_val": 5,
+    "expected_ans": 23,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_18",
+    "input": "18 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 18,
+    "right_val": 5,
+    "expected_ans": 23,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_19",
+    "input": "१९ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 19,
+    "right_val": 5,
+    "expected_ans": 24,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_19",
+    "input": "19 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 19,
+    "right_val": 5,
+    "expected_ans": 24,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_20",
+    "input": "२० अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 20,
+    "right_val": 5,
+    "expected_ans": 25,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_20",
+    "input": "20 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 20,
+    "right_val": 5,
+    "expected_ans": 25,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_21",
+    "input": "२१ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 21,
+    "right_val": 5,
+    "expected_ans": 26,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_21",
+    "input": "21 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 21,
+    "right_val": 5,
+    "expected_ans": 26,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_22",
+    "input": "२२ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 22,
+    "right_val": 5,
+    "expected_ans": 27,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_22",
+    "input": "22 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 22,
+    "right_val": 5,
+    "expected_ans": 27,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_23",
+    "input": "२३ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 23,
+    "right_val": 5,
+    "expected_ans": 28,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_23",
+    "input": "23 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 23,
+    "right_val": 5,
+    "expected_ans": 28,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_24",
+    "input": "२४ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 24,
+    "right_val": 5,
+    "expected_ans": 29,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_24",
+    "input": "24 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 24,
+    "right_val": 5,
+    "expected_ans": 29,
+    "is_ambiguous": false
+  },
+  {
+    "id": "deva_digit_25",
+    "input": "२५ अधिक ५",
+    "category": "digits_deva",
+    "expected_op": "ADD",
+    "left_val": 25,
+    "right_val": 5,
+    "expected_ans": 30,
+    "is_ambiguous": false
+  },
+  {
+    "id": "western_digit_25",
+    "input": "25 + 5",
+    "category": "digits_western",
+    "expected_op": "ADD",
+    "left_val": 25,
+    "right_val": 5,
+    "expected_ans": 30,
+    "is_ambiguous": false
+  },
+  {
+    "id": "frac_अर्धा",
+    "input": "अर्धा",
+    "category": "fraction",
+    "expected_op": "NUMBER_ONLY",
+    "left_val": 0.5,
+    "right_val": null,
+    "expected_ans": 0.5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "frac_पाव",
+    "input": "पाव",
+    "category": "fraction",
+    "expected_op": "NUMBER_ONLY",
+    "left_val": 0.25,
+    "right_val": null,
+    "expected_ans": 0.25,
+    "is_ambiguous": false
+  },
+  {
+    "id": "frac_पाऊण",
+    "input": "पाऊण",
+    "category": "fraction",
+    "expected_op": "NUMBER_ONLY",
+    "left_val": 0.75,
+    "right_val": null,
+    "expected_ans": 0.75,
+    "is_ambiguous": false
+  },
+  {
+    "id": "frac_सव्वा",
+    "input": "सव्वा",
+    "category": "fraction",
+    "expected_op": "NUMBER_ONLY",
+    "left_val": 1.25,
+    "right_val": null,
+    "expected_ans": 1.25,
+    "is_ambiguous": false
+  },
+  {
+    "id": "frac_दीड",
+    "input": "दीड",
+    "category": "fraction",
+    "expected_op": "NUMBER_ONLY",
+    "left_val": 1.5,
+    "right_val": null,
+    "expected_ans": 1.5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "frac_अडीच",
+    "input": "अडीच",
+    "category": "fraction",
+    "expected_op": "NUMBER_ONLY",
+    "left_val": 2.5,
+    "right_val": null,
+    "expected_ans": 2.5,
+    "is_ambiguous": false
+  },
+  {
+    "id": "frac_दीडशे",
+    "input": "दीडशे",
+    "category": "fraction",
+    "expected_op": "NUMBER_ONLY",
+    "left_val": 150,
+    "right_val": null,
+    "expected_ans": 150,
+    "is_ambiguous": false
+  },
+  {
+    "id": "frac_अडीचशे",
+    "input": "अडीचशे",
+    "category": "fraction",
+    "expected_op": "NUMBER_ONLY",
+    "left_val": 250,
+    "right_val": null,
+    "expected_ans": 250,
+    "is_ambiguous": false
+  },
+  {
+    "id": "money_10",
+    "input": "दहा रुपये अधिक ५ रुपये",
+    "category": "money",
+    "expected_op": "ADD",
+    "left_val": 10,
+    "right_val": 5,
+    "expected_ans": 15,
+    "is_ambiguous": false
+  },
+  {
+    "id": "money_20",
+    "input": "वीस रुपये अधिक ५ रुपये",
+    "category": "money",
+    "expected_op": "ADD",
+    "left_val": 20,
+    "right_val": 5,
+    "expected_ans": 25,
+    "is_ambiguous": false
+  },
+  {
+    "id": "money_50",
+    "input": "पन्नास रुपये अधिक ५ रुपये",
+    "category": "money",
+    "expected_op": "ADD",
+    "left_val": 50,
+    "right_val": 5,
+    "expected_ans": 55,
+    "is_ambiguous": false
+  },
+  {
+    "id": "money_100",
+    "input": "शंभर रुपये अधिक ५ रुपये",
+    "category": "money",
+    "expected_op": "ADD",
+    "left_val": 100,
+    "right_val": 5,
+    "expected_ans": 105,
+    "is_ambiguous": false
+  },
+  {
+    "id": "money_500",
+    "input": "500 रुपये अधिक ५ रुपये",
+    "category": "money",
+    "expected_op": "ADD",
+    "left_val": 500,
+    "right_val": 5,
+    "expected_ans": 505,
+    "is_ambiguous": false
+  },
+  {
+    "id": "ambig_सात अधिक",
+    "input": "सात अधिक",
+    "category": "ambiguous",
+    "expected_op": "ADD",
+    "left_val": null,
+    "right_val": null,
+    "expected_ans": null,
+    "is_ambiguous": true
+  },
+  {
+    "id": "ambig_पाच वजा",
+    "input": "पाच वजा",
+    "category": "ambiguous",
+    "expected_op": "SUB",
+    "left_val": null,
+    "right_val": null,
+    "expected_ans": null,
+    "is_ambiguous": true
+  },
+  {
+    "id": "ambig_दहा गुणिले",
+    "input": "दहा गुणिले",
+    "category": "ambiguous",
+    "expected_op": "MUL",
+    "left_val": null,
+    "right_val": null,
+    "expected_ans": null,
+    "is_ambiguous": true
+  },
+  {
+    "id": "ambig_वीस भागिले",
+    "input": "वीस भागिले",
+    "category": "ambiguous",
+    "expected_op": "DIV",
+    "left_val": null,
+    "right_val": null,
+    "expected_ans": null,
+    "is_ambiguous": true
+  },
+  {
+    "id": "ambig_बेरीज करा",
+    "input": "बेरीज करा",
+    "category": "ambiguous",
+    "expected_op": "ADD",
+    "left_val": null,
+    "right_val": null,
+    "expected_ans": null,
+    "is_ambiguous": true
+  },
+  {
+    "id": "ambig_वजाबाकी करा",
+    "input": "वजाबाकी करा",
+    "category": "ambiguous",
+    "expected_op": "SUB",
+    "left_val": null,
+    "right_val": null,
+    "expected_ans": null,
+    "is_ambiguous": true
+  }
+]

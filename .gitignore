@@ -4,8 +4,15 @@ venv/
 __pycache__/
 *.pyc
 
+# Tools & Gradle caches
+tools/
+.gradle/
+build/
+*/build/
+
 # Model weights and audio caches (downloaded via benchmark scripts)
 models/
+assets/audio/bank/
 *.mp3
 *.wav
 *.opus
