@@ -1,79 +1,96 @@
-# गणित मित्र (Ganit Mitra)
+# गणित मित्र (Ganit Mitra) — Desktop Voice Prototype
 
-> Fully offline, voice-first Marathi mathematics learning application for primary school children (Classes 1–6).
-
----
-
-## Architecture Overview
-
-Ganit Mitra is engineered to run **100% on-device** on resource-constrained Android smartphones (Android 8+, 3 GB RAM) with zero cloud dependencies, zero analytics, and zero network calls.
-
-```
-+-------------------------------------------------------------+
-|                      Ganit Mitra App                        |
-|                                                             |
-|  [Silero VAD]  -->  [IndicConformer CTC INT8]  -->  [NLU]  |
-|   (1.7 MB ONNX)          (188 MB ONNX)          (Grammar)   |
-|                                                     |       |
-|                                                     v       |
-|  [Voice Read-Back] <-- [Number Audio Bank] <-- [Math Engine]|
-|   (Confirm/Reject)      (Opus Audio Bank)      (Deterministic|
-|                                                 Arithmetic) |
-+-------------------------------------------------------------+
-```
+> Fully offline, voice-first Marathi mathematics learning prototype for primary school children (Classes 1–6).
 
 ---
 
-## Phase 0: Verification & Reproduction Guide
+## Proven Interactive Loop
 
-### Prerequisites
-- macOS (Apple Silicon or Intel) or Linux (x86_64 or aarch64)
-- Python 3.10+
-- OpenJDK 17
-- Android SDK Platform-Tools (`adb`)
-
-### Step 1: Virtual Environment Setup
-```bash
-python3.12 -m venv .venv
-source .venv/bin/activate
-pip install sherpa-onnx onnxruntime numpy soundfile scipy requests huggingface_hub edge-tts
 ```
-
-### Step 2: Download Models & Assets
-Run the model download verification script:
-```bash
-# Downloads Silero VAD (1.7 MB) and IndicConformer Marathi INT8 ONNX (188 MB)
-python -c "
-from huggingface_hub import hf_hub_download
-hf_hub_download(repo_id='csukuangfj/vad', filename='silero_vad.onnx', local_dir='models/vad')
-hf_hub_download(repo_id='parismitaglobalsolutions/indicconformer-sherpa-onnx', filename='tokens.txt', local_dir='models/asr')
-hf_hub_download(repo_id='parismitaglobalsolutions/indicconformer-sherpa-onnx', filename='mr/model.int8.onnx', local_dir='models/asr')
-"
-cp models/asr/mr/model.int8.onnx models/asr/model.int8.onnx
+[Microphone] 
+     │
+     ▼
+[Silero VAD] (1.7 MB ONNX, 8ms)
+     │
+     ▼
+[IndicConformer ASR] (188 MB INT8 ONNX, ~45ms)
+     │
+     ▼
+[4-Stage Classifier] (audio_gate ──► language_check ──► intent ──► decision)
+     │
+     ▼
+[Marathi Math Parser] (Rule-based AST + Ambiguity Detection)
+     │
+     ▼
+[READ-BACK + CONFIRM] ("तू विचारलंस: ७ अधिक ८ किती? बरोबर आहे का?")
+     │
+     ▼ (Child confirms "हो")
+[Exact Math Engine] (Arithmetic + Place Value / Carrying / Borrowing Steps)
+     │
+     ▼
+[Spoken Marathi Audio] (Zero-latency Number Audio Bank + On-Screen Text)
 ```
-
-### Step 3: Execute Model Feasibility Benchmarks
-```bash
-python benchmarks/run_benchmarks.py
-```
-This tests:
-1. Silero VAD initialization and cold-start time.
-2. IndicConformer CTC INT8 initialization and cold-start time.
-3. Inference latency and Real-Time Factor (RTF) across 0.5s, 1.0s, 2.0s, 3.0s, and 5.0s audio inputs.
-4. End-to-end projected latency against the 2.5s constraint.
-
-Output is stored in `benchmarks/results.json`.
-
-### Step 4: Verify Marathi Number System (0 to 10,000)
-```bash
-python benchmarks/verify_marathi_numbers.py
-```
-Tests 10,001 Marathi numbers from 0 to 10,000 against Balbharati curriculum rules.
 
 ---
 
-## Licenses & Commercial Safety
-See [LICENSES.md](file:///Users/balajimali/Developer/WebDevelopment/LICENSES.md) for full audit.
-- **ASR & VAD**: MIT / Apache 2.0 (Commercially safe)
-- **Meta MMS-TTS**: REJECTED due to CC-BY-NC non-commercial restriction.
-- **Moshi 7B**: REJECTED due to 7B parameter GPU memory footprint and absence of Marathi support.
+## Reproduction & Demo Commands
+
+### 1. Run the Full End-to-End Session Test
+Runs a complete 2-turn dialogue test (question $\to$ read-back $\to$ confirm "हो" $\to$ exact solve $\to$ step-by-step Marathi narration):
+```bash
+PYTHONPATH=. .venv/bin/python -m unittest tests/test_e2e_session.py
+```
+
+### 2. Run the 40,000 Property-Based Math Tests
+Verifies 10,000 random cases each for addition, subtraction, multiplication, and division, plus misconception diagnostics:
+```bash
+PYTHONPATH=. .venv/bin/python -m unittest tests/test_math_property.py
+```
+
+### 3. Run the 514 Table-Driven Grammar Tests
+Tests numbers, operations, fractions, currency, dialect forms, and ambiguity detection against `tests/golden/math_grammar_golden.json`:
+```bash
+PYTHONPATH=. .venv/bin/python -m unittest tests/test_grammar_table.py
+```
+
+### 4. Run the Interactive Push-to-Talk Terminal Loop (Live Microphone)
+Starts the live desktop prototype with real-time debug panel logging for each utterance:
+```bash
+PYTHONPATH=. .venv/bin/python -m ganit_mitra_desktop.live_loop --interactive
+```
+
+### 5. Record Your Own 70-Utterance Voice Testset
+Interactive prompt tool capturing numbers, operations, commands, silence, and noise:
+```bash
+PYTHONPATH=. .venv/bin/python scripts/record_testset.py
+```
+Outputs are stored in `dataset/user_recordings/` with a complete `labels.csv`.
+
+---
+
+## 2-Minute Demo Script
+
+1. **Start the demo**:
+   ```bash
+   PYTHONPATH=. .venv/bin/python -m ganit_mitra_desktop.live_loop --interactive
+   ```
+2. **Turn 1 (Math Question)**:
+   - Press **ENTER** and speak: *"सात आणि आठ किती"*
+   - The Debug Panel immediately displays:
+     - Audio Gate: `SPEECH` (duration, energy)
+     - ASR: `"सात अधिक आठ"` (conf: 92.3%)
+     - Classifier: `math_question`, decision: `CONFIRM`
+     - Parser: `OP = ADD, Left = 7, Right = 8`
+     - Audio Output: *"तू विचारलंस: सात अधिक आठ किती? बरोबर आहे का?"*
+3. **Turn 2 (Affirmation)**:
+   - Press **ENTER** and speak: *"हो"*
+   - The Debug Panel immediately displays:
+     - Classifier: `command: yes`, decision: `ACCEPT`
+     - Math Engine: `Ans = 15 (पंधरा)`
+     - Step 1: *"प्रथम एकक स्थानाची बेरीज करू: 7 + 8 = 15. यात एकक स्थानी 5 राहिले आणि हातचा 1 आला."*
+     - Step 2: *"7 आणि 8 यांची एकूण बेरीज 15 (पंधरा) झाली."*
+     - Audio Output: Plays studio Marathi voice answer.
+4. **Turn 3 (Misconception & Help)**:
+   - Type or speak an incorrect answer like *"सोळा"*
+   - Math Engine diagnoses: `OFF_BY_ONE`
+   - Spoken Hint: *"अगदी जवळ पोहोचलास! फक्त एकाने उत्तर चुकले आहे. मोजणी पुन्हा करून बघ."*
