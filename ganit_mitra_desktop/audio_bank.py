@@ -92,12 +92,45 @@ class NumberAudioBank:
         if os.path.exists(temp_mp3):
             os.remove(temp_mp3)
 
+    def get_number_keys(self, n: int) -> list:
+        """Decompose any integer 0 to 99,999 into exact audio bank keys."""
+        if n == 0:
+            return ["num_0"]
+        if n < 0:
+            return ["वजा"] + self.get_number_keys(-n)
+        if n <= 100:
+            return [f"num_{n}"]
+
+        keys = []
+        # Thousands (1,000 - 99,999)
+        if n >= 1000:
+            th = n // 1000
+            keys.extend(self.get_number_keys(th))
+            if "हजार" in self.audio_cache:
+                keys.append("हजार")
+            n %= 1000
+
+        # Hundreds (100 - 900)
+        if n >= 100:
+            h = n // 100
+            if h == 1:
+                keys.append("num_100")
+            else:
+                keys.append(f"num_{h * 100}")
+            n %= 100
+
+        # Remaining 1 - 99
+        if n > 0:
+            keys.append(f"num_{n}")
+
+        return keys
+
     def assemble_readback(self, op: str, a: int, b: int) -> np.ndarray:
         """
         Assemble read-back audio: 'तू विचारलंस: [a] [op] [b] किती? बरोबर आहे का?'
         """
         keys = ["तू_विचारलंस"]
-        keys.append(f"num_{a}")
+        keys.extend(self.get_number_keys(a))
         if op == "ADD":
             keys.append("अधिक")
         elif op == "SUB":
@@ -106,7 +139,7 @@ class NumberAudioBank:
             keys.append("गुणिले")
         elif op == "DIV":
             keys.append("भागिले")
-        keys.append(f"num_{b}")
+        keys.extend(self.get_number_keys(b))
         keys.append("किती")
         keys.append("बरोबर_आहे_का")
 
@@ -114,10 +147,36 @@ class NumberAudioBank:
 
     def assemble_answer(self, ans: int) -> np.ndarray:
         """
-        Assemble answer audio: 'उत्तर आहे: [ans]'
+        Assemble answer audio for any integer 0-99,999: 'उत्तर आहे: [ans]'
         """
-        keys = ["उत्तर_आहे", f"num_{ans}"]
+        keys = ["उत्तर_आहे"]
+        keys.extend(self.get_number_keys(ans))
         return self.stitch_keys(keys)
+
+    def synthesize_sentence(self, text: str) -> np.ndarray:
+        """
+        Offline fallback on macOS for full dynamic Marathi sentences (tables, geometry).
+        Uses native say -v Lekha into a clean 16kHz float32 buffer.
+        """
+        import subprocess
+        tmp_aiff = f"/tmp/speech_lekha_{os.getpid()}.aiff"
+        # Sanitize text
+        clean = text.replace('"', '').replace("'", "").replace("`", "")
+        cmd = ["say", "-v", "Lekha", clean, "-o", tmp_aiff]
+        try:
+            res = subprocess.run(cmd, capture_output=True, timeout=5)
+            if res.returncode == 0 and os.path.exists(tmp_aiff):
+                data, sr = sf.read(tmp_aiff)
+                if len(data.shape) > 1: data = data[:, 0]
+                if sr != 16000:
+                    num_samples = int(len(data) * 16000 / sr)
+                    data = scipy.signal.resample(data, num_samples).astype(np.float32)
+                if os.path.exists(tmp_aiff):
+                    os.remove(tmp_aiff)
+                return data.astype(np.float32)
+        except Exception as e:
+            pass
+        return np.zeros(16000, dtype=np.float32)
 
     def stitch_keys(self, keys: list) -> np.ndarray:
         buffers = []

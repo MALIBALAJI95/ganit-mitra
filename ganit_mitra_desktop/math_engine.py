@@ -6,6 +6,28 @@ import math
 
 from benchmarks.verify_marathi_numbers import number_to_marathi
 
+def get_place_value_breakdown_mr(n: int) -> str:
+    """Format full Marathi place value breakdown: हजार, शतक, दशक, एकक."""
+    if n == 0:
+        return "० एकक"
+    val = abs(n)
+    parts = []
+    if val >= 1000:
+        th = val // 1000
+        parts.append(f"{th} हजार ({th * 1000})")
+        val %= 1000
+    if val >= 100:
+        h = val // 100
+        parts.append(f"{h} शतक ({h * 100})")
+        val %= 100
+    if val >= 10:
+        tens = val // 10
+        parts.append(f"{tens} दशक ({tens * 10})")
+        val %= 10
+    if val > 0 or not parts:
+        parts.append(f"{val} एकक ({val})")
+    return " + ".join(parts)
+
 @dataclass
 class ExplanationStep:
     step_num: int
@@ -32,23 +54,36 @@ class MathEngine:
     def __init__(self):
         pass
 
-    def solve(self, op: str, left_val: float, right_val: Optional[float] = None) -> MathSolution:
+    def solve(self, op: str, left_val: Optional[float] = None, right_val: Optional[float] = None, sub_type: str = "AREA") -> MathSolution:
+        if op == "TABLE":
+            n = int(left_val) if left_val is not None else 5
+            return self._solve_table(n)
+
+        if op == "SHAPE_SQUARE":
+            return self._solve_square(left_val, sub_type)
+
+        if op == "SHAPE_RECTANGLE":
+            return self._solve_rectangle(left_val, right_val, sub_type)
+
         if op == "NUMBER_ONLY":
+            if left_val is None:
+                raise ValueError("left_val required for NUMBER_ONLY")
             int_val = int(left_val) if left_val.is_integer() else None
             mr_word = number_to_marathi(int_val) if int_val is not None and 0 <= int_val <= 10000 else str(left_val)
+            pv = get_place_value_breakdown_mr(int_val) if int_val is not None else ""
             step = ExplanationStep(
                 step_num=1,
-                title_mr="संख्या वाचन",
-                explanation_mr=f"दिलेली संख्या {int_val if int_val is not None else left_val} आहे, म्हणजे '{mr_word}'.",
+                title_mr="स्थानिक किंमत व वाचन",
+                explanation_mr=f"दिलेली संख्या {int_val if int_val is not None else left_val} आहे, म्हणजे '{mr_word}'. स्थानिक किंमत: {pv}",
                 visual_type="PLACE_VALUE",
-                visual_text=f"[ {int_val if int_val is not None else left_val} ]"
+                visual_text=f"[ {int_val if int_val is not None else left_val} ] = {pv}"
             )
             return MathSolution(
                 result_val=left_val,
                 result_int=int_val,
                 result_str_mr=mr_word,
                 steps=[step],
-                full_speech_mr=f"ही संख्या {mr_word} आहे."
+                full_speech_mr=f"ही संख्या {mr_word} आहे. यात {pv} आहेत."
             )
 
         if right_val is None:
@@ -64,6 +99,163 @@ class MathEngine:
             return self._solve_division(int(left_val), int(right_val))
         else:
             raise ValueError(f"Unknown operation: {op}")
+
+    def _solve_table(self, n: int) -> MathSolution:
+        n_mr = number_to_marathi(n) if 0 <= n <= 10000 else str(n)
+        suffixes = [
+            (1, "एके"), (2, "दुणे"), (3, "त्रिक"), (4, "चोक"), (5, "पाचा"),
+            (6, "सक"), (7, "सात्ता"), (8, "अठ्ठे"), (9, "नव्वे"), (10, "दाहे")
+        ]
+        steps = []
+        speech_lines = []
+        table_grid = []
+        for mult, suf in suffixes:
+            ans = n * mult
+            ans_mr = number_to_marathi(ans) if 0 <= ans <= 10000 else str(ans)
+            line_mr = f"{n_mr} {suf} {ans_mr}"
+            speech_lines.append(line_mr)
+            table_grid.append(f"{n} × {mult} = {ans} ({line_mr})")
+            steps.append(ExplanationStep(
+                step_num=mult,
+                title_mr=f"{n} × {mult} = {ans}",
+                explanation_mr=f"{line_mr} (म्हणजे {n} ची {mult} वेळा बेरीज = {ans})",
+                visual_type="TABLE_GRID",
+                visual_text=f"{n} × {mult} = {ans}"
+            ))
+
+        full_speech = f"हा आहे {n_mr}चा पाढा: " + ", ".join(speech_lines)
+        return MathSolution(
+            result_val=float(n),
+            result_int=n,
+            result_str_mr=f"{n_mr}चा पाढा",
+            steps=steps,
+            full_speech_mr=full_speech
+        )
+
+    def _solve_square(self, side: Optional[float], sub_type: str) -> MathSolution:
+        steps = []
+        is_perimeter = (sub_type == "PERIMETER")
+        if side is not None:
+            s = float(side)
+            s_int = int(s) if s.is_integer() else s
+            s_mr = number_to_marathi(s_int) if isinstance(s_int, int) and 0 <= s_int <= 10000 else str(s_int)
+            if is_perimeter:
+                ans = 4 * s
+                ans_int = int(ans) if ans.is_integer() else ans
+                ans_mr = number_to_marathi(ans_int) if isinstance(ans_int, int) and 0 <= ans_int <= 10000 else str(ans_int)
+                steps.append(ExplanationStep(
+                    step_num=1,
+                    title_mr="सूत्र (Formula)",
+                    explanation_mr="चौरसाच्या चारही बाजू समान असतात. चौरसाची परिमिती = ४ × बाजू.",
+                    visual_type="SHAPE_SVG",
+                    visual_text=f"चौरस बाजू = {s_int}"
+                ))
+                steps.append(ExplanationStep(
+                    step_num=2,
+                    title_mr="किंमत ठेवून सोडवणे",
+                    explanation_mr=f"परिमिती = ४ × {s_int} = {ans_int} एकक.",
+                    visual_type="SHAPE_SVG",
+                    visual_text=f"४ × {s_int} = {ans_int}"
+                ))
+                speech = f"बाजू {s_mr} असलेल्या चौरसाची परिमिती {ans_mr} ({ans_int}) एकक आहे."
+                return MathSolution(result_val=ans, result_int=ans_int if isinstance(ans_int, int) else None,
+                                    result_str_mr=f"{ans_mr} एकक", steps=steps, full_speech_mr=speech)
+            else:
+                ans = s * s
+                ans_int = int(ans) if ans.is_integer() else ans
+                ans_mr = number_to_marathi(ans_int) if isinstance(ans_int, int) and 0 <= ans_int <= 10000 else str(ans_int)
+                steps.append(ExplanationStep(
+                    step_num=1,
+                    title_mr="सूत्र (Formula)",
+                    explanation_mr="चौरसाचे क्षेत्रफळ = बाजू × बाजू (बाजूचा वर्ग).",
+                    visual_type="SHAPE_SVG",
+                    visual_text=f"चौरस बाजू = {s_int}"
+                ))
+                steps.append(ExplanationStep(
+                    step_num=2,
+                    title_mr="किंमत ठेवून सोडवणे",
+                    explanation_mr=f"क्षेत्रफळ = {s_int} × {s_int} = {ans_int} चौरस एकक.",
+                    visual_type="SHAPE_SVG",
+                    visual_text=f"{s_int} × {s_int} = {ans_int}"
+                ))
+                speech = f"बाजू {s_mr} असलेल्या चौरसाचे क्षेत्रफळ {ans_mr} ({ans_int}) चौरस एकक आहे."
+                return MathSolution(result_val=ans, result_int=ans_int if isinstance(ans_int, int) else None,
+                                    result_str_mr=f"{ans_mr} चौरस एकक", steps=steps, full_speech_mr=speech)
+        else:
+            # General formula explanation
+            steps.append(ExplanationStep(
+                step_num=1,
+                title_mr="चौरसाची व्याख्या व सूत्रे",
+                explanation_mr="ज्या चौकोनाच्या चारही बाजू समान आणि चारही कोन ९०° असतात, त्याला चौरस म्हणतात.\\n१. क्षेत्रफळ = बाजू × बाजू\\n२. परिमिती = ४ × बाजू.",
+                visual_type="SHAPE_SVG",
+                visual_text="चौरस: चारही बाजू समान"
+            ))
+            return MathSolution(result_val=0.0, result_int=None, result_str_mr="चौरसाचे सूत्र",
+                                steps=steps, full_speech_mr="चौरसाचे क्षेत्रफळ बाजू गुणिले बाजू असते, आणि परिमिती चार गुणिले बाजू असते.")
+
+    def _solve_rectangle(self, length: Optional[float], width: Optional[float], sub_type: str) -> MathSolution:
+        steps = []
+        is_perimeter = (sub_type == "PERIMETER")
+        if length is not None and width is not None:
+            l = float(length)
+            w = float(width)
+            l_int = int(l) if l.is_integer() else l
+            w_int = int(w) if w.is_integer() else w
+            l_mr = number_to_marathi(l_int) if isinstance(l_int, int) and 0 <= l_int <= 10000 else str(l_int)
+            w_mr = number_to_marathi(w_int) if isinstance(w_int, int) and 0 <= w_int <= 10000 else str(w_int)
+
+            if is_perimeter:
+                ans = 2 * (l + w)
+                ans_int = int(ans) if ans.is_integer() else ans
+                ans_mr = number_to_marathi(ans_int) if isinstance(ans_int, int) and 0 <= ans_int <= 10000 else str(ans_int)
+                steps.append(ExplanationStep(
+                    step_num=1,
+                    title_mr="सूत्र (Formula)",
+                    explanation_mr="आयताची समोरासमोरील बाजू समान असते. आयताची परिमिती = २ × (लांबी + रुंदी).",
+                    visual_type="SHAPE_SVG",
+                    visual_text=f"आयत: लांबी={l_int}, रुंदी={w_int}"
+                ))
+                steps.append(ExplanationStep(
+                    step_num=2,
+                    title_mr="किंमत ठेवून सोडवणे",
+                    explanation_mr=f"परिमिती = २ × ({l_int} + {w_int}) = २ × {l_int + w_int} = {ans_int} एकक.",
+                    visual_type="SHAPE_SVG",
+                    visual_text=f"२ × ({l_int} + {w_int}) = {ans_int}"
+                ))
+                speech = f"लांबी {l_mr} आणि रुंदी {w_mr} असलेल्या आयताची परिमिती {ans_mr} ({ans_int}) एकक आहे."
+                return MathSolution(result_val=ans, result_int=ans_int if isinstance(ans_int, int) else None,
+                                    result_str_mr=f"{ans_mr} एकक", steps=steps, full_speech_mr=speech)
+            else:
+                ans = l * w
+                ans_int = int(ans) if ans.is_integer() else ans
+                ans_mr = number_to_marathi(ans_int) if isinstance(ans_int, int) and 0 <= ans_int <= 10000 else str(ans_int)
+                steps.append(ExplanationStep(
+                    step_num=1,
+                    title_mr="सूत्र (Formula)",
+                    explanation_mr="आयताचे क्षेत्रफळ = लांबी × रुंदी.",
+                    visual_type="SHAPE_SVG",
+                    visual_text=f"आयत: लांबी={l_int}, रुंदी={w_int}"
+                ))
+                steps.append(ExplanationStep(
+                    step_num=2,
+                    title_mr="किंमत ठेवून सोडवणे",
+                    explanation_mr=f"क्षेत्रफळ = {l_int} × {w_int} = {ans_int} चौरस एकक.",
+                    visual_type="SHAPE_SVG",
+                    visual_text=f"{l_int} × {w_int} = {ans_int}"
+                ))
+                speech = f"लांबी {l_mr} आणि रुंदी {w_mr} असलेल्या आयताचे क्षेत्रफळ {ans_mr} ({ans_int}) चौरस एकक आहे."
+                return MathSolution(result_val=ans, result_int=ans_int if isinstance(ans_int, int) else None,
+                                    result_str_mr=f"{ans_mr} चौरस एकक", steps=steps, full_speech_mr=speech)
+        else:
+            steps.append(ExplanationStep(
+                step_num=1,
+                title_mr="आयताची व्याख्या व सूत्रे",
+                explanation_mr="ज्या चौकोनाच्या समोरासमोरील बाजू समान आणि चारही कोन काटकोन असतात, त्याला आयत म्हणतात.\\n१. क्षेत्रफळ = लांबी × रुंदी\\n२. परिमिती = २ × (लांबी + रुंदी).",
+                visual_type="SHAPE_SVG",
+                visual_text="आयत: लांबी व रुंदी"
+            ))
+            return MathSolution(result_val=0.0, result_int=None, result_str_mr="आयताचे सूत्र",
+                                steps=steps, full_speech_mr="आयताचे क्षेत्रफळ लांबी गुणिले रुंदी असते, आणि परिमिती दोन गुणिले लांबी अधिक रुंदी असते.")
 
     def _solve_addition(self, a: int, b: int) -> MathSolution:
         ans = a + b
@@ -107,13 +299,14 @@ class MathEngine:
                 visual_text=f"  दशक: {t_a} + {t_b} + (हातचा {carry}) = {t_sum}"
             ))
 
-        # Step 3: Final Answer
+        # Step 3: Final Answer & Place Value
+        pv_ans = get_place_value_breakdown_mr(ans)
         steps.append(ExplanationStep(
             step_num=len(steps) + 1,
-            title_mr="एकूण उत्तर",
-            explanation_mr=f"{a} आणि {b} यांची एकूण बेरीज {ans} ({ans_mr}) झाली.",
+            title_mr="एकूण उत्तर व स्थानिक किंमत",
+            explanation_mr=f"{a} आणि {b} यांची एकूण बेरीज {ans} ({ans_mr}) झाली. स्थानिक किंमत: {pv_ans}.",
             visual_type="NUMBER_LINE",
-            visual_text=f"0 ---[{a}]---> {a} ---[+{b}]---> {ans}"
+            visual_text=f"0 ---[{a}]---> {a} ---[+{b}]---> {ans} = {pv_ans}"
         ))
 
         full_speech = f"{a_mr} अधिक {b_mr} बरोबर {ans_mr}. " + " ".join([s.explanation_mr for s in steps])
@@ -198,7 +391,17 @@ class MathEngine:
             visual_text=f"  [{b} गट, प्रत्येकी {a} वस्तू] = {ans}"
         ))
 
-        full_speech = f"{a_mr} गुणिले {b_mr} बरोबर {ans_mr}. {steps[0].explanation_mr}"
+        # Step 2: Place Value of Product
+        pv_ans = get_place_value_breakdown_mr(ans)
+        steps.append(ExplanationStep(
+            step_num=2,
+            title_mr="स्थानिक किंमत व एकूण उत्तर",
+            explanation_mr=f"{a} × {b} चे एकूण उत्तर {ans} ({ans_mr}) आले. स्थानिक किंमत: {pv_ans}.",
+            visual_type="PLACE_VALUE",
+            visual_text=f"{ans} = {pv_ans}"
+        ))
+
+        full_speech = f"{a_mr} गुणिले {b_mr} बरोबर {ans_mr}. यात {pv_ans} आहेत. {steps[0].explanation_mr}"
         return MathSolution(
             result_val=float(ans),
             result_int=ans,

@@ -17,7 +17,7 @@ MARATHI_0_TO_100: Dict[str, int] = {
 }
 
 MARATHI_HUNDREDS: Dict[str, int] = {
-    "शंभर": 100, "दोनशे": 200, "तीनशे": 300, "चारशे": 400, "पाचशे": 500,
+    "शंभर": 100, "एकशे": 100, "दोनशे": 200, "तीनशे": 300, "चारशे": 400, "पाचशे": 500,
     "सहाशे": 600, "सातशे": 700, "आठशे": 800, "नऊशे": 900
 }
 
@@ -43,7 +43,18 @@ LEXICON_REPLACEMENTS = {
     "बारह": "बारा",
     "पाँच": "पाच",
     "पंद्र": "पंधरा",
+    "तेहेतीस": "तेहतीस",
     "ब्येचाळीस": "बेचाळीस",
+    "बहात्तर": "बाहत्तर",
+    "त्रेहत्तर": "त्र्याहत्तर",
+    "चोऱ्याहत्तर": "चौहत्तर",
+    "पचहत्तर": "पंच्याहत्तर",
+    "शाहत्तर": "शहात्तर",
+    "सत्तारहत्तर": "सत्त्याहत्तर",
+    "अठठाहत्तर": "अठ्ठ्याहत्तर",
+    "एकहत्तर": "एकाहत्तर",
+    "अडसष्ठ": "अडुसष्ठ",
+    "एक शे": "शंभर",
     "दोन शे": "दोनशे",
     "तीन शे": "तीनशे",
     "चार शे": "चारशे",
@@ -87,15 +98,49 @@ class MarathiSpokenMathParser:
 
     def normalize_text(self, text: str) -> str:
         s = text.strip()
-        # Apply known replacements
+        s_lower = s.lower()
+
+        # 1. English confirmation commands
+        if s_lower in ('yes', 'y', 'ha', 'ho', 'true', 'correct', 'ok'):
+            return "हो"
+        if s_lower in ('no', 'n', 'nahi', 'nahin', 'false', 'wrong'):
+            return "नाही"
+
+        # 2. English tables
+        s = re.sub(r'(?i)table\s+of\s+(\d+)', r'\1 चा पाढा', s)
+        s = re.sub(r'(?i)(\d+)\s*table', r'\1 चा पाढा', s)
+
+        # 3. English shapes
+        s = re.sub(r'(?i)(?:area\s+of\s+square|square\s+area|square)\s+(\d+)', r'बाजू \1 असलेल्या चौरसाचे क्षेत्रफळ', s)
+        s = re.sub(r'(?i)(?:perimeter\s+of\s+square|square\s+perimeter)\s+(\d+)', r'बाजू \1 असलेल्या चौरसाची परिमिती', s)
+        s = re.sub(r'(?i)(?:area\s+of\s+rectangle|rectangle\s+area|rectangle)\s+(\d+)\s+(\d+)', r'लांबी \1 आणि रुंदी \2 असलेल्या आयताचे क्षेत्रफळ', s)
+        s = re.sub(r'(?i)(?:perimeter\s+of\s+rectangle|rectangle\s+perimeter)\s+(\d+)\s+(\d+)', r'लांबी \1 आणि रुंदी \2 असलेल्या आयताची परिमिती', s)
+
+        # 4. English / symbol arithmetic
+        s = re.sub(r'(\d+)\s*(?:\*|x|into|times|गुणले)\s*(\d+)', r'\1 गुणिले \2', s)
+        s = re.sub(r'(\d+)\s*(?:\+|plus)\s*(\d+)', r'\1 अधिक \2', s)
+        s = re.sub(r'(\d+)\s*(?:\-|minus)\s*(\d+)', r'\1 वजा \2', s)
+        s = re.sub(r'(\d+)\s*(?:\/|÷|divided\s+by|divide)\s*(\d+)', r'\1 भागिले \2', s)
+
+        # 5. Phonetic ASR number replacements
+        s = re.sub(r'\b(?:वीज|विस|विज)\b', 'वीस', s)
+        s = re.sub(r'\bअर्था\b', 'अर्धा', s)
+        s = re.sub(r'\bतेहेतीस\b', 'तेहतीस', s)
+
+        # 6. Attached suffixes and table variants
+        s = re.sub(r'(\S+?)\s*(?:चा|चे|ची|च्या)?\s*(?:पाढे|पाडे|पाढा|पाडा|पडा|पाड|टेबल)', r'\1 चा पाढा', s)
+        s = re.sub(r'\b(?:पाडा|पाड|पडा|पाडे|पाढे|टेबल)\b', 'पाढा', s)
+
+        # 7. Apply general known replacements
         for k, v in LEXICON_REPLACEMENTS.items():
             s = re.sub(r'\b' + re.escape(k) + r'\b', v, s)
+
         # Normalize spaces
-        s = re.sub(r'\s+', ' ', s)
+        s = re.sub(r'\s+', ' ', s).strip()
         return s
 
     def parse_single_number(self, token_str: str) -> Optional[ParsedNumber]:
-        token_str = token_str.strip()
+        token_str = self.normalize_text(token_str.strip())
         if not token_str:
             return None
 
@@ -166,8 +211,8 @@ class MarathiSpokenMathParser:
         while i < n:
             matched = None
             matched_len = 0
-            # Greedily match 3 words, then 2, then 1
-            for k in range(min(3, n - i), 0, -1):
+            # Greedily match 5 words down to 1 for multi-digit compound numbers
+            for k in range(min(5, n - i), 0, -1):
                 candidate = " ".join(words[i : i + k])
                 num = self.parse_single_number(candidate)
                 if num is not None:
@@ -184,6 +229,40 @@ class MarathiSpokenMathParser:
     def parse(self, text: str) -> MathAST:
         norm_text = self.normalize_text(text)
         
+        # 1. Check Tables (पाढे): e.g. "पाचचा पाढा", "५ चा पाढा सांग", "पाढा 7"
+        if "पाढा" in norm_text or "पाढे" in norm_text or "टेबल" in norm_text:
+            # Extract number
+            nums_with_spans = self.extract_numbers_and_spans(norm_text)
+            if nums_with_spans:
+                t_val = int(nums_with_spans[0][0].value)
+                return MathAST(op="TABLE", left=ParsedNumber(value=float(t_val), raw_str=str(t_val)), raw_text=norm_text)
+            # Try to see if word like 'दोन', 'पाच' is attached before चा/चा:
+            table_match = re.search(r"(\S+?)चा\s+पाढा", norm_text)
+            if table_match:
+                cand = self.parse_single_number(table_match.group(1))
+                if cand:
+                    return MathAST(op="TABLE", left=cand, raw_text=norm_text)
+            return MathAST(
+                op="TABLE",
+                ambiguity=Ambiguity(is_ambiguous=True, clarification_question="कोणत्या संख्येचा पाढा हवा आहे? (उदा: ५ चा पाढा)"),
+                raw_text=norm_text
+            )
+
+        # 2. Check Square (चौरस): e.g. "चौरसाचे क्षेत्रफळ", "बाजू ५ असलेल्या चौरसाची परिमिती"
+        if "चौरस" in norm_text:
+            sub_type = "PERIMETER" if ("परिमिती" in norm_text or "परिघ" in norm_text) else "AREA"
+            nums_with_spans = self.extract_numbers_and_spans(norm_text)
+            side_p = nums_with_spans[0][0] if nums_with_spans else None
+            return MathAST(op="SHAPE_SQUARE", left=side_p, unit=sub_type, raw_text=norm_text)
+
+        # 3. Check Rectangle (आयत): e.g. "आयताचे क्षेत्रफळ", "लांबी ६ आणि रुंदी ४ असलेल्या आयताची परिमिती"
+        if "आयत" in norm_text:
+            sub_type = "PERIMETER" if ("परिमिती" in norm_text or "परिघ" in norm_text) else "AREA"
+            nums_with_spans = self.extract_numbers_and_spans(norm_text)
+            l_p = nums_with_spans[0][0] if len(nums_with_spans) >= 1 else None
+            w_p = nums_with_spans[1][0] if len(nums_with_spans) >= 2 else None
+            return MathAST(op="SHAPE_RECTANGLE", left=l_p, right=w_p, unit=sub_type, raw_text=norm_text)
+
         # Check units (currency)
         is_money = "रुपये" in norm_text or "रुपया" in norm_text or "पैसे" in norm_text
         unit = "CURRENCY_INR" if is_money else "NONE"

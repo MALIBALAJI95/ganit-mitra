@@ -69,12 +69,34 @@ class GanitMitraSession:
                 cmd = cls_res.intent.metadata.get("command")
                 if cmd == "yes":
                     # Child confirmed "हो"!
-                    if self.pending_ast and self.pending_ast.op in ("ADD", "SUB", "MUL", "DIV"):
-                        l_val = self.pending_ast.left.value
-                        r_val = self.pending_ast.right.value
-                        solution = self.math_engine.solve(self.pending_ast.op, l_val, r_val)
-                        spoken_reply_text = f"बरोबर! उत्तर आहे: {solution.result_str_mr} ({solution.result_int}). {solution.full_speech_mr}"
-                        speech_audio_to_play = self.audio_bank.assemble_answer(solution.result_int)
+                    if self.pending_ast:
+                        if self.pending_ast.op in ("ADD", "SUB", "MUL", "DIV"):
+                            l_val = self.pending_ast.left.value
+                            r_val = self.pending_ast.right.value
+                            solution = self.math_engine.solve(self.pending_ast.op, l_val, r_val)
+                            spoken_reply_text = f"बरोबर! उत्तर आहे: {solution.result_str_mr} ({solution.result_int}). {solution.full_speech_mr}"
+                            speech_audio_to_play = self.audio_bank.assemble_answer(solution.result_int)
+                        elif self.pending_ast.op == "TABLE":
+                            l_val = self.pending_ast.left.value if self.pending_ast.left else 5
+                            solution = self.math_engine.solve("TABLE", l_val)
+                            spoken_reply_text = solution.full_speech_mr
+                            speech_audio_to_play = self.audio_bank.synthesize_sentence(solution.full_speech_mr[:180])
+                        elif self.pending_ast.op == "SHAPE_SQUARE":
+                            l_val = self.pending_ast.left.value if self.pending_ast.left else None
+                            solution = self.math_engine.solve("SHAPE_SQUARE", l_val, sub_type=self.pending_ast.unit)
+                            spoken_reply_text = f"बरोबर! {solution.full_speech_mr}"
+                            speech_audio_to_play = self.audio_bank.synthesize_sentence(spoken_reply_text)
+                        elif self.pending_ast.op == "SHAPE_RECTANGLE":
+                            l_val = self.pending_ast.left.value if self.pending_ast.left else None
+                            r_val = self.pending_ast.right.value if self.pending_ast.right else None
+                            solution = self.math_engine.solve("SHAPE_RECTANGLE", l_val, r_val, sub_type=self.pending_ast.unit)
+                            spoken_reply_text = f"बरोबर! {solution.full_speech_mr}"
+                            speech_audio_to_play = self.audio_bank.synthesize_sentence(spoken_reply_text)
+                        elif self.pending_ast.op == "NUMBER_ONLY":
+                            l_val = self.pending_ast.left.value if self.pending_ast.left else 0
+                            solution = self.math_engine.solve("NUMBER_ONLY", l_val)
+                            spoken_reply_text = f"बरोबर! {solution.full_speech_mr}"
+                            speech_audio_to_play = self.audio_bank.assemble_answer(int(solution.result_val))
                     self.dialogue_state = "IDLE"
                     self.pending_ast = None
                 elif cmd == "no":
@@ -94,8 +116,26 @@ class GanitMitraSession:
                 # Mandatory READ-BACK + CONFIRM
                 a = int(parsed_ast.left.value)
                 b = int(parsed_ast.right.value)
-                spoken_reply_text = f"तू विचारलंस: {a} {parsed_ast.op} {b} किती? बरोबर आहे का? (हो / नाही म्हणा)"
+                op_mr = {"ADD": "अधिक", "SUB": "वजा", "MUL": "गुणिले", "DIV": "भागिले"}.get(parsed_ast.op, parsed_ast.op)
+                spoken_reply_text = f"तू विचारलंस: {a} {op_mr} {b} किती? बरोबर आहे का? (हो / नाही म्हणा)"
                 speech_audio_to_play = self.audio_bank.assemble_readback(parsed_ast.op, a, b)
+                self.pending_ast = parsed_ast
+                self.dialogue_state = "AWAITING_CONFIRMATION"
+            elif parsed_ast.op == "TABLE":
+                t_val = int(parsed_ast.left.value) if parsed_ast.left else 5
+                spoken_reply_text = f"तू विचारलंस: {t_val} चा पाढा. बरोबर आहे का? (हो / नाही म्हणा)"
+                self.pending_ast = parsed_ast
+                self.dialogue_state = "AWAITING_CONFIRMATION"
+            elif parsed_ast.op == "SHAPE_SQUARE":
+                sub_mr = "परिमिती" if parsed_ast.unit == "PERIMETER" else "क्षेत्रफळ"
+                s_txt = f"बाजू {int(parsed_ast.left.value)} असलेल्या " if parsed_ast.left else ""
+                spoken_reply_text = f"तू विचारलंस: {s_txt}चौरसाचे {sub_mr}. बरोबर आहे का? (हो / नाही म्हणा)"
+                self.pending_ast = parsed_ast
+                self.dialogue_state = "AWAITING_CONFIRMATION"
+            elif parsed_ast.op == "SHAPE_RECTANGLE":
+                sub_mr = "परिमिती" if parsed_ast.unit == "PERIMETER" else "क्षेत्रफळ"
+                l_txt = f"लांबी {int(parsed_ast.left.value)} व रुंदी {int(parsed_ast.right.value)} असलेल्या " if parsed_ast.left and parsed_ast.right else ""
+                spoken_reply_text = f"तू विचारलंस: {l_txt}आयताचे {sub_mr}. बरोबर आहे का? (हो / नाही म्हणा)"
                 self.pending_ast = parsed_ast
                 self.dialogue_state = "AWAITING_CONFIRMATION"
             elif parsed_ast.op == "NUMBER_ONLY":
@@ -124,7 +164,13 @@ class GanitMitraSession:
             "decision": cls_res.decision.label,
             "spoken_reply": spoken_reply_text,
             "state": self.dialogue_state,
-            "latency_ms": t_total
+            "latency_ms": t_total,
+            "speech_audio": speech_audio_to_play,
+            "solution": solution,
+            "gate": gate_res,
+            "asr": asr_res,
+            "classifier": cls_res,
+            "ast": parsed_ast
         }
 
     def print_full_panel(self, source: str, gate: AudioGateResult, asr: ASRResult,

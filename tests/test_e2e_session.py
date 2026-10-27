@@ -35,10 +35,7 @@ class TestEndToEndSession(unittest.TestCase):
 
         # TURN 2: Child says "हो" (affirmative confirmation)
         print("\n--- TURN 2: Child confirms 'हो' ---")
-        # Synthesize or load "हो"
-        ho_audio = self._load_wav_16k("/tmp/ganit_eval_audio/हो_clean.mp3")
-        
-        # Test confirmation processing
+        ho_audio = self._load_wav_16k("assets/audio/bank/हो.wav")
         res2 = self.session.process_turn(ho_audio, source_name="Child Confirm (हो)", play_speech=False)
 
         # Either resolved or reprompted
